@@ -2,13 +2,25 @@
 
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
+
+import { meState } from "app/store";
 
 export default function Home() {
   const router = useRouter();
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const [me, setMe] = useRecoilState<string>(meState);
 
   const goWs = () => {
+    let inputValue = inputRef.current?.value;
+
+    if (typeof inputValue === "undefined" || inputValue === "") {
+      return alert("입력해주세요.");
+    }
+
+    setMe(inputValue);
+
     router.push("/ws");
   };
 
