@@ -7,6 +7,8 @@ import { useRecoilState } from "recoil";
 import { meState } from "app/store";
 
 export default function Home() {
+  // // const dsa = use(fetchProfile());
+  // console.log(dsa);
   const router = useRouter();
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -24,6 +26,10 @@ export default function Home() {
     router.push("/ws");
   };
 
+  const goSignup = () => {
+    router.push("/signup");
+  };
+
   return (
     <div className="flex flex-col items-center">
       <input
@@ -33,6 +39,7 @@ export default function Home() {
         name="title"
       />
       <button onClick={goWs}>로그인</button>
+      <button onClick={goSignup}>회원가입</button>
     </div>
   );
 }
