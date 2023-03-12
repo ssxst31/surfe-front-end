@@ -1,4 +1,4 @@
-import customAxios from "./index";
+import customAxios from "app/api";
 
 export async function createUser({ email, password, nickname }: any) {
   return await customAxios.post<null, any>(`/users/create`, {
@@ -8,6 +8,16 @@ export async function createUser({ email, password, nickname }: any) {
   });
 }
 
-export async function fetchProfile() {
-  return await customAxios.post<null, any>(`/users/profile`);
+export async function fetchProfile(token: any) {
+  const tokenCookied = token.name + "=" + token.value + ";";
+
+  return await customAxios.post<null, any>(
+    "/users/profile",
+    {},
+    {
+      headers: {
+        cookies: tokenCookied,
+      },
+    },
+  );
 }
