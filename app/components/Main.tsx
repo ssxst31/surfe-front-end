@@ -2,12 +2,12 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 import { meState } from "app/store";
 
 export default function Main({ profile }: any) {
-  const [me, setMe] = useRecoilState(meState);
+  const setMe = useSetRecoilState(meState);
 
   useEffect(() => {
     setMe(profile);
@@ -15,13 +15,13 @@ export default function Main({ profile }: any) {
 
   const router = useRouter();
 
-  const goWs = () => {
-    router.push("/ws");
+  const goChatPage = () => {
+    router.push("/chat");
   };
 
   return (
     <div className="flex flex-col">
-      <button onClick={goWs}>채팅하러가기</button>
+      <button onClick={goChatPage}>채팅하러가기</button>
     </div>
   );
 }

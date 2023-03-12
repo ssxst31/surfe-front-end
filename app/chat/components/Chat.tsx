@@ -7,7 +7,7 @@ import { meState } from "app/store";
 import ws from "datasources/ws";
 import { Chat } from "app/type";
 
-export default function Ws() {
+export default function Chat2() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const me = useRecoilValue(meState);
