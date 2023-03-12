@@ -1,45 +1,25 @@
-"use client";
+import { cookies } from "next/headers";
 
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
-import { useRecoilState } from "recoil";
+import Total from "app/components/NonMain";
+import Main from "app/components/Main";
+import { fetchProfile } from "app/api/user";
 
-import { meState } from "app/store";
+export default async function Home() {
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
 
-export default function Home() {
-  // // const dsa = use(fetchProfile());
-  // console.log(dsa);
-  const router = useRouter();
+  const res = await fetchProfile(token).catch((error) => {
+    return null;
+  });
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [me, setMe] = useRecoilState<string>(meState);
-
-  const goWs = () => {
-    let inputValue = inputRef.current?.value;
-
-    if (typeof inputValue === "undefined" || inputValue === "") {
-      return alert("입력해주세요.");
-    }
-
-    setMe(inputValue);
-
-    router.push("/ws");
-  };
-
-  const goSignup = () => {
-    router.push("/signup");
-  };
-
-  return (
+  return res ? (
+    <div>
+      {res.data.email}님 안녕하세요
+      <Main profile={res.data} />
+    </div>
+  ) : (
     <div className="flex flex-col items-center">
-      <input
-        placeholder="닉네임"
-        className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
-        ref={inputRef}
-        name="title"
-      />
-      <button onClick={goWs}>로그인</button>
-      <button onClick={goSignup}>회원가입</button>
+      <Total />
     </div>
   );
 }
