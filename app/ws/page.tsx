@@ -24,7 +24,7 @@ export default function Ws() {
 
   useEffect(() => {
     ws.emit("JOIN_ROOM", {
-      nickname: me,
+      nickname: me.nickname,
     });
   }, []);
 
@@ -40,7 +40,7 @@ export default function Ws() {
     if (inputValue) {
       ws.emit("SEND_MESSAGE", {
         message: inputValue,
-        nickname: me,
+        nickname: me.nickname,
         createAt: new Date(),
       });
 
@@ -55,7 +55,7 @@ export default function Ws() {
           let hours = new Date(chat.createAt).getHours();
           let minutes = new Date(chat.createAt).getMinutes();
 
-          if (chat.nickname === me) {
+          if (chat.nickname === me.nickname) {
             return (
               <div key={index} className="flex justify-end w-full">
                 <div>
