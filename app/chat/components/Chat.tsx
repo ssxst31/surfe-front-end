@@ -49,8 +49,8 @@ export default function Chat2() {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-full">
-      <div className="w-full overflow-scroll h-96">
+    <div className="flex flex-col items-center w-full h-full max-h-screen">
+      <div className="w-full h-full overflow-scroll">
         {chatList.map((chat, index) => {
           let hours = new Date(chat.createAt).getHours();
           let minutes = new Date(chat.createAt).getMinutes();
