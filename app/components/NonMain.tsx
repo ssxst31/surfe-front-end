@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { login } from "app/api/user";
+import { login } from "app/api/auth";
 
 export default function NonMain() {
   const router = useRouter();
@@ -44,7 +44,8 @@ export default function NonMain() {
     });
 
     if (res) {
-      return location.reload();
+      console.log(res);
+      // return location.reload();
     }
   };
 

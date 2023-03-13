@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { createUser } from "app/api/user";
+import { createUser } from "app/api/auth";
 
 export default function Signup() {
   const router = useRouter();
