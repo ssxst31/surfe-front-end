@@ -14,3 +14,7 @@ export async function login({ email, password }: any) {
     password,
   });
 }
+
+export async function logOut() {
+  return await customAxios.get<null, any>("/auth/logout");
+}
