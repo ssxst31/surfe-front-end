@@ -6,6 +6,7 @@ import { useSetRecoilState } from "recoil";
 
 import { meState } from "app/store";
 import { fetchUserList } from "app/api/user";
+import { logOut } from "app/api/auth";
 
 export default function Main({ profile }: any) {
   const router = useRouter();
@@ -28,8 +29,14 @@ export default function Main({ profile }: any) {
     router.push("/chat");
   };
 
+  const signOut = async () => {
+    await logOut();
+    return location.reload();
+  };
+
   return (
     <div className="flex flex-col">
+      <button onClick={signOut}>로그아웃</button>
       회원리스트입니다.
       {userList.map((el: any) => (
         <div key={el.id}>{el.nickname}</div>
