@@ -14,16 +14,6 @@ export default function NonMain() {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const goWs = () => {
-    let inputValue = inputRef.current?.value;
-
-    if (typeof inputValue === "undefined" || inputValue === "") {
-      return alert("입력해주세요.");
-    }
-
-    router.push("/ws");
-  };
-
   const goSignup = () => {
     router.push("/signup");
   };
@@ -45,7 +35,7 @@ export default function NonMain() {
 
     if (res) {
       console.log(res);
-      // return location.reload();
+      return location.reload();
     }
   };
 
