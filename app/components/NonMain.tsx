@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+
 import { login } from "app/api/auth";
 
 export default function NonMain() {
@@ -11,8 +12,6 @@ export default function NonMain() {
     email: "",
     password: "",
   });
-
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const goSignup = () => {
     router.push("/signup");

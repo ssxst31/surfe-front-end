@@ -1,5 +1,4 @@
 import RecoilProvider from "app/RecoilProvider";
-
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

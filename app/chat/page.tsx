@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 import Chat from "app/chat/components/Chat";
-
 import { fetchProfile } from "app/api/user";
 
 export default async function ChatPage() {
