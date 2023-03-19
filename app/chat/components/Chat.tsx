@@ -39,7 +39,7 @@ export default function Chat2() {
 
     if (inputValue) {
       ws.emit("SEND_MESSAGE", {
-        message: inputValue,
+        content: inputValue,
         nickname: me.nickname,
         createAt: new Date(),
       });
@@ -62,7 +62,7 @@ export default function Chat2() {
                   {hours}:{minutes}
                 </div>
                 <div className="flex flex-col">
-                  <div className="max-w-lg p-2 mb-5 break-all bg-indigo-200 rounded-lg min-w-9">{chat.message}</div>
+                  <div className="max-w-lg p-2 mb-5 break-all bg-indigo-200 rounded-lg min-w-9">{chat.content}</div>
                 </div>
               </div>
             );
@@ -76,7 +76,7 @@ export default function Chat2() {
                 />
                 <div>
                   <div>{chat.nickname}</div>
-                  <div className="max-w-lg p-2 mb-5 break-all bg-indigo-400 rounded-lg min-w-9">{chat.message}</div>
+                  <div className="max-w-lg p-2 mb-5 break-all bg-indigo-400 rounded-lg min-w-9">{chat.content}</div>
                 </div>
                 <div>
                   {hours}:{minutes}

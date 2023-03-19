@@ -1,5 +1,5 @@
 export interface Chat {
-  message: string;
+  content: string;
   nickname: string;
   createAt: string;
 }
