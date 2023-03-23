@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import useGeolocation from "app/hooks/useGeolocation";
 import { createUser } from "app/api/auth";
 
 export default function Signup() {
+  const location = useGeolocation();
   const router = useRouter();
 
   const [inputs, setInputs] = useState<any>({
@@ -16,6 +18,10 @@ export default function Signup() {
     lat: "",
     lng: "",
   });
+
+  useEffect(() => {
+    setInputs({ ...inputs, lat: location.coordinates?.lat, lng: location.coordinates?.lng });
+  }, [location.loaded]);
 
   const { email, password, checkPassword, nickname, lat, lng } = inputs;
 
