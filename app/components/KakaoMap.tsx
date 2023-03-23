@@ -23,11 +23,11 @@ const KakaoMap = ({ pins, myLat, myLng }: any) => {
   return (
     <>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
-      <Map center={{ lat: myLat, lng: myLng }} style={{ width: "100%", height: "360px" }}>
+      <Map center={{ lat: myLat, lng: myLng }} style={{ width: "100%", height: "500px" }} level={7}>
         <Circle
           center={{
-            lat: 37.497,
-            lng: 127.0254,
+            lat: myLat,
+            lng: myLng,
           }}
           radius={filteredDistance * 1000}
           strokeWeight={5}
@@ -42,8 +42,9 @@ const KakaoMap = ({ pins, myLat, myLng }: any) => {
             style={{ color: "#000", width: 230 }}
           >{`내 주위로 ${filteredDistance}키로내 ${countPerson()}명 있습니다.`}</div>
         </MapMarker>
-        {pins.map((pin: any) => (
+        {pins.map((pin: any, index: number) => (
           <MapMarker
+            key={index}
             position={{ lat: pin.lat, lng: pin.lng }}
             image={{
               src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
