@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSetRecoilState } from "recoil";
-
+import { useRecoilState } from "recoil";
+import { getDistance } from "app/utils/map";
 import { meState } from "app/store";
 import { fetchUserList } from "app/api/user";
 import { logOut } from "app/api/auth";
@@ -12,7 +12,7 @@ import KakaoMap from "app/components/KakaoMap";
 export default function Main({ profile }: any) {
   const router = useRouter();
 
-  const setMe = useSetRecoilState(meState);
+  const [me, setMe] = useRecoilState(meState);
   const [userList, setUserList] = useState<any>([]);
 
   useEffect(() => {
@@ -39,17 +39,31 @@ export default function Main({ profile }: any) {
     return location.reload();
   };
 
+  const pins = userList
+    .filter((el: any) => el.email !== me.email)
+    .map((el: any) => ({
+      id: el.id,
+      lat: el.lat,
+      lng: el.lng,
+    }));
+
   return (
     <div className="flex flex-col">
       <button onClick={signOut}>로그아웃</button>
-      <KakaoMap />
+      <KakaoMap pins={pins} myLat={Number(me.lat)} myLng={Number(me.lng)} />
       회원리스트입니다.
-      {userList.map((el: any) => (
-        <div key={el.id} className="flex">
-          <div className="mr-4">{el.nickname}</div>
-          <button onClick={goPrivateChatPage}>1대1채팅하기</button>
-        </div>
-      ))}
+      {userList
+        .filter((el: any) => el.email !== me.email)
+        .map((item: any) => {
+          if (getDistance(Number(me.lat), Number(me.lng), item.lat, item.lng) / 1000 < 5) {
+            return (
+              <div key={item.id} className="flex">
+                <div className="mr-4">{item.nickname}</div>
+                <button onClick={goPrivateChatPage}>1대1채팅하기</button>
+              </div>
+            );
+          }
+        })}
       <button onClick={goChatPage}>채팅하러가기</button>
     </div>
   );

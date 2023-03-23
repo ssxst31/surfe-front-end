@@ -13,9 +13,11 @@ export default function Signup() {
     password: "",
     checkPassword: "",
     nickname: "",
+    lat: "",
+    lng: "",
   });
 
-  const { email, password, checkPassword, nickname } = inputs;
+  const { email, password, checkPassword, nickname, lat, lng } = inputs;
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -72,6 +74,22 @@ export default function Signup() {
           className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
           value={nickname}
           name="nickname"
+          onChange={onChange}
+          type="text"
+        />
+        <input
+          placeholder="위도"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          value={lat}
+          name="lat"
+          onChange={onChange}
+          type="text"
+        />
+        <input
+          placeholder="경도"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          value={lng}
+          name="lng"
           onChange={onChange}
           type="text"
         />

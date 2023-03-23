@@ -1,10 +1,12 @@
 import customAxios from "app/api";
 
-export async function createUser({ email, password, nickname }: any) {
+export async function createUser({ email, password, nickname, lat, lng }: any) {
   return await customAxios.post<null, any>(`/auth/create`, {
     email,
     password,
     nickname,
+    lat,
+    lng,
   });
 }
 
