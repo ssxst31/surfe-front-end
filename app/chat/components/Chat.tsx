@@ -25,6 +25,7 @@ export default function Chat2() {
   useEffect(() => {
     ws.emit("JOIN_ROOM", {
       nickname: me.nickname,
+      roomName: "room1",
     });
   }, []);
 
@@ -42,6 +43,7 @@ export default function Chat2() {
         content: inputValue,
         nickname: me.nickname,
         createAt: new Date(),
+        roomName: "room1",
       });
 
       setInputValue("");
