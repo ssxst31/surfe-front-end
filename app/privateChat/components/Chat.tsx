@@ -6,13 +6,25 @@ import { useRecoilValue } from "recoil";
 import { meState } from "app/store";
 import ws from "datasources/ws";
 import { Chat } from "app/type";
+import { useSearchParams } from "next/navigation";
 
 export default function Chat2() {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("room");
+
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const me = useRecoilValue(meState);
   const [inputValue, setInputValue] = useState<string>("");
   const [chatList, setChatList] = useState<Chat[]>([]);
+
+  const createRoomName = () => {
+    if (me.id > Number(search)) {
+      return `${Number(search)}_${me.id}`;
+    } else {
+      return `${me.id}_${Number(search)}`;
+    }
+  };
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -25,6 +37,7 @@ export default function Chat2() {
   useEffect(() => {
     ws.emit("JOIN_PRIVATE_ROOM", {
       nickname: me.nickname,
+      roomName: createRoomName(),
     });
   }, []);
 
@@ -42,6 +55,7 @@ export default function Chat2() {
         content: inputValue,
         nickname: me.nickname,
         createAt: new Date(),
+        roomName: createRoomName(),
       });
 
       setInputValue("");
