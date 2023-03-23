@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
+import Link from "next/link";
+
 import { getDistance } from "app/utils/map";
 import { meState } from "app/store";
 import { fetchUserList } from "app/api/user";
@@ -10,8 +11,6 @@ import { logOut } from "app/api/auth";
 import KakaoMap from "app/components/KakaoMap";
 
 export default function Main({ profile }: any) {
-  const router = useRouter();
-
   const [me, setMe] = useRecoilState(meState);
   const [userList, setUserList] = useState<any>([]);
 
@@ -24,14 +23,6 @@ export default function Main({ profile }: any) {
     const res = await fetchUserList();
 
     setUserList(res.data);
-  };
-
-  const goChatPage = () => {
-    router.push("/chat");
-  };
-
-  const goPrivateChatPage = () => {
-    router.push("/privateChat");
   };
 
   const signOut = async () => {
@@ -59,12 +50,32 @@ export default function Main({ profile }: any) {
             return (
               <div key={item.id} className="flex">
                 <div className="mr-4">{item.nickname}</div>
-                <button onClick={goPrivateChatPage}>1대1채팅하기</button>
+                <Link
+                  href={{
+                    pathname: "/privateChat",
+                    query: { room: item.id },
+                  }}
+                >
+                  <button>1대1채팅하기</button>
+                </Link>
               </div>
             );
           }
         })}
-      <button onClick={goChatPage}>채팅하러가기</button>
+      <Link
+        href={{
+          pathname: "/chatList",
+        }}
+      >
+        <button>채팅목록</button>
+      </Link>
+      <Link
+        href={{
+          pathname: "/chat",
+        }}
+      >
+        <button>채팅하러가기</button>
+      </Link>
     </div>
   );
 }
