@@ -2,11 +2,11 @@ import Axios, { AxiosResponse } from "axios";
 
 export const createApi = () => {
   const _customAxios = Axios.create({
-    baseURL: "http://surfe.cafe24app.com",
+    baseURL: process.env.NEXT_PUBLIC_APP_HOST_NAME,
     withCredentials: true,
     validateStatus: (status) => status >= 200 && status < 400,
   });
-
+  console.log(process.env.NEXT_PUBLIC_APP_HOST_NAME);
   _customAxios.interceptors.response.use(
     (response) => {
       return Promise.resolve(response.data) as unknown as AxiosResponse;

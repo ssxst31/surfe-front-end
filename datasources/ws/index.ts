@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = process.env.NEXT_PUBLIC_APP_HOST_NAME ?? "";
 
 const isServer = typeof window === "undefined";
 
