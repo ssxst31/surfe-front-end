@@ -42,6 +42,7 @@ export default function Main({ profile }: any) {
     <div className="flex flex-col">
       <button onClick={signOut}>로그아웃</button>
       <KakaoMap pins={pins} myLat={Number(me.lat)} myLng={Number(me.lng)} />
+      <div className="text-lg font-extrabold">마음에 드는 사람에게 말을 걸어보세요!</div>
       {userList
         .filter((el: any) => el.email !== me.email)
         .map((item: any) => {
@@ -62,19 +63,15 @@ export default function Main({ profile }: any) {
             );
           }
         })}
-      <Link
-        href={{
-          pathname: "/chatList",
-        }}
-      >
-        <button>채팅목록</button>
-      </Link>
+      <div className="text-lg font-extrabold">대화할 사람이 없나요?</div>
       <Link
         href={{
           pathname: "/chat",
         }}
       >
-        <button>채팅하러가기</button>
+        <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full">
+          단체 채팅
+        </button>
       </Link>
     </div>
   );
