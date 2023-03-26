@@ -23,7 +23,12 @@ const KakaoMap = ({ pins, myLat, myLng }: any) => {
   return (
     <>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
-      <Map center={{ lat: myLat, lng: myLng }} style={{ width: "100%", height: "500px" }} level={7}>
+      <Map
+        center={{ lat: myLat, lng: myLng }}
+        style={{ width: "100%", height: "500px" }}
+        level={7}
+        className="shadow-md"
+      >
         <Circle
           center={{
             lat: myLat,
