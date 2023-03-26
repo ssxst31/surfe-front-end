@@ -42,14 +42,14 @@ export default function Main({ profile }: any) {
     <div className="flex flex-col">
       <button onClick={signOut}>로그아웃</button>
       <KakaoMap pins={pins} myLat={Number(me.lat)} myLng={Number(me.lng)} />
-      회원리스트입니다.
       {userList
         .filter((el: any) => el.email !== me.email)
         .map((item: any) => {
           if (getDistance(Number(me.lat), Number(me.lng), item.lat, item.lng) / 1000 < 5) {
             return (
-              <div key={item.id} className="flex">
-                <div className="mr-4">{item.nickname}</div>
+              <div key={item.id} className="flex items-center">
+                <img src="/defaultProfile.png" className="rounded-[50%] h-22 w-22 shadow-2xl" alt="profile" />
+                <div className="mr-4 text-lg">{item.nickname}</div>
                 <Link
                   href={{
                     pathname: "/privateChat",

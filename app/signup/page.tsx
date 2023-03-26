@@ -46,10 +46,10 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-full h-16" />
-      <div className="h-20 bg-red-600 w-44">채팅웹</div>
-      <div className="w-full h-10" />
+    <div className="flex flex-col mt-10 text-center">
+      <img src="logo.png" width={96} height={96} className="mx-auto mb-2" />
+      <div className="text-5xl">surfe</div>
+      <div className="mb-5 text-sm">주위의 다양한 사람들과 채팅해보세요</div>
       <div className="flex flex-col items-center w-full space-y-4">
         <input
           placeholder="이메일"
@@ -99,7 +99,10 @@ export default function Signup() {
           onChange={onChange}
           type="text"
         />
-        <button className="py-4 text-white bg-red-500 w-96" onClick={submit}>
+        <button
+          onClick={submit}
+          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-96"
+        >
           가입하기
         </button>
       </div>

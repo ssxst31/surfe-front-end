@@ -14,7 +14,7 @@ export default async function Home() {
 
   return res ? (
     <div>
-      {res.data.email}님 안녕하세요
+      {`${res.data.nickname}(${res.data.email})님 안녕하세요`}
       <Main profile={res.data} />
     </div>
   ) : (
