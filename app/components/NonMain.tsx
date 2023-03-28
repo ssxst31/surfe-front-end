@@ -34,6 +34,7 @@ export default function NonMain() {
 
     if (res) {
       console.log(res);
+      return location.reload();
     }
   };
 
