@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 
 import { login } from "app/api/auth";
 
-export default function NonMain() {
+export default function NonMain({ token }: any) {
+  console.log(token);
   const router = useRouter();
 
   const [inputs, setInputs] = useState<any>({
