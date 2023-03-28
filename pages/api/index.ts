@@ -6,7 +6,7 @@ export const createApi = () => {
     withCredentials: true,
     validateStatus: (status) => status >= 200 && status < 400,
   });
-  console.log(process.env.NEXT_PUBLIC_APP_HOST_NAME);
+
   _customAxios.interceptors.response.use(
     (response) => {
       return Promise.resolve(response.data) as unknown as AxiosResponse;

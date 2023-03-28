@@ -1,14 +1,12 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import Link from "next/link";
 
-import { getDistance } from "app/utils/map";
-import { meState } from "app/store";
-import { fetchUserList } from "app/api/user";
-import { logOut } from "app/api/auth";
-import KakaoMap from "app/components/KakaoMap";
+import { getDistance } from "utils/map";
+import { meState } from "store";
+import { fetchUserList } from "pages/api/user";
+import { logOut } from "pages/api/auth";
+import KakaoMap from "components/KakaoMap";
 
 export default function Main({ profile }: any) {
   const [me, setMe] = useRecoilState(meState);
@@ -66,7 +64,7 @@ export default function Main({ profile }: any) {
       <div className="text-lg font-extrabold">대화할 사람이 없나요?</div>
       <Link
         href={{
-          pathname: "/chat",
+          pathname: "/everyChat",
         }}
       >
         <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full">

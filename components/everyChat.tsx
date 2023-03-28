@@ -1,43 +1,29 @@
-"use client";
-
 import { useState, useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 
-import { meState } from "app/store";
+import { meState } from "store";
 import ws from "datasources/ws";
-import { Chat } from "app/type";
-import { useSearchParams } from "next/navigation";
+import { Chat } from "type";
 
 export default function Chat2() {
-  const searchParams = useSearchParams();
-  const search = searchParams.get("room");
-
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const me = useRecoilValue(meState);
   const [inputValue, setInputValue] = useState<string>("");
   const [chatList, setChatList] = useState<Chat[]>([]);
 
-  const createRoomName = () => {
-    if (me.id > Number(search)) {
-      return `${Number(search)}_${me.id}`;
-    } else {
-      return `${me.id}_${Number(search)}`;
-    }
-  };
-
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
 
-    ws.on("RECEIVE_PRIVATE_MESSAGE", (data: any) => {
+    ws.on("RECEIVE_MESSAGE", (data: any) => {
       setChatList(data.chatList);
     });
   }, [ws, chatList]);
 
   useEffect(() => {
-    ws.emit("JOIN_PRIVATE_ROOM", {
+    ws.emit("JOIN_ROOM", {
       nickname: me.nickname,
-      roomName: createRoomName(),
+      roomName: "room1",
     });
   }, []);
 
@@ -51,11 +37,11 @@ export default function Chat2() {
     if (!inputValue) return alert("메시지를 입력해주세요");
 
     if (inputValue) {
-      ws.emit("SEND_PRIVATE_MESSAGE", {
+      ws.emit("SEND_MESSAGE", {
         content: inputValue,
         nickname: me.nickname,
         createAt: new Date(),
-        roomName: createRoomName(),
+        roomName: "room1",
       });
 
       setInputValue("");

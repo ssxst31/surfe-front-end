@@ -1,10 +1,8 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import useGeolocation from "app/hooks/useGeolocation";
-import { createUser } from "app/api/auth";
+import useGeolocation from "hooks/useGeolocation";
+import { createUser } from "pages/api/auth";
 
 export default function Signup() {
   const location = useGeolocation();

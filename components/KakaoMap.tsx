@@ -1,8 +1,7 @@
-"use client";
-
 import Script from "next/script";
 import { Map, MapMarker, Circle } from "react-kakao-maps-sdk";
-import { getDistance } from "app/utils/map";
+
+import { getDistance } from "utils/map";
 
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_KEY}&autoload=false`;
 

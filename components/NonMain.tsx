@@ -1,12 +1,9 @@
-"use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { login } from "app/api/auth";
+import { login } from "pages/api/auth";
 
-export default function NonMain({ token }: any) {
-  console.log(token);
+export default function NonMain() {
   const router = useRouter();
 
   const [inputs, setInputs] = useState<any>({
@@ -30,11 +27,11 @@ export default function NonMain({ token }: any) {
 
   const submit = async () => {
     const res = await login({ email, password }).catch((err) => {
+      console.log(err);
       alert(err.response.data.message);
     });
 
     if (res) {
-      console.log(res);
       return location.reload();
     }
   };
