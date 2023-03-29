@@ -27,13 +27,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Home: NextPage<HomeProps> = ({ profile, api }: any) => {
-  console.log(profile, api, process.env.NEXT_PUBLIC_APP_HOST_NAME);
   return (
-    <>
-      <DefaultLayout>
-        <Main profile={profile} />
-      </DefaultLayout>
-    </>
+    <DefaultLayout>
+      <Main profile={profile} />
+    </DefaultLayout>
   );
 };
 
