@@ -30,7 +30,7 @@ const Home: NextPage<HomeProps> = ({ profile }: any) => {
   return (
     <>
       <DefaultLayout>
-        <Main profile={profile} />
+        <div>d</div>
       </DefaultLayout>
     </>
   );
