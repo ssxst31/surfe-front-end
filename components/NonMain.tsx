@@ -50,7 +50,7 @@ export default function NonMain() {
       <form className="flex flex-col" onSubmit={onSubmit}>
         <input
           placeholder="이메일"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={email}
           name="email"
           onChange={onChange}
@@ -60,21 +60,21 @@ export default function NonMain() {
         <input
           placeholder="비밀번호"
           type="password"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={password}
           name="password"
           onChange={onChange}
         />
         <button
           onClick={submit}
-          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10"
+          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10 -sm:w-64 -sm:mx-auto"
         >
           로그인
         </button>
       </form>
       <button
         onClick={goSignup}
-        className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5"
+        className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 -sm:w-64 -sm:mx-auto"
       >
         회원가입
       </button>
