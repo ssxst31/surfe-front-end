@@ -2,7 +2,7 @@ import Axios, { AxiosResponse } from "axios";
 
 export const createApi = () => {
   const _customAxios = Axios.create({
-    baseURL: process.env.NEXT_PUBLIC_APP_HOST_NAME,
+    baseURL: "https://api.surfe.store",
     withCredentials: true,
     validateStatus: (status) => status >= 200 && status < 400,
   });
