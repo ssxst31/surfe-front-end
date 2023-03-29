@@ -1,6 +1,6 @@
 import React from "react";
 
-import Desktop from "layouts/Desktop";
+import Desktop from "components/layouts/Desktop";
 
 interface DefaultLayoutProps {
   children: JSX.Element | JSX.Element[];

@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
 import Link from "next/link";
 
 import { getDistance } from "utils/map";
-import { meState } from "store";
+
 import { fetchUserList } from "pages/api/user";
-import { logOut } from "pages/api/auth";
+
 import KakaoMap from "components/KakaoMap";
 
-export default function Main({ profile }: any) {
-  const [me, setMe] = useRecoilState(meState);
+export default function Main({ me }: any) {
   const [userList, setUserList] = useState<any>([]);
 
   useEffect(() => {
-    setMe(profile);
     loadUserList();
   }, []);
 
@@ -21,11 +18,6 @@ export default function Main({ profile }: any) {
     const res = await fetchUserList();
 
     setUserList(res.data);
-  };
-
-  const signOut = async () => {
-    await logOut();
-    return location.reload();
   };
 
   const pins = userList
@@ -38,7 +30,6 @@ export default function Main({ profile }: any) {
 
   return (
     <div className="flex flex-col">
-      <button onClick={signOut}>로그아웃</button>
       <KakaoMap pins={pins} myLat={Number(me.lat)} myLng={Number(me.lng)} />
       <div className="text-lg font-extrabold">마음에 드는 사람에게 말을 걸어보세요!</div>
       {userList
