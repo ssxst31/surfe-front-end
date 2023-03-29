@@ -11,7 +11,7 @@ interface HomeProps {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const token = context.req.headers.cookie;
-
+  const api = process.env.NEXT_PUBLIC_APP_HOST_NAME;
   const res = await fetchProfile(token).catch((error) => {
     return error;
   });
@@ -21,12 +21,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       profile,
+      api,
     },
   };
 };
 
-const Home: NextPage<HomeProps> = ({ profile }: any) => {
-  console.log(profile);
+const Home: NextPage<HomeProps> = ({ profile, api }: any) => {
+  console.log(profile, api, process.env.NEXT_PUBLIC_APP_HOST_NAME);
   return (
     <>
       <DefaultLayout>
