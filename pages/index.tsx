@@ -13,7 +13,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const token = context.req.headers.cookie;
 
   const res = await fetchProfile(token).catch((error) => {
-    return null;
+    return error;
   });
 
   const profile = res;
