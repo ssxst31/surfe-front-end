@@ -26,6 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Home: NextPage<HomeProps> = ({ profile }: any) => {
+  console.log(profile);
   return (
     <>
       <DefaultLayout>
