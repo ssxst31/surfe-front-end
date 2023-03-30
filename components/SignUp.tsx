@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 import useGeolocation from "hooks/useGeolocation";
 import { createUser } from "pages/api/auth";
 
 export default function Signup() {
   const location = useGeolocation();
-  const router = useRouter();
 
   const [inputs, setInputs] = useState<any>({
     email: "",
@@ -39,9 +37,7 @@ export default function Signup() {
     });
 
     if (res) {
-      if (confirm(res.message)) {
-        router.push("/");
-      }
+      window.location.assign(`https://www.surfe.store/completed/signup`);
     }
   };
 
