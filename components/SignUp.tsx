@@ -53,7 +53,7 @@ export default function Signup() {
       <form className="flex flex-col items-center w-full space-y-4" onSubmit={submit}>
         <input
           placeholder="이메일"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={email}
           name="email"
           onChange={onChange}
@@ -61,7 +61,7 @@ export default function Signup() {
         />
         <input
           placeholder="비밀번호"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={password}
           name="password"
           onChange={onChange}
@@ -69,7 +69,7 @@ export default function Signup() {
         />
         <input
           placeholder="비밀번호 재확인"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={checkPassword}
           name="checkPassword"
           onChange={onChange}
@@ -77,7 +77,7 @@ export default function Signup() {
         />
         <input
           placeholder="닉네임"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={nickname}
           name="nickname"
           onChange={onChange}
@@ -85,7 +85,7 @@ export default function Signup() {
         />
         <input
           placeholder="위도"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={lat}
           name="lat"
           onChange={onChange}
@@ -93,7 +93,7 @@ export default function Signup() {
         />
         <input
           placeholder="경도"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-64 -sm:mx-auto"
           value={lng}
           name="lng"
           onChange={onChange}
@@ -101,7 +101,7 @@ export default function Signup() {
         />
         <button
           onClick={submit}
-          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-96"
+          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-96 -sm:w-64 -sm:mx-auto"
         >
           가입하기
         </button>

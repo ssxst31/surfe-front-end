@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import useMe from "hooks/useMe";
 import { logOut } from "pages/api/auth";
@@ -12,15 +13,19 @@ export default function Header() {
   };
 
   return (
-    <div className="fixed flex justify-between w-full bg-blue-400 h-14 z-[2]">
-      <div>surFe</div>
+    <div className="fixed  inline-flex justify-between w-full bg-blue-400 h-14 z-[2] -sm:px-3 px-10 items-center">
+      <Link href="/">
+        <img src="/logo.png" className="h-9 w-9" />
+      </Link>
       {me ? (
         <div>
           {`${me.nickname} (${me.email})`}
           <button onClick={signOut}>로그아웃</button>
         </div>
       ) : (
-        <span>로그인해주세요</span>
+        <Link href="/">
+          <button className="p-1 text-white w-14">로그인</button>
+        </Link>
       )}
     </div>
   );

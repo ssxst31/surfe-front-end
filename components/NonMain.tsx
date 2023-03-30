@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { login } from "pages/api/auth";
 
@@ -10,10 +11,6 @@ export default function NonMain() {
     email: "",
     password: "",
   });
-
-  const goSignup = () => {
-    router.push("/signup");
-  };
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -70,12 +67,11 @@ export default function NonMain() {
           로그인
         </button>
       </form>
-      <button
-        onClick={goSignup}
-        className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 -sm:w-64 -sm:mx-auto"
-      >
-        회원가입
-      </button>
+      <Link href="/signup" className="-sm:w-64 -sm:mx-auto ">
+        <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full">
+          회원가입
+        </button>
+      </Link>
     </div>
   );
 }
