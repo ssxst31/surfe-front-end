@@ -38,8 +38,6 @@ export default function NonMain() {
 
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent) => {
     e.preventDefault();
-
-    submit();
   };
 
   return (
