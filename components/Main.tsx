@@ -6,10 +6,9 @@ import useMe from "hooks/useMe";
 
 export default function Main() {
   const me = useMe();
+
   return me ? (
-    <div>
-      <Main2 me={me} />
-    </div>
+    <Main2 me={me} />
   ) : (
     <div className="flex flex-col items-center h-screen">
       <Total />

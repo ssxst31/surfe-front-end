@@ -1,14 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import { useRecoilValue } from "recoil";
 
-import { meState } from "store";
+import useMe from "hooks/useMe";
 import ws from "datasources/ws";
 import { Chat } from "type";
 
 export default function Chat2() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const me = useRecoilValue(meState);
+  const me = useMe();
   const [inputValue, setInputValue] = useState<string>("");
   const [chatList, setChatList] = useState<Chat[]>([]);
 

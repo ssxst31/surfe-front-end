@@ -1,20 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import { useRecoilValue } from "recoil";
-
-import { meState } from "store";
-import ws from "datasources/ws";
-import { Chat } from "type";
 import { useSearchParams } from "next/navigation";
 
+import useMe from "hooks/useMe";
+import ws from "datasources/ws";
+import { Chat } from "type";
+
 export default function Chat2() {
+  const me = useMe();
   const searchParams = useSearchParams();
-  const search = searchParams.get("room");
-
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const me = useRecoilValue(meState);
   const [inputValue, setInputValue] = useState<string>("");
   const [chatList, setChatList] = useState<Chat[]>([]);
+
+  const search = searchParams.get("room");
 
   const createRoomName = () => {
     if (me.id > Number(search)) {

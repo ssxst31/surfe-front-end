@@ -1,10 +1,25 @@
-import { atom } from "recoil";
-import { recoilPersist } from "recoil-persist";
+import { atom, selector } from "recoil";
 
-const { persistAtom } = recoilPersist();
+import { fetchProfile } from "pages/api/user";
 
-export const meState = atom<any>({
-  key: "me",
-  default: "",
-  effects_UNSTABLE: [persistAtom],
+const myProfileQuery = selector({
+  key: "myProfileQuery",
+  get: async () => {
+    if (typeof window === "undefined") return null;
+
+    return fetchProfile();
+  },
+});
+
+const myProfileState = atom({
+  key: "myProfileState",
+  default: myProfileQuery,
+});
+
+export const myProfileSelector = selector({
+  key: "myProfileSelector",
+  get: ({ get }) => {
+    return get(myProfileState);
+  },
+  set: ({ set }, newValue) => set(myProfileState, newValue),
 });

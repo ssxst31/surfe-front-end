@@ -3,9 +3,10 @@ import { RecoilRoot } from "recoil";
 import localFont from "next/font/local";
 
 import MemberContext from "contexts/member";
-import { fetchProfile } from "pages/api/user";
+import { fetchProfileSSR } from "pages/api/user";
 import DefaultSEO from "pages/DefaultSEO";
 import DefaultLayout from "components/layouts/DefaultLayout";
+import LoginWrapper from "components/LoginWrapper";
 
 import "styles/globals.css";
 
@@ -17,10 +18,11 @@ MyApp.getInitialProps = async ({ Component, router, ctx }: any) => {
     pageProps = await Component.getInitialProps(ctx);
   }
   const isServer = !!(ctx && ctx.req);
+
   if (isServer) {
     const token = ctx.req.headers.cookie;
 
-    const profile = await fetchProfile(token).catch((error) => {
+    const profile = await fetchProfileSSR(token).catch((error) => {
       return null;
     });
 
@@ -43,11 +45,13 @@ function MyApp({ Component, pageProps, me }: any) {
       <DefaultSEO />
       <RecoilRoot>
         <MemberContext.Provider value={me}>
-          <DefaultLayout>
-            <main className={myFont.className}>
-              <Component {...pageProps} />
-            </main>
-          </DefaultLayout>
+          <LoginWrapper>
+            <DefaultLayout>
+              <main className={myFont.className}>
+                <Component {...pageProps} />
+              </main>
+            </DefaultLayout>
+          </LoginWrapper>
         </MemberContext.Provider>
       </RecoilRoot>
     </>
