@@ -12,6 +12,6 @@ export async function fetchProfileSSR(token: any) {
   });
 }
 
-export async function fetchUserList() {
-  return await customAxios.get<null, any>("/user/list");
+export async function fetchUserListByMeDistance() {
+  return await customAxios.get<null, any>("/user/userListByMeDistance");
 }
