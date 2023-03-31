@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
 export default function Footer() {
   const router = useRouter();
   const currentPage = router.pathname;
@@ -15,9 +16,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="w-full py-8 text-center bg-gray-50 flex-column">
+    <footer className="w-full h-40 py-8 text-center bg-gray-50 flex-column">
       <div className="mx-auto max-w-7xl px-[30px] -md:px-4 -md:mx-0">
-        <div className="flex justify-between text-black ">
+        <div className="flex justify-between text-black -sm:flex-col">
           <small>ⓒ 서피 2023 All Rights Reserved.</small>
           <div className="flex flex-col text-sm text-black ">
             <Link href="https://icons8.com" target="_blank" rel="noopener noreferrer">

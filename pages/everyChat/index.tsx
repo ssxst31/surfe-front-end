@@ -1,9 +1,9 @@
-import EveryChat from "components/EveryChat";
+import Chat from "components/Chat";
 
 import type { NextPage } from "next";
 
 const EveryChatPage: NextPage = () => {
-  return <EveryChat />;
+  return <Chat roomName="room1" />;
 };
 
 export default EveryChatPage;
