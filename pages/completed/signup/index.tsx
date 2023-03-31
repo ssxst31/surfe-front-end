@@ -8,14 +8,16 @@ export default function CompletedSignUpPage() {
   const me = useMe();
 
   return (
-    <div className="flex flex-col items-center h-screen">
+    <div className="flex flex-col items-center mt-24">
       <Particle />
-      <div>
-        <span className="font-bold">{me?.nickname}</span>님 회원가입을 축하드립니다 🙌
-        <div>지금 다른 사람들을 만나러 가볼까요~~!</div>
+      <div className="text-center ">
+        <span className="font-bold">{me?.nickname}</span>님 서피 회원이 되신 것을 환영합니다 🙌
+        <div>지금 다른 사람들과 채팅해보세요!</div>
       </div>
       <Link href="/">
-        <button>메인으로 이동하기</button>
+        <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10 -sm:w-64 -sm:mx-auto">
+          메인으로 이동하기
+        </button>
       </Link>
     </div>
   );
