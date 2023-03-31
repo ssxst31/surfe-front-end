@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { fetchUserListByMeDistance } from "pages/api/user";
 import KakaoMap from "components/KakaoMap";
 import useMe from "hooks/useMe";
 
 export default function UserList() {
+  const router = useRouter();
   const me = useMe();
 
   const [userList, setUserList] = useState<any>([]);
@@ -31,8 +33,11 @@ export default function UserList() {
               <div className="flex">
                 <img
                   src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
-                  className="rounded-[50%] h-16 w-16 shadow-2xl mr-2"
+                  className="rounded-[50%] h-16 w-16 shadow-2xl mr-2 cursor-pointer"
                   alt="profile"
+                  onClick={() => {
+                    router.push("/user/1");
+                  }}
                 />
                 <div className="mr-4 text-lg">{item.nickname}</div>
               </div>
@@ -49,7 +54,6 @@ export default function UserList() {
             </div>
           </div>
         ))}
-
         <div className="text-lg font-extrabold">대화할 사람이 없나요?</div>
         <Link
           href={{
