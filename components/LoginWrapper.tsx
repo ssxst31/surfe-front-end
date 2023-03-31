@@ -7,12 +7,12 @@ export default function LoginWrapper({ children }: any) {
   const me = useMe();
   const router = useRouter();
   const currentPage = router.pathname;
-  const notPublicPages = ["everyChat", "private"];
+  const notPublicPages = ["everyChat", "privateChat", "userList"];
   const pageRootName = currentPage.slice(1).split("/")[0];
   const isPublicPage = !notPublicPages.includes(pageRootName);
 
   useEffect(() => {
-    if (!me && isPublicPage) {
+    if (!me && !isPublicPage) {
       router.push("/");
     }
   }, []);

@@ -9,7 +9,8 @@ export default function Header() {
 
   const signOut = async () => {
     await logOut();
-    return location.reload();
+
+    window.location.href = "/";
   };
 
   return (
@@ -18,7 +19,7 @@ export default function Header() {
         <img src="/logo.png" className="h-9 w-9" />
       </Link>
       {me ? (
-        <div>
+        <div className="text-white">
           {`${me.nickname} (${me.email})`}
           <button onClick={signOut}>로그아웃</button>
         </div>

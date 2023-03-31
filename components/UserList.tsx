@@ -3,8 +3,11 @@ import Link from "next/link";
 
 import { fetchUserListByMeDistance } from "pages/api/user";
 import KakaoMap from "components/KakaoMap";
+import useMe from "hooks/useMe";
 
-export default function Main({ me }: any) {
+export default function UserList() {
+  const me = useMe();
+
   const [userList, setUserList] = useState<any>([]);
 
   useEffect(() => {
@@ -19,7 +22,7 @@ export default function Main({ me }: any) {
 
   return (
     <div className="flex flex-col">
-      <KakaoMap userListCount={userList.length} myLat={Number(me.lat)} myLng={Number(me.lng)} />
+      <KakaoMap userListCount={userList.length} myLat={Number(me?.lat)} myLng={Number(me?.lng)} />
       <div className="flex flex-col mt-8 -sm:px-3">
         <div className="text-lg font-extrabold">마음에 드는 사람에게 말을 걸어보세요!</div>
         {userList.map((item: any) => (

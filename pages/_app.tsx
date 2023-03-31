@@ -7,6 +7,7 @@ import { fetchProfileSSR } from "pages/api/user";
 import DefaultSEO from "pages/DefaultSEO";
 import DefaultLayout from "components/layouts/DefaultLayout";
 import LoginWrapper from "components/LoginWrapper";
+import UnLoginWrapper from "components/UnLoginWrapper";
 
 import "styles/globals.css";
 
@@ -46,11 +47,13 @@ function MyApp({ Component, pageProps, me }: any) {
       <RecoilRoot>
         <MemberContext.Provider value={me}>
           <LoginWrapper>
-            <DefaultLayout>
-              <main className={myFont.className}>
-                <Component {...pageProps} />
-              </main>
-            </DefaultLayout>
+            <UnLoginWrapper>
+              <DefaultLayout>
+                <main className={myFont.className}>
+                  <Component {...pageProps} />
+                </main>
+              </DefaultLayout>
+            </UnLoginWrapper>
           </LoginWrapper>
         </MemberContext.Provider>
       </RecoilRoot>
