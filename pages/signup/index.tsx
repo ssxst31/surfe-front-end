@@ -1,11 +1,7 @@
 import type { NextPage } from "next";
 import SignUp from "components/SignUp";
 
-interface SignUpPageProps {
-  token: string;
-}
-
-const SignUpPage: NextPage<SignUpPageProps> = () => {
+const SignUpPage: NextPage = () => {
   return (
     <div className="flex flex-col items-center h-screen">
       <SignUp />

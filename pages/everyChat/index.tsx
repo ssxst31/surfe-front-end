@@ -1,4 +1,4 @@
-import EveryChat from "components/everyChat";
+import EveryChat from "components/EveryChat2";
 
 import type { NextPage } from "next";
 

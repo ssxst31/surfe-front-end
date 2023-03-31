@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 import { login } from "pages/api/auth";
 
 export default function NonMain() {
-  const router = useRouter();
-
   const [inputs, setInputs] = useState<any>({
     email: "",
     password: "",

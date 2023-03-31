@@ -1,11 +1,7 @@
 import type { NextPage } from "next";
 import Chat from "components/Chat";
 
-interface PrivateChatPageProps {
-  token: any;
-}
-
-const PrivateChatPage: NextPage<PrivateChatPageProps> = () => {
+const PrivateChatPage: NextPage = () => {
   return <Chat />;
 };
 

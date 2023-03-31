@@ -37,7 +37,11 @@ export default function Signup() {
     });
 
     if (res) {
-      window.location.assign(`https://www.surfe.store/completed/signup`);
+      if (process.env.NEXT_PUBLIC_ENV === "development") {
+        window.location.assign(`http://localhost:3000/completed/signup`);
+      } else {
+        window.location.assign(`https://www.surfe.store/completed/signup`);
+      }
     }
   };
 
