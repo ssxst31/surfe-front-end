@@ -3,8 +3,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 export default function Footer() {
   const router = useRouter();
+  const currentPage = router.pathname;
+  const noShowPages = ["/"];
+  const pageRootName = currentPage.slice(1).split("/")[0] || "/";
+  const isNoShow = noShowPages.includes(pageRootName);
 
-  if (router.pathname === "/") {
+  if (isNoShow) {
     return <></>;
   }
 

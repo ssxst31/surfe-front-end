@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import Chat from "components/Chat";
+import PrivateChat from "components/PrivateChat";
 
 const PrivateChatPage: NextPage = () => {
-  return <Chat />;
+  return <PrivateChat />;
 };
 
 export default PrivateChatPage;

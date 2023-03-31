@@ -48,7 +48,7 @@ export default function EveryChat() {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-screen">
+    <div className="flex flex-col items-center w-full h-[calc(100vh-250px)]">
       <div className="w-full h-full overflow-scroll">
         {chatList.map((chat, index) => {
           let hours = new Date(chat.createAt).getHours();
