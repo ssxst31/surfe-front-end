@@ -4,7 +4,7 @@ import useMe from "hooks/useMe";
 import ws from "datasources/ws";
 import { Chat } from "type";
 
-export default function EveryChat2() {
+export default function EveryChat() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const me = useMe();
