@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { fetchUserListByMeDistance } from "pages/api/user";
+import { fetchUserListByMeDistance, addLocation } from "pages/api/user";
 import KakaoMap from "components/KakaoMap";
 import useMe from "hooks/useMe";
+import useGeolocation from "hooks/useGeolocation";
 
 export default function UserList() {
   const router = useRouter();
   const me = useMe();
 
   const [userList, setUserList] = useState<any>([]);
+  const location = useGeolocation();
 
   useEffect(() => {
     loadUserList();
@@ -27,6 +29,18 @@ export default function UserList() {
       <KakaoMap userListCount={userList.length} myLat={Number(me?.lat)} myLng={Number(me?.lng)} />
       <div className="flex flex-col mt-8 space-y-3 -sm:px-3">
         <div className="text-lg font-extrabold">마음에 드는 사람에게 말을 걸어보세요!</div>
+        <button
+          disabled={!location.loaded}
+          onClick={() => {
+            addLocation(me.email, location.coordinates?.lat, location.coordinates?.lng);
+            window.location.href = "/userList";
+          }}
+          className={`${
+            location.loaded ? "bg-blue-500 hover:bg-blue-600" : "bg-blue-100 cursor-default"
+          } text-white font-medium rounded-lg text-sm px-5 py-2.5 w-32`}
+        >
+          위치 업데이트
+        </button>
         {userList.map((item: any) => (
           <div key={item.id}>
             <div className="flex justify-between">

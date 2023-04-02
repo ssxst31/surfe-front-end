@@ -15,3 +15,11 @@ export async function fetchProfileSSR(token: any) {
 export async function fetchUserListByMeDistance() {
   return await customAxios.get<null, any>("/user/userListByMeDistance");
 }
+
+export async function addLocation(email: any, lat: any, lng: any) {
+  return await customAxios.post<null, any>("/user/location", {
+    email,
+    lat,
+    lng,
+  });
+}
