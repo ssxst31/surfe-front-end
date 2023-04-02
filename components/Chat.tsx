@@ -38,7 +38,7 @@ export default function Chat2({ roomName }: any) {
     if (inputValue) {
       ws.emit("SEND_MESSAGE", {
         content: inputValue,
-        nickname: me.nickname,
+        memberId: me.id,
         createAt: new Date(),
         roomName,
       });
