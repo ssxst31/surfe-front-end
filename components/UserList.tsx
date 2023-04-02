@@ -31,6 +31,9 @@ export default function UserList() {
         <button
           disabled={!location.loaded}
           onClick={() => {
+            if (location.error?.code === 1) {
+              return alert("위치 액세스를 허용해 주세요.");
+            }
             addLocation(me.email, location.coordinates?.lat, location.coordinates?.lng);
             window.location.href = "/userList";
           }}
