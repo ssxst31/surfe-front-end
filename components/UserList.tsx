@@ -28,7 +28,6 @@ export default function UserList() {
     <div className="flex flex-col">
       <KakaoMap userListCount={userList.length} myLat={Number(me?.lat)} myLng={Number(me?.lng)} />
       <div className="flex flex-col mt-8 space-y-3 -sm:px-3">
-        <div className="text-lg font-extrabold">마음에 드는 사람에게 말을 걸어보세요!</div>
         <button
           disabled={!location.loaded}
           onClick={() => {
@@ -41,6 +40,10 @@ export default function UserList() {
         >
           위치 업데이트
         </button>
+        <div className="text-lg font-extrabold">마음에 드는 사람에게 말을 걸어보세요!</div>
+        {userList.length === 0 && (
+          <div className="text-center">주위에 아무도 없네요 위치 업데이트 버튼으로 새로고침해보세요</div>
+        )}
         {userList.map((item: any) => (
           <div key={item.id}>
             <div className="flex justify-between">
@@ -68,7 +71,7 @@ export default function UserList() {
             </div>
           </div>
         ))}
-        <div className="text-lg font-extrabold">대화할 사람이 없나요?</div>
+        <div className="text-lg font-extrabold">단체 채팅도 한번 둘러보세요!</div>
         <Link
           href={{
             pathname: "/everyChat",
