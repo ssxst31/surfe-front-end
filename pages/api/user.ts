@@ -17,7 +17,6 @@ export async function fetchUserListByMeDistance() {
 }
 
 export async function addLocation(email: any, lat: any, lng: any) {
-  alert("전송");
   return await customAxios.post<null, any>("/user/location", {
     email,
     lat,

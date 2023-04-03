@@ -33,11 +33,13 @@ export default function UserList() {
         <div>{location.coordinates?.lng}</div>
         <button
           disabled={!location.loaded}
-          onClick={() => {
+          onClick={async () => {
             if (location.error?.code === 1) {
               return alert("위치 액세스를 허용해 주세요.");
             }
-            addLocation(me.email, location.coordinates?.lat, location.coordinates?.lng);
+            const dsa = await addLocation(me.email, location.coordinates?.lat, location.coordinates?.lng);
+
+            alert(dsa);
             window.location.href = "/userList";
           }}
           className={`${
