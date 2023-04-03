@@ -28,6 +28,9 @@ export default function UserList() {
     <div className="flex flex-col">
       <KakaoMap userListCount={userList.length} myLat={Number(me?.lat)} myLng={Number(me?.lng)} />
       <div className="flex flex-col mt-8 space-y-3 -sm:px-3">
+        <div>{me.email}</div>
+        <div>{location.coordinates?.lat}</div>
+        <div>{location.coordinates?.lng}</div>
         <button
           disabled={!location.loaded}
           onClick={() => {
