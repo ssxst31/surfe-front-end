@@ -16,10 +16,14 @@ export async function fetchUserListByMeDistance() {
   return await customAxios.get<null, any>("/user/userListByMeDistance");
 }
 
-export async function addLocation(email: any, lat: any, lng: any) {
+export async function addLocation(memberId: any, lat: any, lng: any) {
   return await customAxios.post<null, any>("/user/location", {
-    email,
+    memberId,
     lat,
     lng,
   });
+}
+
+export async function fetchUserInterestList(userId: any) {
+  return await customAxios.get<null, any>(`/user/interestList/${userId}`);
 }

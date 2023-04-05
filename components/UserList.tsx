@@ -34,7 +34,7 @@ export default function UserList() {
             if (location.error?.code === 1) {
               return alert("위치 액세스를 허용해 주세요.");
             }
-            await addLocation(me.email, location.coordinates?.lat, location.coordinates?.lng);
+            await addLocation(me.id, location.coordinates?.lat, location.coordinates?.lng);
 
             window.location.href = "/userList";
           }}
@@ -57,7 +57,7 @@ export default function UserList() {
                   className="rounded-[50%] h-16 w-16 shadow-2xl mr-2 cursor-pointer"
                   alt="profile"
                   onClick={() => {
-                    router.push("/user/1");
+                    router.push(`/user/${item.id}`);
                   }}
                 />
                 <div className="mr-4 text-lg">{item.nickname}</div>
