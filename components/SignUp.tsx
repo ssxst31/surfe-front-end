@@ -19,6 +19,25 @@ const INTERESTS = [
   { id: 14, content: "자기관리" },
 ];
 
+const MBTIS = [
+  { id: 1, content: "INFP" },
+  { id: 2, content: "ENFP" },
+  { id: 3, content: "INFJ" },
+  { id: 4, content: "ENFJ" },
+  { id: 5, content: "INTJ" },
+  { id: 6, content: "ENTJ" },
+  { id: 7, content: "INTP" },
+  { id: 8, content: "ENTP" },
+  { id: 9, content: "ISFP" },
+  { id: 10, content: "ESFP" },
+  { id: 11, content: "ISTP" },
+  { id: 12, content: "ESTP" },
+  { id: 13, content: "ISFJ" },
+  { id: 14, content: "ESFJ" },
+  { id: 15, content: "ISTJ" },
+  { id: 16, content: "ESTJ" },
+];
+
 export default function SignUp() {
   const [inputs, setInputs] = useState<any>({
     email: "",
@@ -27,6 +46,8 @@ export default function SignUp() {
     nickname: "",
   });
   const [interestList, setInterestList] = useState<any>([]);
+  const [MBTI, setMBTI] = useState<any>();
+  const [introduce, setIntroduce] = useState<any>("");
 
   const { email, password, checkPassword, nickname } = inputs;
 
@@ -66,8 +87,12 @@ export default function SignUp() {
     }
   };
 
+  const handleChange = (e: any) => {
+    console.log(e.target.value);
+  };
+
   return (
-    <div className="mx-auto mt-24 w-96">
+    <div className="mx-auto mt-24 ">
       <img src="logo.png" width={96} height={96} className="mx-auto mb-2" />
       <div className="flex flex-col">
         <h1>
@@ -75,8 +100,8 @@ export default function SignUp() {
           <div className="mb-5 text-sm text-center">주위의 다양한 사람들과 채팅해보세요</div>
         </h1>
       </div>
-      <form className="space-y-4" onSubmit={submit}>
-        <div>
+      <form className="flex flex-col items-center space-y-4" onSubmit={submit}>
+        <div className="sm:w-96">
           <h2>
             <label htmlFor="email" className="font-bold">
               이메일
@@ -92,7 +117,7 @@ export default function SignUp() {
             id="email"
           />
         </div>
-        <div>
+        <div className="sm:w-96">
           <h2>
             <label htmlFor="password" className="font-bold">
               비밀번호
@@ -108,7 +133,7 @@ export default function SignUp() {
             id="password"
           />
         </div>
-        <div>
+        <div className="sm:w-96">
           <h2>
             <label htmlFor="checkPassword" className="font-bold">
               비밀번호 재확인
@@ -124,7 +149,7 @@ export default function SignUp() {
             id="checkPassword"
           />
         </div>
-        <div>
+        <div className="sm:w-96">
           <h2>
             <label htmlFor="nickname" className="font-bold">
               닉네임
@@ -140,11 +165,11 @@ export default function SignUp() {
             id="nickname"
           />
         </div>
-        <div>
+        <div className="sm:w-96">
           <h2>
             <label className="font-bold">관심사(3개선택)</label>
           </h2>
-          <div className="flex flex-wrap w-96">
+          <div className="flex flex-wrap -sm:w-64">
             {INTERESTS.map((interest) => (
               <div
                 key={interest.id}
@@ -159,6 +184,43 @@ export default function SignUp() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="sm:w-96">
+          <h2>
+            <label className="font-bold">MBTI</label>
+          </h2>
+          <div className="flex flex-wrap -sm:w-64">
+            <select
+              className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:border-blue-500"
+              name="MBTI"
+              onChange={handleChange}
+              value={MBTI}
+            >
+              {MBTIS.map((el: any) => (
+                <option value={el.content} key={el.id}>
+                  {el.content}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="sm:w-96">
+          <h2>
+            <label htmlFor="introduce" className="font-bold">
+              한줄소개
+            </label>
+          </h2>
+          <input
+            placeholder="5글자이상 입력해주세요"
+            className="w-full px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 -sm:w-64 -sm:mx-auto"
+            value={introduce}
+            name="introduce"
+            onChange={(e) => {
+              setIntroduce(e.target.value);
+            }}
+            type="text"
+            id="introduce"
+          />
         </div>
         <button
           onClick={submit}

@@ -3,7 +3,7 @@ import SignUp from "components/SignUp";
 
 const SignUpPage: NextPage = () => {
   return (
-    <div className="flex flex-col items-center h-screen">
+    <div className="flex flex-col items-center">
       <SignUp />
     </div>
   );
