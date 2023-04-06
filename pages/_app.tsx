@@ -3,7 +3,7 @@ import { RecoilRoot } from "recoil";
 import localFont from "next/font/local";
 
 import MemberContext from "contexts/member";
-import { fetchProfileSSR } from "pages/api/user";
+import { fetchProfileSSR } from "pages/api/my";
 import DefaultSEO from "pages/DefaultSEO";
 import DefaultLayout from "components/layouts/DefaultLayout";
 import LoginWrapper from "components/LoginWrapper";

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { fetchUserListByMeDistance, addLocation } from "pages/api/user";
+import { fetchUserListByMeDistance } from "pages/api/user";
+import { addLocation } from "pages/api/my";
 import KakaoMap from "components/KakaoMap";
 import useMe from "hooks/useMe";
 import useGeolocation from "hooks/useGeolocation";
@@ -34,7 +35,7 @@ export default function UserList() {
             if (location.error?.code === 1) {
               return alert("위치 액세스를 허용해 주세요.");
             }
-            await addLocation(me.id, location.coordinates?.lat, location.coordinates?.lng);
+            await addLocation(location.coordinates?.lat, location.coordinates?.lng);
 
             window.location.href = "/userList";
           }}

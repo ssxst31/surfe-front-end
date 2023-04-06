@@ -1,6 +1,6 @@
 import { atom, selector } from "recoil";
 
-import { fetchProfile } from "pages/api/user";
+import { fetchProfile } from "pages/api/my";
 
 const myProfileQuery = selector({
   key: "myProfileQuery",

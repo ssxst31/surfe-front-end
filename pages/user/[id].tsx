@@ -2,22 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
-import { fetchUserInterestList } from "pages/api/user";
+import { fetchUserProfile } from "pages/api/user";
 
 const UserPage: NextPage = () => {
   const router = useRouter();
 
   const { id } = router.query;
-  const [interestList, setInterestList] = useState<any>([]);
+  const [profile, setProfile] = useState<any>();
 
-  const loadUserInterestList = async () => {
-    const res = await fetchUserInterestList(id);
-    return setInterestList(res);
+  const loadUserProfile = async () => {
+    const res = await fetchUserProfile(id);
+    return setProfile(res);
   };
 
   useEffect(() => {
-    loadUserInterestList();
+    loadUserProfile();
   }, []);
+
+  if (!profile) {
+    return <></>;
+  }
 
   return (
     <div>
@@ -28,10 +32,10 @@ const UserPage: NextPage = () => {
           alt="profile"
         />
         <div className="flex flex-col p-3">
-          <div className="text-3xl">짱구</div>
+          <div className="text-3xl">{profile.nickname}</div>
           <div className="text-2xl">ISTJ</div>
           <div className="flex mt-2 space-x-2">
-            {interestList.map((el: any) => (
+            {profile.interestList.map((el: any) => (
               <div className="px-2 py-1 text-white bg-red-200 rounded-lg">{el}</div>
             ))}
           </div>
