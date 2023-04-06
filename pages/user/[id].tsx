@@ -12,6 +12,7 @@ const UserPage: NextPage = () => {
 
   const loadUserProfile = async () => {
     const res = await fetchUserProfile(id);
+
     return setProfile(res);
   };
 
@@ -33,13 +34,13 @@ const UserPage: NextPage = () => {
         />
         <div className="flex flex-col p-3">
           <div className="text-3xl">{profile.nickname}</div>
-          <div className="text-2xl">ISTJ</div>
+          <div className="text-2xl">{profile.mbti}</div>
           <div className="flex mt-2 space-x-2">
             {profile.interestList.map((el: any) => (
               <div className="px-2 py-1 text-white bg-red-200 rounded-lg">{el}</div>
             ))}
           </div>
-          <div className="mt-2">안녕하세요 잘부탁드립니다람쥐~~</div>
+          <div className="mt-2">{profile.introduce}</div>
         </div>
       </div>
     </div>

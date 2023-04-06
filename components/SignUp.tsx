@@ -1,42 +1,7 @@
 import { useState } from "react";
 
 import { createUser } from "pages/api/auth";
-
-const INTERESTS = [
-  { id: 1, content: "운동" },
-  { id: 2, content: "산책" },
-  { id: 3, content: "노래" },
-  { id: 4, content: "술" },
-  { id: 5, content: "헬스" },
-  { id: 6, content: "패션" },
-  { id: 7, content: "영화" },
-  { id: 8, content: "공부" },
-  { id: 9, content: "연극" },
-  { id: 10, content: "화장" },
-  { id: 11, content: "전시회" },
-  { id: 12, content: "맛집투어" },
-  { id: 13, content: "보드게임" },
-  { id: 14, content: "자기관리" },
-];
-
-const MBTIS = [
-  { id: 1, content: "INFP" },
-  { id: 2, content: "ENFP" },
-  { id: 3, content: "INFJ" },
-  { id: 4, content: "ENFJ" },
-  { id: 5, content: "INTJ" },
-  { id: 6, content: "ENTJ" },
-  { id: 7, content: "INTP" },
-  { id: 8, content: "ENTP" },
-  { id: 9, content: "ISFP" },
-  { id: 10, content: "ESFP" },
-  { id: 11, content: "ISTP" },
-  { id: 12, content: "ESTP" },
-  { id: 13, content: "ISFJ" },
-  { id: 14, content: "ESFJ" },
-  { id: 15, content: "ISTJ" },
-  { id: 16, content: "ESTJ" },
-];
+import { INTERESTS, MBTIS } from "consts";
 
 export default function SignUp() {
   const [inputs, setInputs] = useState<any>({
@@ -46,7 +11,7 @@ export default function SignUp() {
     nickname: "",
   });
   const [interestList, setInterestList] = useState<any>([]);
-  const [MBTI, setMBTI] = useState<any>();
+  const [mbti, setMbti] = useState<any>();
   const [introduce, setIntroduce] = useState<any>("");
 
   const { email, password, checkPassword, nickname } = inputs;
@@ -62,7 +27,7 @@ export default function SignUp() {
   const submit = async (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent) => {
     e.preventDefault();
 
-    const res = await createUser(inputs, interestList).catch((err) => {
+    const res = await createUser(inputs, interestList, mbti, introduce).catch((err) => {
       alert(err.response.data.message);
     });
 
@@ -88,7 +53,7 @@ export default function SignUp() {
   };
 
   const handleChange = (e: any) => {
-    console.log(e.target.value);
+    setMbti(e.target.value);
   };
 
   return (
@@ -194,7 +159,7 @@ export default function SignUp() {
               className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:border-blue-500"
               name="MBTI"
               onChange={handleChange}
-              value={MBTI}
+              value={mbti}
             >
               {MBTIS.map((el: any) => (
                 <option value={el.content} key={el.id}>
