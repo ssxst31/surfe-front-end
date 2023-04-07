@@ -66,8 +66,8 @@ export default function SignUp() {
         </h1>
       </div>
       <form className="flex flex-col space-y-4 -sm:w-full" onSubmit={submit}>
-        <div className="sm:w-96">
-          <h2>
+        <div className="-sm:w-full">
+          <h2 className="text-left">
             <label htmlFor="email" className="font-bold">
               이메일
             </label>
@@ -82,8 +82,8 @@ export default function SignUp() {
             id="email"
           />
         </div>
-        <div className="sm:w-96">
-          <h2>
+        <div className="w-96 -sm:w-full">
+          <h2 className="text-left">
             <label htmlFor="password" className="font-bold">
               비밀번호
             </label>
@@ -98,8 +98,8 @@ export default function SignUp() {
             id="password"
           />
         </div>
-        <div className="sm:w-96">
-          <h2>
+        <div className="w-96 -sm:w-full">
+          <h2 className="text-left">
             <label htmlFor="checkPassword" className="font-bold">
               비밀번호 재확인
             </label>
@@ -114,8 +114,8 @@ export default function SignUp() {
             id="checkPassword"
           />
         </div>
-        <div className="sm:w-96">
-          <h2>
+        <div className="w-96 -sm:w-full">
+          <h2 className="text-left">
             <label htmlFor="nickname" className="font-bold">
               닉네임
             </label>
@@ -130,8 +130,8 @@ export default function SignUp() {
             id="nickname"
           />
         </div>
-        <div className="sm:w-96">
-          <h2>
+        <div className="w-96 -sm:w-full">
+          <h2 className="text-left">
             <label className="font-bold">관심사(3개선택)</label>
           </h2>
           <div className="flex flex-wrap -sm:w-full">
@@ -150,8 +150,8 @@ export default function SignUp() {
             ))}
           </div>
         </div>
-        <div className="sm:w-96">
-          <h2>
+        <div className="w-96 -sm:w-full">
+          <h2 className="text-left">
             <label className="font-bold">MBTI</label>
           </h2>
           <div className="flex flex-wrap -sm:w-full">
@@ -169,8 +169,8 @@ export default function SignUp() {
             </select>
           </div>
         </div>
-        <div className="sm:w-96">
-          <h2>
+        <div className="w-96 -sm:w-full">
+          <h2 className="text-left">
             <label htmlFor="introduce" className="font-bold">
               한줄소개
             </label>
