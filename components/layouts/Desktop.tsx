@@ -52,7 +52,12 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                     className="rounded-[50%] h-10 w-10 mr-2"
                     alt="profile"
                   />
-                  <div>{me.nickname}</div>
+                  <div>
+                    <div>{me.nickname}</div>
+                    <div>{me.email}</div>
+                    <div>{me.introduce}</div>
+                    <div>{me.mbti}</div>
+                  </div>
                 </div>
                 <button onClick={signOut} className="py-2 text-white bg-blue-400 rounded-lg w-36">
                   로그아웃
