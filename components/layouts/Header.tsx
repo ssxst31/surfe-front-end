@@ -11,7 +11,7 @@ export default function Header({ setIsSidebar, me }: any) {
   };
 
   return (
-    <div className="fixed inline-flex justify-between w-full bg-blue-400 h-14 z-[2] -sm:px-3 px-10 items-center shadow-xl">
+    <div className="fixed inline-flex justify-between w-full bg-blue-400 h-14 z-[2] -sm:px-5 px-10 items-center shadow-xl">
       <Link href="/">
         <img src="/logo.png" className="h-9 w-9" />
       </Link>

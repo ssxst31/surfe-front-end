@@ -57,7 +57,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="mx-auto mt-24 ">
+    <div className="flex flex-col items-center mx-5 mt-24 text-center">
       <img src="logo.png" width={96} height={96} className="mx-auto mb-2" />
       <div className="flex flex-col">
         <h1>
@@ -65,7 +65,7 @@ export default function SignUp() {
           <div className="mb-5 text-sm text-center">주위의 다양한 사람들과 채팅해보세요</div>
         </h1>
       </div>
-      <form className="flex flex-col items-center space-y-4" onSubmit={submit}>
+      <form className="flex flex-col space-y-4 -sm:w-full" onSubmit={submit}>
         <div className="sm:w-96">
           <h2>
             <label htmlFor="email" className="font-bold">
@@ -74,7 +74,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="이메일"
-            className="w-full px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 -sm:w-64 -sm:mx-auto"
+            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={email}
             name="email"
             onChange={onChange}
@@ -90,7 +90,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="비밀번호"
-            className="w-full px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 -sm:w-64 -sm:mx-auto"
+            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={password}
             name="password"
             onChange={onChange}
@@ -106,7 +106,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="비밀번호 재확인"
-            className="w-full px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 -sm:w-64 -sm:mx-auto"
+            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={checkPassword}
             name="checkPassword"
             onChange={onChange}
@@ -122,7 +122,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="닉네임"
-            className="w-full px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 -sm:w-64 -sm:mx-auto"
+            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={nickname}
             name="nickname"
             onChange={onChange}
@@ -134,7 +134,7 @@ export default function SignUp() {
           <h2>
             <label className="font-bold">관심사(3개선택)</label>
           </h2>
-          <div className="flex flex-wrap -sm:w-64">
+          <div className="flex flex-wrap -sm:w-full">
             {INTERESTS.map((interest) => (
               <div
                 key={interest.id}
@@ -154,7 +154,7 @@ export default function SignUp() {
           <h2>
             <label className="font-bold">MBTI</label>
           </h2>
-          <div className="flex flex-wrap -sm:w-64">
+          <div className="flex flex-wrap -sm:w-full">
             <select
               className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:border-blue-500"
               name="MBTI"
@@ -177,7 +177,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="5글자이상 입력해주세요"
-            className="w-full px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 -sm:w-64 -sm:mx-auto"
+            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={introduce}
             name="introduce"
             onChange={(e) => {
@@ -189,7 +189,7 @@ export default function SignUp() {
         </div>
         <button
           onClick={submit}
-          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-96 -sm:w-64 -sm:mx-auto"
+          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-96 -sm:w-full -sm:mx-auto"
         >
           가입하기
         </button>
