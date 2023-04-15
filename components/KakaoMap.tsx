@@ -9,7 +9,7 @@ const KakaoMap = ({ userListCount, myLat, myLng }: any) => {
   return (
     <>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
-      <Map center={{ lat: myLat, lng: myLng }} level={7} className="shadow-md h-[500px] -sm:h-96 w-full">
+      <Map center={{ lat: myLat, lng: myLng }} level={8} className="shadow-md h-[500px] -lg:h-96 w-full">
         <Circle
           center={{
             lat: myLat,
