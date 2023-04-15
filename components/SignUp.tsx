@@ -57,11 +57,10 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex flex-col items-center mx-5 mt-24 text-center">
-      <img src="logo.png" width={96} height={96} className="mx-auto mb-2" />
+    <div className="flex flex-col items-center mx-5 text-center mt-14">
       <div className="flex flex-col">
         <h1>
-          <div className="text-5xl text-center">surfe</div>
+          <img src="title.png" width={200} height={96} />
           <div className="mb-5 text-sm text-center">주위의 다양한 사람들과 채팅해보세요</div>
         </h1>
       </div>
