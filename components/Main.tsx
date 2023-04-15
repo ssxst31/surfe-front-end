@@ -36,12 +36,12 @@ export default function Main() {
   return (
     <div className="flex flex-col items-center mx-5 mt-24 text-center">
       <img src="logo.png" width={96} height={96} className="mx-auto mb-2" />
-      <div className="text-5xl">surfe</div>
+      <img src="title.png" width={200} height={96} />
       <div className="mb-5 text-sm">주위의 다양한 사람들과 채팅해보세요</div>
-      <form className="flex flex-col -sm:w-full" onSubmit={onSubmit}>
+      <form className="flex flex-col -lg:w-full" onSubmit={onSubmit}>
         <input
           placeholder="이메일"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -lg:w-full"
           value={email}
           name="email"
           onChange={onChange}
@@ -51,19 +51,19 @@ export default function Main() {
         <input
           placeholder="비밀번호"
           type="password"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -lg:w-full"
           value={password}
           name="password"
           onChange={onChange}
         />
         <button
           onClick={submit}
-          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10 -sm:w-full"
+          className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10 -lg:w-full"
         >
           로그인
         </button>
       </form>
-      <Link href="/signup" className="w-96 -sm:w-full">
+      <Link href="/signup" className="w-96 -lg:w-full">
         <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full">
           회원가입
         </button>

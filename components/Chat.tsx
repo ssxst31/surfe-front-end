@@ -61,7 +61,7 @@ export default function Chat2({ roomName }: any) {
                   {hours}:{minutes}
                 </div>
                 <div className="flex flex-col">
-                  <div className="max-w-lg p-2  break-all bg-indigo-200 rounded-lg min-w-9 -sm:max-w-[12rem] -sm:text-xs text-sm">
+                  <div className="max-w-lg p-2  break-all bg-indigo-200 rounded-lg min-w-9 -lg:max-w-[12rem] -lg:text-xs text-sm">
                     {chat.content}
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function Chat2({ roomName }: any) {
                 />
                 <div>
                   <div className="text-sm ">{chat.nickname}</div>
-                  <div className="max-w-lg p-2  break-all bg-indigo-200 rounded-lg min-w-9 -sm:max-w-[12rem] -sm:text-xs text-sm">
+                  <div className="max-w-lg p-2  break-all bg-indigo-200 rounded-lg min-w-9 -lg:max-w-[12rem] -lg:text-xs text-sm">
                     {chat.content}
                   </div>
                 </div>

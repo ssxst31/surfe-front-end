@@ -25,7 +25,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
     <div>
       {isSidebar && (
         <div
-          className={`hidden -sm:block fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50`}
+          className={`hidden -lg:block fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50`}
           style={{
             transition: "all 0.3s ease-out",
           }}
@@ -43,25 +43,43 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
               e.stopPropagation();
             }}
           >
-            <span className="text-3xl">서피</span>
+            <img src="title.png" width={96} height={96} />
             {me ? (
               <div className="text-black">
-                <div className="flex items-center">
+                <div className="flex items-center my-4">
                   <img
                     src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
-                    className="rounded-[50%] h-10 w-10 mr-2"
+                    className="rounded-[50%] h-12 w-12 mr-2"
                     alt="profile"
                   />
                   <div>
-                    <div>{me.nickname}</div>
-                    <div>{me.email}</div>
-                    <div>{me.introduce}</div>
-                    <div>{me.mbti}</div>
+                    <div className="text-sm">{me.nickname}</div>
+                    <div className="text-xs">{me.email}</div>
+                    <div className="text-xs">{me.introduce}</div>
+                    <div className="text-xs">{me.mbti}</div>
                   </div>
                 </div>
-                <button onClick={signOut} className="py-2 text-white bg-blue-400 rounded-lg w-36">
-                  로그아웃
-                </button>
+                <div className="flex flex-col mt-2 space-y-2">
+                  <button
+                    onClick={() => {
+                      alert("준비 중입니다.");
+                    }}
+                    className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg"
+                  >
+                    내 프로필 수정
+                  </button>
+                  <button
+                    onClick={() => {
+                      alert("준비 중입니다.");
+                    }}
+                    className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg"
+                  >
+                    설정
+                  </button>
+                  <button onClick={signOut} className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg">
+                    로그아웃
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="flex space-x-3">

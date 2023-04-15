@@ -17,8 +17,8 @@ export default function Footer() {
 
   return (
     <footer className="w-full h-40 py-8 text-center bg-gray-50 flex-column">
-      <div className="mx-auto max-w-7xl px-[30px] -md:px-4 -md:mx-0">
-        <div className="flex justify-between text-black -sm:flex-col">
+      <div className="max-w-4xl mx-auto -md:px-4 -md:mx-0">
+        <div className="flex justify-between text-black -lg:flex-col">
           <small>ⓒ 서피 2023 All Rights Reserved.</small>
           <div className="flex flex-col text-sm text-black ">
             <Link href="https://icons8.com" target="_blank" rel="noopener noreferrer">

@@ -15,7 +15,7 @@ export default function CompletedSignUpPage() {
         <div>지금 다른 사람들과 채팅해보세요!</div>
       </div>
       <Link href="/">
-        <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10 -sm:w-64 -sm:mx-auto">
+        <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10 -lg:w-64 -lg:mx-auto">
           메인으로 이동하기
         </button>
       </Link>
