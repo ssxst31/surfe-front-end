@@ -66,7 +66,7 @@ export default function UserList() {
         {userList.length === 0 ? (
           <div className="text-center">위치 업데이트 버튼으로 새로고침해보세요</div>
         ) : (
-          <div className="h-[343px] overflow-y-scroll space-y-3 mt-2">
+          <div className=" max-h-[343px] overflow-y-scroll space-y-3 mt-2">
             {userList.map((user: any) => (
               <User key={user.id} user={user} />
             ))}
