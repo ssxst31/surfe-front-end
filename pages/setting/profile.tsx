@@ -10,7 +10,7 @@ const UserPage: NextPage = () => {
   const [imgFile, setImgFile] = useState<any>();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const onUploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onUploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) {
       return;
     }
@@ -24,7 +24,9 @@ const UserPage: NextPage = () => {
     const formData = new FormData();
     formData.append("image", file);
 
-    postThumbnail(formData);
+    const dsa = await postThumbnail(formData);
+
+    alert(dsa);
   };
 
   const onUploadImageButtonClick = () => {
