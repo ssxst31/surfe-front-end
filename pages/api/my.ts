@@ -18,3 +18,7 @@ export async function addLocation(lat: any, lng: any) {
     lng,
   });
 }
+
+export async function postThumbnail(formData: any) {
+  return await customAxios.post<null, any>("/my/upload", formData);
+}

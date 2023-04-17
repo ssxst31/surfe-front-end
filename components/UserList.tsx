@@ -51,10 +51,16 @@ export default function UserList() {
       </div>
       <div className="lg:fixed right-[calc(50vw-450px)] -lg:px-5">
         <div className="flex -lg:hidden">
-          <img
-            src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
-            className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
-          />
+          <Link
+            href={{
+              pathname: "/setting/profile",
+            }}
+          >
+            <img
+              src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+              className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
+            />
+          </Link>
           <div>
             <div className="text-sm">{me.nickname}</div>
             <div className="text-sm">{me.introduce}</div>
