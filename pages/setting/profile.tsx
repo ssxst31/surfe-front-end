@@ -55,7 +55,7 @@ const UserPage: NextPage = () => {
             src={
               imgFile
                 ? imgFile ?? "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
-                : "http://localhost:3389/uploads/" + me.profile
+                : "https://api.surfe.store/uploads/" + me.profile
             }
             alt="프로필 이미지"
             className="w-24 h-24 rounded-[50%] mx-auto"

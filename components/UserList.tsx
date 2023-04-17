@@ -12,7 +12,7 @@ import User from "components/User";
 export default function UserList() {
   const router = useRouter();
   const me = useMe();
-
+  console.log(me);
   const [userList, setUserList] = useState<any>([]);
   const location = useGeolocation();
 
@@ -38,7 +38,6 @@ export default function UserList() {
                 return alert("위치 액세스를 허용해 주세요.");
               }
               await addLocation(location.coordinates?.lat, location.coordinates?.lng);
-
               window.location.href = "/userList";
             }}
             className={`${
@@ -57,7 +56,11 @@ export default function UserList() {
             }}
           >
             <img
-              src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+              src={
+                me.profile
+                  ? "https://api.surfe.store/uploads/" + me.profile
+                  : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+              }
               className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
             />
           </Link>
