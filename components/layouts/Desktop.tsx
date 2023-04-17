@@ -64,14 +64,13 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                   </div>
                 </div>
                 <div className="flex flex-col mt-2 space-y-2">
-                  <button
-                    onClick={() => {
-                      alert("준비 중입니다.");
+                  <Link
+                    href={{
+                      pathname: "/setting/profile",
                     }}
-                    className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg"
                   >
-                    내 프로필 수정
-                  </button>
+                    <button className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg">내 프로필 수정</button>
+                  </Link>
                   <button
                     onClick={() => {
                       alert("준비 중입니다.");
