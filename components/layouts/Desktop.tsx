@@ -43,7 +43,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
               e.stopPropagation();
             }}
           >
-            <img src="title.png" width={96} height={96} />
+            <img src="/title.png" width={96} height={96} />
             {me ? (
               <div className="text-black">
                 <div className="flex items-center my-4">
