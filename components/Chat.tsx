@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import useMe from "hooks/useMe";
 import ws from "datasources/ws";
 import { Chat } from "type";
+import { createProfile } from "utils/profile";
 
 export default function Chat2({ roomName }: any) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -71,7 +72,11 @@ export default function Chat2({ roomName }: any) {
             return (
               <div key={index} className="flex w-full mb-2 space-x-4">
                 <img
-                  src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+                  src={
+                    chat.profile
+                      ? `${createProfile()}` + chat.profile
+                      : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+                  }
                   className="rounded-[50%] h-10 w-10"
                   alt="profile"
                 />

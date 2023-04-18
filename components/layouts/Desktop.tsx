@@ -5,6 +5,7 @@ import { logOut } from "pages/api/auth";
 import Header from "components/layouts/Header";
 import Footer from "components/layouts/Footer";
 import useMe from "hooks/useMe";
+import { createProfile } from "utils/profile";
 
 interface ResponsiveContainerProps {
   children: JSX.Element | JSX.Element[];
@@ -50,7 +51,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                   <img
                     src={
                       me.profile
-                        ? "https://api.surfe.store/uploads/" + me.profile
+                        ? `${createProfile()}` + me.profile
                         : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
                     }
                     className="rounded-[50%] h-12 w-12 mr-2"
