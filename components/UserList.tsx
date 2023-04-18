@@ -72,7 +72,7 @@ export default function UserList() {
           마음에 드는 사람에게 말을 걸어보세요!
         </div>
         {userList.length === 0 ? (
-          <div className="text-center">위치 업데이트 버튼으로 새로고침해보세요</div>
+          <div className="text-center">없습니다.</div>
         ) : (
           <div className=" max-h-[343px] overflow-y-scroll space-y-3 mt-2">
             {userList.map((user: any) => (
