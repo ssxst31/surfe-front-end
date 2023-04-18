@@ -49,7 +49,7 @@ export default function Chat2({ roomName }: any) {
 
   return (
     <div className="flex flex-col items-center w-full h-[calc(100vh-216px)]">
-      <div className="w-full h-full px-3 overflow-scroll">
+      <div className="w-full h-full px-5 overflow-scroll">
         {chatList.map((chat, index) => {
           let hours = new Date(chat.createAt).getHours();
           let minutes = new Date(chat.createAt).getMinutes();
@@ -77,7 +77,7 @@ export default function Chat2({ roomName }: any) {
                 />
                 <div>
                   <div className="text-sm ">{chat.nickname}</div>
-                  <div className="max-w-lg p-2  break-all bg-indigo-200 rounded-lg min-w-9 -lg:max-w-[12rem] -lg:text-xs text-sm">
+                  <div className="max-w-lg p-2 break-all bg-indigo-200 rounded-lg min-w-9 -lg:max-w-[12rem] -lg:text-xs text-sm">
                     {chat.content}
                   </div>
                 </div>
@@ -90,10 +90,10 @@ export default function Chat2({ roomName }: any) {
         })}
         <div ref={scrollRef} />
       </div>
-      <form className="flex w-full" onSubmit={postMessage}>
+      <form className="flex w-full -lg:px-5" onSubmit={postMessage}>
         <input
           placeholder="메시지를 입력해주세요."
-          className="w-full px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+          className="w-full px-2 py-3 mr-5 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
           onChange={onChange}
           value={inputValue}
         />
