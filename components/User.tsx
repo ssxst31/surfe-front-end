@@ -23,7 +23,7 @@ export default function User({ user }: any) {
             router.push(`/user/${user.id}`);
           }}
         />
-        <div className="mr-4 text-sm">{user.nickname}</div>
+        <div className="mr-4 text-sm w-[82px] break-all break-words">{user.nickname}</div>
       </div>
       <Link
         href={{
