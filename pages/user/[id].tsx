@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
 import { fetchUserProfile } from "pages/api/user";
+import { createProfile } from "utils/profile";
 
 const UserPage: NextPage = () => {
   const router = useRouter();
@@ -28,7 +29,11 @@ const UserPage: NextPage = () => {
     <div>
       <div className="flex -lg:flex-col ">
         <img
-          src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+          src={
+            profile.profile
+              ? `${createProfile()}` + profile.profile
+              : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+          }
           className="mr-2 shadow-2xl w-96 h-96 -lg:w-full"
           alt="profile"
         />
