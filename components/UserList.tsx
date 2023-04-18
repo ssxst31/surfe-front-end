@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { fetchUserListByMeDistance } from "pages/api/user";
 import { addLocation } from "pages/api/my";
@@ -8,9 +7,9 @@ import KakaoMap from "components/KakaoMap";
 import useMe from "hooks/useMe";
 import useGeolocation from "hooks/useGeolocation";
 import User from "components/User";
+import { createProfile } from "utils/profile";
 
 export default function UserList() {
-  const router = useRouter();
   const me = useMe();
   console.log(me);
   const [userList, setUserList] = useState<any>([]);
@@ -58,7 +57,7 @@ export default function UserList() {
             <img
               src={
                 me.profile
-                  ? "https://api.surfe.store/uploads/" + me.profile
+                  ? `${createProfile()}` + me.profile
                   : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
               }
               className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"

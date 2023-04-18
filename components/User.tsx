@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import useMe from "hooks/useMe";
+import { createProfile } from "utils/profile";
 
 export default function User({ user }: any) {
   const router = useRouter();
@@ -11,7 +12,11 @@ export default function User({ user }: any) {
     <div className="flex justify-between">
       <div className="flex">
         <img
-          src="https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+          src={
+            user.profile
+              ? `${createProfile()}` + user.profile
+              : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+          }
           className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
           alt="profile"
           onClick={() => {

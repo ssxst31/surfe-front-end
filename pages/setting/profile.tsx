@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 
 import useMe from "hooks/useMe";
 import { postThumbnail } from "pages/api/my";
+import { createProfile } from "utils/profile";
 import type { NextPage } from "next";
 
 const UserPage: NextPage = () => {
@@ -57,7 +58,7 @@ const UserPage: NextPage = () => {
             src={
               imgFile
                 ? imgFile ?? "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
-                : "https://api.surfe.store/uploads/" + me.profile
+                : `${createProfile()}` + me.profile
             }
             alt="프로필 이미지"
             className="w-24 h-24 rounded-[50%] mx-auto"
