@@ -59,7 +59,7 @@ const UserPage: NextPage = () => {
               <img
                 src={
                   !me.profile
-                    ? imgFile ?? "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+                    ? imgFile ?? "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
                     : `${createProfile()}` + me.profile
                 }
                 alt="프로필 이미지"
@@ -76,7 +76,7 @@ const UserPage: NextPage = () => {
             </h2>
             <input
               placeholder="이메일"
-              className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+              className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
               name="email"
               type="email"
               id="email"
@@ -91,7 +91,7 @@ const UserPage: NextPage = () => {
             </h2>
             <input
               placeholder="닉네임"
-              className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+              className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
               name="nickname"
               type="text"
               id="nickname"
@@ -106,7 +106,7 @@ const UserPage: NextPage = () => {
             </h2>
             <input
               placeholder="5글자이상 입력해주세요"
-              className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+              className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
               name="introduce"
               type="text"
               id="introduce"
@@ -121,7 +121,7 @@ const UserPage: NextPage = () => {
             </h2>
             <input
               placeholder="5글자이상 입력해주세요"
-              className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+              className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
               name="introduce"
               type="text"
               id="introduce"

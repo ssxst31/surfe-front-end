@@ -73,7 +73,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="이메일"
-            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+            className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={email}
             name="email"
             onChange={onChange}
@@ -89,7 +89,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="비밀번호"
-            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+            className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={password}
             name="password"
             onChange={onChange}
@@ -105,7 +105,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="비밀번호 재확인"
-            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+            className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={checkPassword}
             name="checkPassword"
             onChange={onChange}
@@ -121,7 +121,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="닉네임"
-            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+            className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={nickname}
             name="nickname"
             onChange={onChange}
@@ -176,7 +176,7 @@ export default function SignUp() {
           </h2>
           <input
             placeholder="5글자이상 입력해주세요"
-            className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
+            className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
             value={introduce}
             name="introduce"
             onChange={(e) => {

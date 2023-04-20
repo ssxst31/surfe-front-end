@@ -48,28 +48,34 @@ export default function UserList() {
         </div>
       </div>
       <div className="lg:fixed right-[calc(50vw-450px)] -lg:px-5">
-        <div className="flex -lg:hidden">
+        <div className="flex justify-between -lg:hidden">
+          <div className="flex">
+            <img
+              src={
+                me.profile
+                  ? `${createProfile()}` + me.profile
+                  : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
+              }
+              className="rounded-[50%] h-12 w-12 shadow-2xl mr-2"
+            />
+            <div>
+              <div className="text-sm">{me.nickname}</div>
+              <div className="text-sm">{me.introduce}</div>
+            </div>
+          </div>
+
           <Link
             href={{
               pathname: "/setting/profile",
             }}
           >
-            <img
-              src={
-                me.profile
-                  ? `${createProfile()}` + me.profile
-                  : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
-              }
-              className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
-            />
+            <button className="w-full px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600">
+              내 정보 수정
+            </button>
           </Link>
-          <div>
-            <div className="text-sm">{me.nickname}</div>
-            <div className="text-sm">{me.introduce}</div>
-          </div>
         </div>
         <div className="pt-5 mt-5 font-extrabold border-t border-gray-100 border-solid text-md">
-          마음에 드는 사람에게 말을 걸어보세요!
+          주변 사람과 채팅해 보세요🙌
         </div>
         {userList.length === 0 ? (
           <div className="text-center">없습니다.</div>
@@ -81,7 +87,7 @@ export default function UserList() {
           </div>
         )}
         <div className="pt-5 my-2 font-extrabold border-t border-gray-100 border-solid text-md">
-          단체 채팅도 한번 둘러보세요!
+          단체 채팅도 한번 둘러보세요✨
         </div>
         <Link
           href={{

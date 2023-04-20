@@ -40,7 +40,7 @@ export default function Main() {
       <form className="flex flex-col -lg:w-full" onSubmit={onSubmit}>
         <input
           placeholder="이메일"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -lg:w-full"
+          className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -lg:w-full"
           value={email}
           name="email"
           onChange={onChange}
@@ -50,7 +50,7 @@ export default function Main() {
         <input
           placeholder="비밀번호"
           type="password"
-          className="px-2 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -lg:w-full"
+          className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -lg:w-full"
           value={password}
           name="password"
           onChange={onChange}

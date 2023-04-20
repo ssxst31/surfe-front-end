@@ -32,7 +32,7 @@ const UserPage: NextPage = () => {
           src={
             profile.profile
               ? `${createProfile()}` + profile.profile
-              : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+              : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
           }
           className="mr-2 shadow-2xl w-96 h-96 -lg:w-full"
           alt="profile"

@@ -75,7 +75,7 @@ export default function Chat2({ roomName }: any) {
                   src={
                     chat.profile
                       ? `${createProfile()}` + chat.profile
-                      : "https://i.pinimg.com/236x/70/be/b2/70beb2f42ae1c4cfe7a32ec61a93c2f5.jpg"
+                      : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
                   }
                   className="rounded-[50%] h-10 w-10"
                   alt="profile"
@@ -95,16 +95,18 @@ export default function Chat2({ roomName }: any) {
         })}
         <div ref={scrollRef} />
       </div>
-      <form className="flex w-full -lg:px-5" onSubmit={postMessage}>
-        <input
-          placeholder="메시지를 입력해주세요."
-          className="w-full px-2 py-3 mr-5 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
-          onChange={onChange}
-          value={inputValue}
-        />
-        <button className="w-32 h-12 text-white bg-indigo-600 rounded-md" onClick={postMessage}>
-          전송하기
-        </button>
+      <form className="relative flex w-full -lg:px-5" onSubmit={postMessage}>
+        <div className="flex w-full px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:ring-indigo-500 ">
+          <input
+            placeholder="메시지를 입력해주세요."
+            className="w-full border-none focus:outline-none"
+            onChange={onChange}
+            value={inputValue}
+          />
+          <button>
+            <img src="/send.png" className="ml-5 w-7 h-7" onClick={postMessage} />
+          </button>
+        </div>
       </form>
     </div>
   );
