@@ -10,10 +10,10 @@ const PrivateChatPage: NextPage = () => {
   const me = useMe();
 
   const createRoomName = () => {
-    if (me.id > Number(search)) {
-      return `${Number(search)}_${me.id}`;
+    if (me.user_id > Number(search)) {
+      return `${Number(search)}_${me.user_id}`;
     } else {
-      return `${me.id}_${Number(search)}`;
+      return `${me.user_id}_${Number(search)}`;
     }
   };
 
