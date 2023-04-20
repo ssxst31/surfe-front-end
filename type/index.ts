@@ -3,4 +3,5 @@ export interface Chat {
   nickname: string;
   createAt: string;
   profile: any;
+  userId: any;
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 import useMe from "hooks/useMe";
 import ws from "datasources/ws";
@@ -71,15 +72,21 @@ export default function Chat2({ roomName }: any) {
           } else {
             return (
               <div key={index} className="flex w-full mb-2 space-x-4">
-                <img
-                  src={
-                    chat.profile
-                      ? `${createProfile()}` + chat.profile
-                      : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-                  }
-                  className="rounded-[50%] h-10 w-10"
-                  alt="profile"
-                />
+                <Link
+                  href={{
+                    pathname: `/user/${chat.userId}`,
+                  }}
+                >
+                  <img
+                    src={
+                      chat.profile
+                        ? `${createProfile()}` + chat.profile
+                        : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
+                    }
+                    className="rounded-[50%] h-10 w-10"
+                    alt="profile"
+                  />
+                </Link>
                 <div>
                   <div className="text-sm ">{chat.nickname}</div>
                   <div className="max-w-lg p-2 break-all bg-indigo-200 rounded-lg min-w-9 -lg:max-w-[12rem] -lg:text-xs text-sm">

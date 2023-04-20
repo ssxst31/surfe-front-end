@@ -9,18 +9,21 @@ export default function User({ user }: any) {
   return (
     <div className="flex justify-between">
       <div className="flex">
-        <img
-          src={
-            user.profile
-              ? `${createProfile()}` + user.profile
-              : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-          }
-          className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
-          alt="profile"
-          onClick={() => {
-            router.push(`/user/${user.id}`);
+        <Link
+          href={{
+            pathname: `/user/${user.id}`,
           }}
-        />
+        >
+          <img
+            src={
+              user.profile
+                ? `${createProfile()}` + user.profile
+                : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
+            }
+            className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
+            alt="profile"
+          />
+        </Link>
         <div className="mr-4 text-sm w-[82px] break-all break-words">{user.nickname}</div>
       </div>
       <Link

@@ -70,7 +70,14 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                       pathname: "/setting/profile",
                     }}
                   >
-                    <button className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg">내 프로필 수정</button>
+                    <button
+                      className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg"
+                      onClick={() => {
+                        setIsSidebar(false);
+                      }}
+                    >
+                      내 프로필 수정
+                    </button>
                   </Link>
                   <button
                     onClick={() => {

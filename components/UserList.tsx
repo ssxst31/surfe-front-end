@@ -11,7 +11,7 @@ import { createProfile } from "utils/profile";
 
 export default function UserList() {
   const me = useMe();
-  console.log(me);
+
   const [userList, setUserList] = useState<any>([]);
   const location = useGeolocation();
 
@@ -41,13 +41,13 @@ export default function UserList() {
             }}
             className={`${
               location.loaded ? "bg-blue-500 hover:bg-blue-600" : "bg-blue-100 cursor-default"
-            } text-white font-medium rounded-lg text-sm px-5 py-2.5 w-32 lg:mb-44`}
+            } text-white font-medium rounded-lg text-sm px-5 py-2.5 w-32 lg:mb-44 -lg:mr-5`}
           >
             위치 업데이트
           </button>
         </div>
       </div>
-      <div className="lg:fixed right-[calc(50vw-450px)] -lg:px-5">
+      <div className="lg:fixed right-[calc(50vw-450px)] -lg:px-5 w-[256px] -lg:w-auto">
         <div className="flex justify-between -lg:hidden">
           <div className="flex">
             <img
@@ -63,7 +63,6 @@ export default function UserList() {
               <div className="text-sm">{me.introduce}</div>
             </div>
           </div>
-
           <Link
             href={{
               pathname: "/setting/profile",
