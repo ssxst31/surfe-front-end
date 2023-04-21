@@ -90,7 +90,7 @@ export default function UserList() {
         ) : (
           <div className=" max-h-[343px] overflow-y-scroll space-y-3 mt-2">
             {userList.map((user: any) => (
-              <User key={user.id} user={user} />
+              <User key={user.id} user={user} loadUserList={loadUserList} />
             ))}
           </div>
         )}
