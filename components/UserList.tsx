@@ -41,7 +41,7 @@ export default function UserList() {
             }}
             className={`${
               location.loaded ? "bg-blue-500 hover:bg-blue-600" : "bg-blue-100 cursor-default"
-            } text-white font-medium rounded-lg text-sm px-5 py-2.5 w-32 lg:mb-44 -lg:mr-5`}
+            } text-white font-medium rounded-lg text-sm px-5 py-2.5 w-32 lg:mb-44 -lg:mr-5 -lg:mb-5`}
           >
             위치 업데이트
           </button>
@@ -69,11 +69,20 @@ export default function UserList() {
             }}
           >
             <button className="w-full px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600">
-              내 정보 수정
+              내 프로필 수정
             </button>
           </Link>
         </div>
-        <div className="pt-5 mt-5 font-extrabold border-t border-gray-100 border-solid text-md">
+        <Link
+          href={{
+            pathname: "/my/friendList",
+          }}
+        >
+          <button className="w-full px-4 py-2 my-5 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 -lg:hidden">
+            친구 관리
+          </button>
+        </Link>
+        <div className="pt-5 font-extrabold border-t border-gray-100 border-solid text-md">
           주변 사람과 채팅해 보세요🙌
         </div>
         {userList.length === 0 ? (
