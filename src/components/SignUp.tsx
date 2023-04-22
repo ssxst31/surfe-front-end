@@ -2,7 +2,9 @@ import { useState } from "react";
 
 import { createUser } from "pages/api/auth";
 import { INTERESTS, MBTIS } from "consts";
+import Image from "next/image";
 
+import Images from "assets/images";
 export default function SignUp() {
   const [inputs, setInputs] = useState<any>({
     email: "",
@@ -60,7 +62,9 @@ export default function SignUp() {
     <div className="flex flex-col items-center mx-5 text-center mt-14">
       <div className="flex flex-col">
         <h1>
-          <img src="title.png" width={200} height={96} />
+          <div className="relative h-20 w-52">
+            <Image src={Images.BlueTitle} fill alt="d2" />
+          </div>
           <div className="mb-5 text-sm text-center">주위의 다양한 사람들과 채팅해보세요</div>
         </h1>
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import useMe from "hooks/useMe";
+import useMe from "src/hooks/useMe";
 
 export default function UnLoginWrapper({ children }: any) {
   const me = useMe();

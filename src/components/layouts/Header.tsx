@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { logOut } from "pages/api/auth";
+import Images from "assets/images";
 
 export default function Header({ setIsSidebar, me }: any) {
   const signOut = async () => {
@@ -14,7 +16,9 @@ export default function Header({ setIsSidebar, me }: any) {
     <div className="fixed w-full bg-blue-400 z-[2] -lg:px-5 shadow-xl text-center ">
       <div className="inline-flex items-center justify-between w-full max-w-4xl mx-auto">
         <Link href="/">
-          <img src="/title2.png" width={96} height={96} />
+          <div className="relative w-24 h-14">
+            <Image src={Images.WhiteTitle} alt="logo" fill />
+          </div>
         </Link>
         <div className="flex">
           {me ? (
@@ -26,14 +30,14 @@ export default function Header({ setIsSidebar, me }: any) {
               <button className="block p-1 text-white w-14 -lg:hidden">로그인</button>
             </Link>
           )}
-          <img
-            src="/hamburgerMenu.png"
-            width={20}
-            height={20}
-            className="hidden -lg:block"
+
+          <Image
+            src={Images.HamburgerMenu}
+            alt="logo"
             onClick={() => {
               setIsSidebar((prev: boolean) => !prev);
             }}
+            className="hidden -lg:block"
           />
         </div>
       </div>

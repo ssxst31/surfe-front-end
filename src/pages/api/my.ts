@@ -1,4 +1,4 @@
-import customAxios from "pages/api";
+import customAxios from "src/pages/api";
 
 export async function fetchProfile() {
   return await customAxios.get<null, any>("/my/profile", {});

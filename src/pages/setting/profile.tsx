@@ -4,6 +4,8 @@ import useMe from "hooks/useMe";
 import { postThumbnail } from "pages/api/my";
 import { createProfile } from "utils/profile";
 import type { NextPage } from "next";
+import Image from "next/image";
+import Images from "assets/images";
 
 const UserPage: NextPage = () => {
   const me = useMe();
@@ -65,7 +67,9 @@ const UserPage: NextPage = () => {
                 alt="프로필 이미지"
                 className="w-24 h-24 rounded-[50%] mx-auto"
               />
-              <img src="/edit.png" alt="편집" className="absolute bottom-2 w-6 h-6 right-[40%]" />
+              <div className="absolute bottom-2 w-6 h-6 right-[40%]">
+                <Image src={Images.Edit} fill alt="편집" />
+              </div>
             </div>
           </div>
           <div className="-sm:w-full">

@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-
+import Image from "next/image";
 import useMe from "hooks/useMe";
 import ws from "datasources/ws";
 import { Chat } from "type";
 import { createProfile } from "utils/profile";
+import Images from "assets/images";
 
 export default function Chat2({ roomName }: any) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -128,7 +129,9 @@ export default function Chat2({ roomName }: any) {
             value={inputValue}
           />
           <button>
-            <img src="/send.png" className="ml-5 w-7 h-7" onClick={postMessage} />
+            <div className="relative ml-5 w-7 h-7">
+              <Image src={Images.Send} fill onClick={postMessage} alt="send" />
+            </div>
           </button>
         </div>
       </form>

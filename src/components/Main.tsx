@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { login } from "pages/api/auth";
+import Images from "assets/images";
 
 export default function Main() {
   const [inputs, setInputs] = useState<any>({
@@ -35,7 +37,9 @@ export default function Main() {
 
   return (
     <div className="flex flex-col items-center mx-5 text-center mt-14">
-      <img src="title.png" width={200} height={96} />
+      <div className="relative h-20 w-52">
+        <Image src={Images.BlueTitle} fill alt="d2" />
+      </div>
       <div className="mb-5 text-sm">주위의 다양한 사람들과 채팅해보세요</div>
       <form className="flex flex-col -lg:w-full" onSubmit={onSubmit}>
         <input

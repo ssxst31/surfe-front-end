@@ -6,7 +6,9 @@ import Header from "components/layouts/Header";
 import Footer from "components/layouts/Footer";
 import useMe from "hooks/useMe";
 import { createProfile } from "utils/profile";
+import Image from "next/image";
 
+import Images from "assets/images";
 interface ResponsiveContainerProps {
   children: JSX.Element | JSX.Element[];
 }
@@ -44,7 +46,9 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
               e.stopPropagation();
             }}
           >
-            <img src="/title.png" width={96} height={96} />
+            <div className="relative w-24 h-11">
+              <Image src={Images.BlueTitle} fill alt="title" />
+            </div>
             {me ? (
               <div className="text-black">
                 <div className="flex items-center my-4">
