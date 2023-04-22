@@ -42,7 +42,7 @@ const UserPage: NextPage = () => {
           <div className="text-2xl">{profile.mbti}</div>
           <div className="flex mt-2 space-x-2">
             {profile.interestList.map((el: any) => (
-              <div className="px-2 py-1 text-white bg-red-200 rounded-lg">{el}</div>
+              <div className="px-2 py-1 text-black border-2 border-blue-500 border-solid rounded-lg">{el}</div>
             ))}
           </div>
           <div className="mt-2">{profile.introduce}</div>
