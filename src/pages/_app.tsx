@@ -11,7 +11,7 @@ import UnLoginWrapper from "components/UnLoginWrapper";
 
 import "styles/globals.css";
 
-const myFont = localFont({ src: "./NanumSquareR.woff2" });
+const myFont = localFont({ src: "../assets/fonts/NanumSquareR.woff2" });
 
 MyApp.getInitialProps = async ({ Component, router, ctx }: any) => {
   let pageProps = {};
