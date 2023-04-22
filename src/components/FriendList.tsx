@@ -3,9 +3,10 @@ import Link from "next/link";
 
 import * as apiMy from "pages/api/my";
 import { createProfile } from "utils/profile";
+import { Friend } from "type/index";
 
 const FriendList = () => {
-  const [friendList, setFriendList] = useState<any>([]);
+  const [friendList, setFriendList] = useState<Friend[]>([]);
 
   const loadFriendList = async () => {
     const res = await apiMy.fetchFriendList();
@@ -23,7 +24,7 @@ const FriendList = () => {
         친구 <div className="font-bold text-blue-500">{friendList.length}</div>명
       </div>
       <ul>
-        {friendList.map((friend: any) => (
+        {friendList.map((friend) => (
           <li key={friend.userId} className="relative flex justify-between p-3 rounded-md hover:bg-gray-100">
             <div className="flex">
               <Link

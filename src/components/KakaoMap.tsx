@@ -5,7 +5,13 @@ const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT
 
 const filteredDistance = 5;
 
-const KakaoMap = ({ userListCount, myLat, myLng }: any) => {
+interface KakaoMapProps {
+  userListCount: number;
+  myLat: number;
+  myLng: number;
+}
+
+const KakaoMap = ({ userListCount, myLat, myLng }: KakaoMapProps) => {
   return (
     <>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />

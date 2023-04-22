@@ -6,12 +6,12 @@ import { login } from "pages/api/auth";
 import Images from "assets/images";
 
 export default function Main() {
-  const [inputs, setInputs] = useState<any>({
+  const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
 
-  const onChange = (e: any) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     setInputs({
       ...inputs,

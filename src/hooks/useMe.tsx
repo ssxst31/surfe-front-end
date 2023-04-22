@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useRecoilValueLoadable, RecoilEnv } from "recoil";
+import { useRecoilValueLoadable, RecoilEnv, Loadable } from "recoil";
 
 import MemberContext from "contexts/member";
 import { myProfileSelector } from "store";
@@ -8,7 +8,7 @@ export const IS_LOADING = 0;
 
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
-function getReturnValue(loadable: any, defaultValue: any) {
+function getReturnValue(loadable: Loadable<any>, defaultValue: any) {
   switch (loadable.state) {
     case "hasValue":
       const value = loadable.contents;

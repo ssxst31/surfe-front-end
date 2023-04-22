@@ -2,11 +2,17 @@ import Link from "next/link";
 
 import { createProfile } from "utils/profile";
 import { addFriend, deleteFriend } from "pages/api/my";
+import { User } from "type/index";
 
-export default function User({ user, loadUserList }: any) {
+interface UserProps {
+  user: User;
+  loadUserList: any;
+}
+
+export default function User2({ user, loadUserList }: UserProps) {
   const postFriend = async () => {
     try {
-      const dsa = await addFriend(user.id);
+      await addFriend(user.id);
       await loadUserList();
     } catch (error: any) {
       alert(error.response.data.message);
@@ -15,7 +21,7 @@ export default function User({ user, loadUserList }: any) {
 
   const deleteFriend2 = async () => {
     try {
-      const dsa = await deleteFriend(user.id);
+      await deleteFriend(user.id);
       await loadUserList();
     } catch (error: any) {
       alert(error.response.data.message);

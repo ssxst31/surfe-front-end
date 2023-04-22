@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import * as apiMy from "pages/api/my";
 import { createProfile } from "utils/profile";
+import { Friend } from "type/index";
 
 const FriendRequestList = () => {
-  const [friendRequestList, setFriendRequestList] = useState<any>([]);
+  const [friendRequestList, setFriendRequestList] = useState<Friend[]>([]);
 
-  const postFriend = async (userId: any) => {
+  const postFriend = async (userId: string) => {
     try {
       apiMy.addFriend(userId);
     } catch (error: any) {
@@ -30,8 +31,8 @@ const FriendRequestList = () => {
         요청 <div className="font-bold text-blue-500">{friendRequestList.length}</div>개
       </div>
       <ul>
-        {friendRequestList.map((friend: any) => (
-          <li key={friend.id} className="relative flex justify-between p-3 rounded-md hover:bg-gray-100">
+        {friendRequestList.map((friend) => (
+          <li key={friend.userId} className="relative flex justify-between p-3 rounded-md hover:bg-gray-100">
             <div className="flex">
               <img
                 src={

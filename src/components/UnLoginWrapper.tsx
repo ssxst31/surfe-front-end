@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import useMe from "src/hooks/useMe";
+import useMe from "hooks/useMe";
 
-export default function UnLoginWrapper({ children }: any) {
+interface UnLoginWrapperProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+export default function UnLoginWrapper({ children }: UnLoginWrapperProps) {
   const me = useMe();
   const router = useRouter();
   const currentPage = router.pathname;

@@ -7,7 +7,11 @@ import { Chat } from "type";
 import { createProfile } from "utils/profile";
 import Images from "assets/images";
 
-export default function Chat2({ roomName }: any) {
+interface ChatProps {
+  roomName: string;
+}
+
+export default function Chat2({ roomName }: ChatProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const me = useMe();
@@ -17,7 +21,7 @@ export default function Chat2({ roomName }: any) {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
 
-    ws.on("RECEIVE_MESSAGE", (data: any) => {
+    ws.on("RECEIVE_MESSAGE", (data: { chatList: Chat[] }) => {
       setChatList(data.chatList);
     });
   }, [ws, chatList]);
@@ -51,7 +55,7 @@ export default function Chat2({ roomName }: any) {
   };
   let lastDate = "";
 
-  const createLastDate = (date: any) => {
+  const createLastDate = (date: string) => {
     if (date !== lastDate) {
       lastDate = date;
       return lastDate;

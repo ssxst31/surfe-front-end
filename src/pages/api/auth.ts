@@ -1,6 +1,6 @@
 import customAxios from "pages/api";
 
-export async function createUser(inputs: any, interestList: any, mbti: any, introduce: any) {
+export async function createUser(inputs: any, interestList: string[], mbti: string, introduce: string) {
   const { email, password, nickname } = inputs;
 
   return await customAxios.post<null, any>(`/auth/create`, {
@@ -13,7 +13,7 @@ export async function createUser(inputs: any, interestList: any, mbti: any, intr
   });
 }
 
-export async function login({ email, password }: any) {
+export async function login({ email, password }: { email: string; password: string }) {
   return await customAxios.post<null, any>(`/auth/login`, {
     email,
     password,

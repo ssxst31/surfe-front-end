@@ -3,9 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { logOut } from "pages/api/auth";
+import { Me } from "type";
 import Images from "assets/images";
 
-export default function Header({ setIsSidebar, me }: any) {
+interface HeaderProps {
+  setIsSidebar: React.Dispatch<React.SetStateAction<boolean>>;
+  me: Me;
+}
+
+export default function Header({ setIsSidebar, me }: HeaderProps) {
   const signOut = async () => {
     await logOut();
 

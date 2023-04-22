@@ -3,7 +3,11 @@ import { useRouter } from "next/router";
 
 import useMe from "hooks/useMe";
 
-export default function LoginWrapper({ children }: any) {
+interface LoginWrapperProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+export default function LoginWrapper({ children }: LoginWrapperProps) {
   const me = useMe();
   const router = useRouter();
   const currentPage = router.pathname;

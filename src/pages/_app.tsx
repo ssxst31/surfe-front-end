@@ -8,6 +8,7 @@ import DefaultSEO from "pages/DefaultSEO";
 import DefaultLayout from "components/layouts/DefaultLayout";
 import LoginWrapper from "components/LoginWrapper";
 import UnLoginWrapper from "components/UnLoginWrapper";
+import type { AppProps } from "next/app";
 
 import "styles/globals.css";
 
@@ -40,7 +41,11 @@ MyApp.getInitialProps = async ({ Component, router, ctx }: any) => {
   };
 };
 
-function MyApp({ Component, pageProps, me }: any) {
+interface CustomAppProps extends AppProps {
+  me: null;
+}
+
+function MyApp({ Component, pageProps, me }: CustomAppProps) {
   return (
     <>
       <DefaultSEO />

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
+import { Profile } from "type";
 import { fetchUserProfile } from "pages/api/user";
 import { createProfile } from "utils/profile";
 
@@ -9,7 +10,7 @@ const UserPage: NextPage = () => {
   const router = useRouter();
 
   const { id } = router.query;
-  const [profile, setProfile] = useState<any>();
+  const [profile, setProfile] = useState<Profile>();
 
   const loadUserProfile = async () => {
     const res = await fetchUserProfile(id);

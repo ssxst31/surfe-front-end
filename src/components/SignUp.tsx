@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { createUser } from "pages/api/auth";
 import { INTERESTS, MBTIS } from "consts";
@@ -6,19 +6,19 @@ import Image from "next/image";
 
 import Images from "assets/images";
 export default function SignUp() {
-  const [inputs, setInputs] = useState<any>({
+  const [inputs, setInputs] = useState({
     email: "",
     password: "",
     checkPassword: "",
     nickname: "",
   });
-  const [interestList, setInterestList] = useState<any>([]);
-  const [mbti, setMbti] = useState<any>();
-  const [introduce, setIntroduce] = useState<any>("");
+  const [interestList, setInterestList] = useState<string[]>([]);
+  const [mbti, setMbti] = useState("");
+  const [introduce, setIntroduce] = useState("");
 
   const { email, password, checkPassword, nickname } = inputs;
 
-  const onChange = (e: any) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     setInputs({
       ...inputs,
@@ -46,7 +46,7 @@ export default function SignUp() {
     if (interestList.length >= 3 && !interestList.includes(interest)) return alert("최대 3개 까지만 선택가능합니다.");
 
     if (interestList.includes(interest)) {
-      const interestListFiltered = interestList.filter((el: any) => el !== interest);
+      const interestListFiltered = interestList.filter((el) => el !== interest);
       setInterestList(interestListFiltered);
     } else {
       const newInterestList = interestList.concat(interest);
@@ -54,7 +54,7 @@ export default function SignUp() {
     }
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setMbti(e.target.value);
   };
 
@@ -164,7 +164,7 @@ export default function SignUp() {
               onChange={handleChange}
               value={mbti}
             >
-              {MBTIS.map((el: any) => (
+              {MBTIS.map((el) => (
                 <option value={el.content} key={el.id}>
                   {el.content}
                 </option>
