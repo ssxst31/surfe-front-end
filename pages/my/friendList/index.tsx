@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Tab } from "@headlessui/react";
-import { addFriend, deleteFriend } from "pages/api/my";
+import Link from "next/link";
+
 import * as apiMy from "pages/api/my";
 import { createProfile } from "utils/profile";
 import type { NextPage } from "next";
@@ -56,21 +57,27 @@ const FriendListPage: NextPage = () => {
           <Tab.Panels className="mt-2">
             <Tab.Panel className="outline-none ring-white ring-opacity-60 ">
               <div className="flex">
-                친구 <div className="font-bold text-blue-400">{friendList.length}</div>명
+                친구 <div className="font-bold text-blue-500">{friendList.length}</div>명
               </div>
               <ul>
                 {friendList.map((friend: any) => (
-                  <li key={friend.id} className="relative flex justify-between p-3 rounded-md hover:bg-gray-100">
+                  <li key={friend.userId} className="relative flex justify-between p-3 rounded-md hover:bg-gray-100">
                     <div className="flex">
-                      <img
-                        src={
-                          friend.profile
-                            ? `${createProfile()}` + friend.profile
-                            : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-                        }
-                        className="rounded-[50%] h-14 w-14 mr-4"
-                        alt="profile"
-                      />
+                      <Link
+                        href={{
+                          pathname: `/user/${friend.userId}`,
+                        }}
+                      >
+                        <img
+                          src={
+                            friend.profile
+                              ? `${createProfile()}` + friend.profile
+                              : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
+                          }
+                          className="rounded-[50%] h-14 w-14 mr-4"
+                          alt="profile"
+                        />
+                      </Link>
                       <div>
                         <div>
                           <span>{friend.nickname}</span>
@@ -93,7 +100,7 @@ const FriendListPage: NextPage = () => {
             </Tab.Panel>
             <Tab.Panel className="outline-none ring-white ring-opacity-60 ">
               <div className="flex">
-                요청 <div className="font-bold text-blue-400">{friendRequestList.length}</div>개
+                요청 <div className="font-bold text-blue-500">{friendRequestList.length}</div>개
               </div>
               <ul>
                 {friendRequestList.map((friend: any) => (

@@ -48,23 +48,40 @@ export default function Chat2({ roomName }: any) {
       setInputValue("");
     }
   };
+  let lastDate = "";
+
+  const createLastDate = (date: any) => {
+    if (date !== lastDate) {
+      lastDate = date;
+      return lastDate;
+    }
+  };
 
   return (
     <div className="flex flex-col items-center w-full h-[calc(100vh-216px)]">
       <div className="w-full h-full px-5 overflow-scroll">
         {chatList.map((chat, index) => {
-          let hours = new Date(chat.createAt).getHours();
-          let minutes = new Date(chat.createAt).getMinutes();
+          const createAt = new Date(chat.createAt);
+          var month = createAt.getMonth() + 1;
+          var day = createAt.getDate();
+          var year = createAt.getFullYear();
+          let hours = String(createAt.getHours()).padStart(2, "0");
+          let minutes = String(createAt.getMinutes()).padStart(2, "0");
+
+          const date = year + "년 " + month + "월 " + day + "일";
 
           if (chat.nickname === me.nickname) {
             return (
-              <div key={index} className="flex justify-end w-full mb-2 space-x-4">
-                <div className="flex flex-col-reverse text-xs">
-                  {hours}:{minutes}
-                </div>
-                <div className="flex flex-col">
-                  <div className="max-w-lg p-2  break-all bg-indigo-200 rounded-lg min-w-9 -lg:max-w-[12rem] -lg:text-xs text-sm">
-                    {chat.content}
+              <div key={index}>
+                <div className="mx-auto text-sm text-center">{createLastDate(date)}</div>
+                <div className="flex justify-end w-full mb-2 space-x-4">
+                  <div className="flex flex-col-reverse text-xs">
+                    {hours}:{minutes}
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="max-w-lg p-2  break-all bg-indigo-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm">
+                      {chat.content}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -88,8 +105,8 @@ export default function Chat2({ roomName }: any) {
                   />
                 </Link>
                 <div>
-                  <div className="text-sm ">{chat.nickname}</div>
-                  <div className="max-w-lg p-2 break-all bg-indigo-200 rounded-lg min-w-9 -lg:max-w-[12rem] -lg:text-xs text-sm">
+                  <div className="text-sm">{chat.nickname}</div>
+                  <div className="max-w-lg p-2 break-all bg-gray-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm">
                     {chat.content}
                   </div>
                 </div>

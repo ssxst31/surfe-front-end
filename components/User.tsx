@@ -44,7 +44,7 @@ export default function User({ user, loadUserList }: any) {
       </div>
       {user.friendStatus === "requesting" && (
         <button
-          className="px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+          className="h-8 px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600"
           onClick={deleteFriend2}
         >
           요청완료
@@ -52,7 +52,7 @@ export default function User({ user, loadUserList }: any) {
       )}
       {user.friendStatus === "other" && (
         <button
-          className="px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+          className="h-8 px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600"
           onClick={postFriend}
         >
           친구요청
