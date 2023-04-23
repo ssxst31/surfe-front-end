@@ -6,7 +6,7 @@ import FriendList from "components/FriendList";
 import FriendRequestList from "components/FriendRequestList";
 
 const FriendListPage: NextPage = () => {
-  const tabList = ["내 친구", "친구 요청"];
+  const tabList = ["내 친구", "받은 요청"];
 
   return (
     <div>
