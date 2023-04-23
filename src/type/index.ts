@@ -2,8 +2,9 @@ export interface Chat {
   content: string;
   nickname: string;
   createAt: string;
-  profile: any;
-  userId: any;
+  profile: null | string;
+  userId: number;
+  id: number;
 }
 
 export interface Friend {
