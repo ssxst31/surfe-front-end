@@ -12,7 +12,7 @@ interface UserProps {
 export default function User2({ user, loadUserList }: UserProps) {
   const postFriend = async () => {
     try {
-      await addFriend(user.id);
+      await addFriend(String(user.id));
       await loadUserList();
     } catch (error: any) {
       alert(error.response.data.message);
