@@ -14,6 +14,7 @@ declare global {
   interface Window {
     kakao: any;
   }
+  const kakao: any;
 }
 
 const NEXT_PUBLIC_KAKAO_KEY = process.env.NEXT_PUBLIC_KAKAO_APP_KEY;
