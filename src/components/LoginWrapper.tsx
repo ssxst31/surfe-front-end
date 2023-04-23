@@ -19,7 +19,7 @@ export default function LoginWrapper({ children }: LoginWrapperProps) {
     if (!me && !isPublicPage) {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
   if (!isPublicPage && !me) {
     return <div />;

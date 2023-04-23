@@ -18,7 +18,7 @@ export default function UnLoginWrapper({ children }: UnLoginWrapperProps) {
 
   useEffect(() => {
     if (me && isPublicPage) {
-      window.location.href = "/userList";
+      router.push("/userList");
     }
   }, [router]);
 

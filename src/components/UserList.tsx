@@ -130,6 +130,28 @@ export default function UserList() {
             단체 채팅
           </button>
         </Link>
+        <div className="mt-3">
+          <button
+            onClick={() => {
+              alert("준비 중입니다.");
+            }}
+            className="text-sm text-gray-300"
+          >
+            이용약관
+          </button>
+          <div
+            onClick={() => {
+              alert("준비 중입니다.");
+            }}
+            className="text-sm text-gray-300"
+          >
+            개인정보처리방침
+          </div>
+          <Link href="https://icons8.com" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300">
+            <span className="text-right">icons8에서 아이콘 제공</span>
+          </Link>
+          <small className="block text-sm text-gray-300">ⓒ 서피 2023 All Rights Reserved.</small>
+        </div>
       </div>
     </div>
   );

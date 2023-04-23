@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { logOut } from "pages/api/auth";
 import Header from "components/layouts/Header";
-import Footer from "components/layouts/Footer";
-import useMe from "hooks/useMe";
 import { createProfile } from "utils/profile";
-import Image from "next/image";
-
+import useMe from "hooks/useMe";
 import Images from "assets/images";
 interface ResponsiveContainerProps {
   children: JSX.Element | JSX.Element[];
@@ -125,7 +123,6 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
       <Header setIsSidebar={setIsSidebar} me={me} />
       <div className="w-full h-14" />
       <div className="max-w-4xl mx-auto">{children}</div>
-      <Footer />
     </div>
   );
 }
