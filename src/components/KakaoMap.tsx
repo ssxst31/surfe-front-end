@@ -81,4 +81,4 @@ const KakaoMap = ({ userListCount, myLat, myLng }: KakaoMapProps) => {
   );
 };
 
-export default KakaoMap;
+export default React.memo(KakaoMap);
