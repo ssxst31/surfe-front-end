@@ -31,6 +31,17 @@ const useGeolocation = () => {
     });
   };
 
+  const update = () => {
+    setLocation({
+      loaded: false,
+      coordinates: {
+        lat: 0,
+        lng: 0,
+      },
+    });
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  };
+
   useEffect(() => {
     // navigator 객체 안에 geolocation이 없다면
     // 위치 정보가 없는 것.
@@ -40,10 +51,10 @@ const useGeolocation = () => {
         message: "Geolocation not supported",
       });
     }
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    update();
   }, []);
 
-  return location;
+  return { location, update };
 };
 
 export default useGeolocation;
