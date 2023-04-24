@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { fetchUserListByMeDistance } from "pages/api/user";
+import { fetchUserListByMeDistance } from "pages/api/users";
 import { addLocation } from "pages/api/my";
 import KakaoMap from "components/KakaoMap";
 import useMe from "hooks/useMe";

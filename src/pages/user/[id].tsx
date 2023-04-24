@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
 import { Profile } from "type";
-import { fetchUserProfile } from "pages/api/user";
+import { fetchUserProfile } from "pages/api/users";
 import { createProfile } from "utils/profile";
 
 const UserPage: NextPage = () => {

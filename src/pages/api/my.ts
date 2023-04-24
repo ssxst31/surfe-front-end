@@ -25,21 +25,21 @@ export async function postThumbnail(formData: FormData) {
 }
 
 export async function addFriend(friendId: string) {
-  return await customAxios.post<null, any>("/my/addFriend", {
+  return await customAxios.post<null, any>("/my/friends", {
     friendId,
   });
 }
 
 export async function deleteFriend(friendId: number) {
-  return await customAxios.post<null, any>("/my/deleteFriend", {
+  return await customAxios.post<null, any>("/my/friends/cancel", {
     friendId,
   });
 }
 
 export async function fetchFriendList() {
-  return await customAxios.get<null, Friend[]>("/my/friendList");
+  return await customAxios.get<null, Friend[]>("/my/friends");
 }
 
 export async function fetchFriendRequestList() {
-  return await customAxios.get<null, Friend[]>("/my/friendRequestList");
+  return await customAxios.get<null, Friend[]>("/my/friend-requests");
 }

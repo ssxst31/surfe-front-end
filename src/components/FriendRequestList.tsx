@@ -9,7 +9,8 @@ const FriendRequestList = () => {
 
   const postFriend = async (userId: string) => {
     try {
-      apiMy.addFriend(userId);
+      await apiMy.addFriend(userId);
+      loadFriendRequestList();
     } catch (error: any) {
       alert(error.response.data.message);
     }

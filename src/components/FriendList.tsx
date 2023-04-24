@@ -8,6 +8,13 @@ import { Friend } from "type/index";
 const FriendList = () => {
   const [friendList, setFriendList] = useState<Friend[]>([]);
 
+  const deleteFriend = async (friendId: number) => {
+    if (confirm("정말 삭제하시겠습니까?")) {
+      await apiMy.deleteFriend(friendId);
+      loadFriendList();
+    }
+  };
+
   const loadFriendList = async () => {
     const res = await apiMy.fetchFriendList();
 
@@ -53,7 +60,7 @@ const FriendList = () => {
             <button
               className="w-20 px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600"
               onClick={() => {
-                alert("준비중입니다.");
+                deleteFriend(Number(friend.userId));
               }}
             >
               삭제
