@@ -24,7 +24,7 @@ export async function postThumbnail(formData: FormData) {
   return await customAxios.post<null, any>("/my/upload", formData);
 }
 
-export async function addFriend(friendId: string) {
+export async function addFriend(friendId: number) {
   return await customAxios.post<null, any>("/my/friends", {
     friendId,
   });

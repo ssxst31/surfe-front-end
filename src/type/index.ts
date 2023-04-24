@@ -12,7 +12,7 @@ export interface Friend {
   mbti: string;
   nickname: string;
   profile: null | string;
-  userId: string;
+  userId: number;
 }
 
 export interface User {

@@ -7,7 +7,7 @@ import { Friend } from "type/index";
 const FriendRequestList = () => {
   const [friendRequestList, setFriendRequestList] = useState<Friend[]>([]);
 
-  const postFriend = async (userId: string) => {
+  const postFriend = async (userId: number) => {
     try {
       await apiMy.addFriend(userId);
       loadFriendRequestList();
