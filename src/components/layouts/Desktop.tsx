@@ -121,7 +121,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
         </div>
       )}
       <Header setIsSidebar={setIsSidebar} me={me} />
-      <div className="w-full h-14" />
+      <div className="w-full h-[60px]" />
       <div className="max-w-4xl mx-auto">{children}</div>
     </div>
   );

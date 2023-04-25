@@ -19,12 +19,10 @@ export default function Header({ setIsSidebar, me }: HeaderProps) {
   };
 
   return (
-    <div className="fixed w-full bg-blue-400 z-[2] -lg:px-5 shadow-xl text-center ">
-      <div className="inline-flex items-center justify-between w-full max-w-4xl mx-auto">
+    <div className="fixed w-full bg-blue-400 z-[2] -lg:px-5 shadow-xl text-center py-3">
+      <div className="flex items-center justify-between w-full max-w-4xl mx-auto">
         <Link href="/">
-          <div className="relative w-24 h-14">
-            <Image src={Images.WhiteTitle} alt="logo" fill />
-          </div>
+          <Image src={Images.WhiteTitle} alt="logo" width={70} />
         </Link>
         <div className="flex">
           {me ? (
@@ -36,7 +34,6 @@ export default function Header({ setIsSidebar, me }: HeaderProps) {
               <button className="block p-1 text-white w-14 -lg:hidden">로그인</button>
             </Link>
           )}
-
           <Image
             src={Images.HamburgerMenu}
             alt="logo"

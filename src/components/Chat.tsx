@@ -63,7 +63,7 @@ export default function Chat2({ roomName }: ChatProps) {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-[calc(100vh-216px)]">
+    <div className="flex flex-col items-center w-full h-[calc(100vh-55px)]">
       <div className="w-full h-full px-5 overflow-scroll">
         {chatList.map((chat, index) => {
           const createAt = new Date(chat.createAt);
