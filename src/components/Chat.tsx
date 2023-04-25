@@ -84,7 +84,7 @@ export default function Chat2({ roomName }: ChatProps) {
                     {hours}:{minutes}
                   </div>
                   <div className="flex flex-col">
-                    <div className="max-w-lg p-2  break-all bg-indigo-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm">
+                    <div className="max-w-lg p-2  break-all bg-indigo-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm after:content-[''] relative after:absolute after:border-transparent after:border-[18px] after:border-solid after:w-0 after:h-0 after:border-t-0 after:border-r-0 after:border-l-indigo-100 ">
                       {chat.content}
                     </div>
                   </div>
@@ -111,7 +111,7 @@ export default function Chat2({ roomName }: ChatProps) {
                 </Link>
                 <div>
                   <div className="text-sm">{chat.nickname}</div>
-                  <div className="max-w-lg p-2 break-all bg-gray-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm">
+                  <div className="max-w-lg p-2 break-all bg-gray-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm before:content-[''] relative before:absolute before:border-transparent before:border-[18px] before:border-solid before:w-0 before:h-0 before:border-t-0 before:border-l-0 before:border-r-gray-100 before:left-[-10px]">
                     {chat.content}
                   </div>
                 </div>
