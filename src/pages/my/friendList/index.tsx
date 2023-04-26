@@ -4,9 +4,10 @@ import { Tab } from "@headlessui/react";
 import type { NextPage } from "next";
 import FriendList from "components/FriendList";
 import FriendRequestList from "components/FriendRequestList";
+import FriendReceiveList from "components/FriendReceiveList";
 
 const FriendListPage: NextPage = () => {
-  const tabList = ["내 친구", "받은 요청"];
+  const tabList = ["내 친구", "받은 요청", "보낸 요청"];
 
   return (
     <div>
@@ -28,6 +29,9 @@ const FriendListPage: NextPage = () => {
           <Tab.Panels className="mt-2">
             <Tab.Panel className="outline-none ring-white ring-opacity-60 ">
               <FriendList />
+            </Tab.Panel>
+            <Tab.Panel className="outline-none ring-white ring-opacity-60 ">
+              <FriendReceiveList />
             </Tab.Panel>
             <Tab.Panel className="outline-none ring-white ring-opacity-60 ">
               <FriendRequestList />

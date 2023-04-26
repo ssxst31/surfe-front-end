@@ -43,3 +43,7 @@ export async function fetchFriendList() {
 export async function fetchFriendRequestList() {
   return await customAxios.get<null, Friend[]>("/my/friend-requests");
 }
+
+export async function fetchFriendReceiveList() {
+  return await customAxios.get<null, Friend[]>("/my/friend-receives");
+}
