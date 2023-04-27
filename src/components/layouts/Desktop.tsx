@@ -4,9 +4,11 @@ import Image from "next/image";
 
 import { logOut } from "pages/api/auth";
 import Header from "components/layouts/Header";
+import MobileBottomNav from "components/layouts/MobileBottomNav";
 import { createProfile } from "utils/profile";
 import useMe from "hooks/useMe";
 import Images from "assets/images";
+
 interface ResponsiveContainerProps {
   children: JSX.Element | JSX.Element[];
 }
@@ -123,6 +125,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
       <Header setIsSidebar={setIsSidebar} me={me} />
       <div className="w-full h-[60px]" />
       <div className="max-w-4xl mx-auto">{children}</div>
+      <MobileBottomNav />
     </div>
   );
 }
