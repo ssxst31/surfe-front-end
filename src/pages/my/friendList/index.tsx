@@ -16,6 +16,7 @@ const FriendListPage: NextPage = () => {
           <Tab.List className="flex justify-between w-full">
             {tabList.map((tab) => (
               <Tab
+                key={tab}
                 className={({ selected }) =>
                   selected
                     ? " text-black w-1/2 border-blue-400 border-b-2 border-solid py-2"

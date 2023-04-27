@@ -15,65 +15,50 @@ export default function MobileBottomNav() {
 
   const activeNavPage = !notPublicPages.includes(pageRootName);
 
+  const navList = [
+    {
+      pathname: "/userList",
+      title: "홈",
+      icon: <HomeIcon color={currentPage === "/userList" ? "#2563EB" : "black"} />,
+    },
+    {
+      pathname: "/my/friendList",
+      title: "친구 관리",
+      icon: <UserIcon color={currentPage === "/my/friendList" ? "#2563EB" : "black"} />,
+    },
+    {
+      pathname: "/my/chatList",
+      title: "채팅 목록",
+      icon: <MessageIcon color={currentPage === "/my/chatList" ? "#2563EB" : "black"} />,
+    },
+    {
+      pathname: "/setting/profile",
+      title: "내 프로필",
+      icon: <SettingIcon color={currentPage === "/setting/profile" ? "#2563EB" : "black"} />,
+    },
+  ];
+
   return activeNavPage ? (
     <div>
-      <div className="h-[61px]" />
+      <div className="h-[69px]" />
       <div className="fixed w-full bg-white z-[2] -lg:px-5 shadow-xl text-center py-3 bottom-0 lg:hidden  border-t border-solid border-gray-200">
         <ul className="flex justify-between w-full max-w-4xl mx-auto">
-          <li className="w-20 text-xs">
-            <Link
-              href={{
-                pathname: "/userList",
-              }}
-            >
-              <div className="flex flex-col items-center justify-center">
-                <HomeIcon color={currentPage === "/userList" ? "#2563EB" : "black"} />
-                <div className={`${currentPage === "/userList" ? "text-blue-500" : "test-black"} mt-1`}>홈</div>
-              </div>
-            </Link>
-          </li>
-          <li className="w-20 text-xs">
-            <Link
-              href={{
-                pathname: "/my/friendList",
-              }}
-            >
-              <div className="flex flex-col items-center justify-center">
-                <UserIcon color={currentPage === "/my/friendList" ? "#2563EB" : "black"} />
-                <div className={`${currentPage === "/my/friendList" ? "text-blue-500" : "test-black"} mt-1`}>
-                  친구 관리
+          {navList.map((item) => (
+            <li className="w-20 text-xs" key={item.title}>
+              <Link
+                href={{
+                  pathname: item.pathname,
+                }}
+              >
+                <div className="flex flex-col items-center justify-center">
+                  {item.icon}
+                  <div className={`${currentPage === item.pathname ? "text-blue-500" : "test-black"} mt-1`}>
+                    {item.title}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </li>
-          <li className="w-20 text-xs">
-            <Link
-              href={{
-                pathname: "/my/chatList",
-              }}
-            >
-              <div className="flex flex-col items-center justify-center">
-                <MessageIcon color={currentPage === "/my/chatList" ? "#2563EB" : "black"} />
-                <div className={`${currentPage === "/my/chatList" ? "text-blue-500" : "test-black"} mt-1`}>
-                  채팅 목록
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="w-20 text-xs">
-            <Link
-              href={{
-                pathname: "/setting/profile",
-              }}
-            >
-              <div className="flex flex-col items-center justify-center">
-                <SettingIcon color={currentPage === "/setting/profile" ? "#2563EB" : "black"} />
-                <div className={`${currentPage === "/setting/profile" ? "text-blue-500" : "test-black"} mt-1`}>
-                  내 프로필 수정
-                </div>
-              </div>
-            </Link>
-          </li>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
