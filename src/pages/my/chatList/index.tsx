@@ -32,7 +32,7 @@ const ChatListPage: NextPage = () => {
 
   return (
     <div>
-      <div className="w-full p-5">
+      <div className="w-full p-3">
         <div className="space-y-5">
           {chatList.map((chat: any) => (
             <div key={chat.roomName}>

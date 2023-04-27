@@ -10,7 +10,7 @@ import SettingIcon from "assets/icons/setting.svg";
 export default function MobileBottomNav() {
   const router = useRouter();
   const currentPage = router.pathname;
-  const notPublicPages = ["/", "privateChat", "everyChat"];
+  const notPublicPages = ["/", "privateChat", "everyChat", "signup", "completed"];
   const pageRootName = currentPage !== "/" ? currentPage.slice(1).split("/")[0] : "/";
 
   const activeNavPage = !notPublicPages.includes(pageRootName);
@@ -41,10 +41,10 @@ export default function MobileBottomNav() {
   return activeNavPage ? (
     <div>
       <div className="h-[69px]" />
-      <div className="fixed w-full bg-white z-[2] -lg:px-5 shadow-xl text-center py-3 bottom-0 lg:hidden  border-t border-solid border-gray-200">
+      <div className="fixed w-full bg-white z-[2] -lg:px-3 shadow-xl text-center py-3 bottom-0 lg:hidden  border-t border-solid border-gray-200">
         <ul className="flex justify-between w-full max-w-4xl mx-auto">
           {navList.map((item) => (
-            <li className="w-20 text-xs" key={item.title}>
+            <li className="text-xs w-14" key={item.title}>
               <Link
                 href={{
                   pathname: item.pathname,

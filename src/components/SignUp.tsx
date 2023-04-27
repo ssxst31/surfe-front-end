@@ -59,7 +59,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex flex-col items-center mx-5 text-center mt-14">
+    <div className="flex flex-col items-center mx-3 text-center mt-14">
       <div className="flex flex-col">
         <h1>
           <div className="relative h-20 w-52">

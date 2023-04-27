@@ -36,7 +36,7 @@ export default function Main() {
   };
 
   return (
-    <div className="flex flex-col items-center mx-5 text-center mt-14">
+    <div className="flex flex-col items-center mx-3 text-center mt-14">
       <div className="relative h-20 w-52">
         <Image src={Images.BlueTitle} fill alt="d2" />
       </div>

@@ -41,7 +41,7 @@ const UserPage: NextPage = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center mx-5 text-center mt-14">
+      <div className="flex flex-col items-center mx-3 text-center mt-14">
         <form className="flex flex-col space-y-4 -sm:w-full">
           <div className="-sm:w-full">
             <h2 className="text-left">
