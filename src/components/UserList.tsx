@@ -97,15 +97,26 @@ export default function UserList() {
             </button>
           </Link>
         </div>
-        <Link
-          href={{
-            pathname: "/my/friendList",
-          }}
-        >
-          <button className="w-full px-4 py-2 my-5 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 -lg:hidden">
-            친구 관리
-          </button>
-        </Link>
+        <div className="flex justify-between">
+          <Link
+            href={{
+              pathname: "/my/friendList",
+            }}
+          >
+            <button className="px-4 py-2 my-5 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 -lg:hidden">
+              친구 관리
+            </button>
+          </Link>
+          <Link
+            href={{
+              pathname: "/my/chatList",
+            }}
+          >
+            <button className="px-4 py-2 my-5 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 -lg:hidden">
+              채팅 목록
+            </button>
+          </Link>
+        </div>
         <div className="pt-5 font-extrabold border-t border-gray-100 border-solid text-md">
           주변 사람과 채팅해 보세요🙌
         </div>
