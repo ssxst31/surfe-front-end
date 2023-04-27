@@ -12,7 +12,7 @@ const ChatListPage: NextPage = () => {
 
   const loadChatList = async () => {
     const res = await myApi.fetchChatList();
-    console.log(res);
+
     setChatList(res);
   };
 
@@ -32,7 +32,7 @@ const ChatListPage: NextPage = () => {
 
   return (
     <div>
-      <div className="w-full">
+      <div className="w-full p-5">
         <div className="space-y-5">
           {chatList.map((chat: any) => (
             <div key={chat.roomName}>
@@ -58,7 +58,7 @@ const ChatListPage: NextPage = () => {
                       <div className="text-gray-400 ">{chat.content}</div>
                     </div>
                   </div>
-                  <div className="text-gray-400">{dsa(chat.createAt)}</div>
+                  <div className="text-sm text-gray-400">{dsa(chat.createAt)}</div>
                 </div>
               </Link>
             </div>
