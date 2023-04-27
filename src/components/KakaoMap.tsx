@@ -24,8 +24,8 @@ const KakaoMap = ({ userListCount, myLat, myLng }: KakaoMapProps) => {
 
   const initMap = () => {
     if (containerRef.current) {
-      const map = new kakao.maps.Map(containerRef.current, {
-        center: new kakao.maps.LatLng(myLat, myLng),
+      const map = new window.kakao.maps.Map(containerRef.current, {
+        center: new window.kakao.maps.LatLng(myLat, myLng),
         level: 8,
       });
       const createContent = () => {
@@ -69,7 +69,7 @@ const KakaoMap = ({ userListCount, myLat, myLng }: KakaoMapProps) => {
     <React.Fragment>
       <Script
         src={`https://dapi.kakao.com/v2/maps/sdk.js?appkey=${NEXT_PUBLIC_KAKAO_KEY}&autoload=false`}
-        onLoad={() => kakao.maps.load(initMap)}
+        onLoad={() => window.kakao.maps.load(initMap)}
       />
       <Head>
         <link rel="preconnect" href="https://dapi.kakao.com" />
