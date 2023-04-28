@@ -8,7 +8,7 @@ import useMe from "hooks/useMe";
 
 const ChatListPage: NextPage = () => {
   const me = useMe();
-  const [chatList, setChatList] = useState([]);
+  const [chatList, setChatList] = useState();
 
   const loadChatList = async () => {
     const res = await myApi.fetchChatList();
@@ -29,6 +29,8 @@ const ChatListPage: NextPage = () => {
     let minutes = String(createAt2.getMinutes()).padStart(2, "0");
     return year + "년" + month + "월" + day + "일" + hours + ":" + minutes;
   };
+
+  if (!chatList) return <></>;
 
   return (
     <div>

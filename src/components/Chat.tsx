@@ -16,7 +16,7 @@ export default function Chat2({ roomName }: ChatProps) {
 
   const me = useMe();
   const [inputValue, setInputValue] = useState<string>("");
-  const [chatList, setChatList] = useState<Chat[]>([]);
+  const [chatList, setChatList] = useState<Chat[]>();
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -61,6 +61,10 @@ export default function Chat2({ roomName }: ChatProps) {
       return lastDate;
     }
   };
+
+  if (!chatList) {
+    return <></>;
+  }
 
   return (
     <div className="flex flex-col items-center w-full h-[calc(100vh-55px)]">
