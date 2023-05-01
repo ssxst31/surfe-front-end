@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+import { createProfile } from "utils/profile";
 import { fetchUserListByMeDistance } from "pages/api/users";
 import { addLocation } from "pages/api/my";
 import KakaoMap from "components/KakaoMap";
+import User from "components/User";
 import useMe from "hooks/useMe";
 import useGeolocation from "hooks/useGeolocation";
-import User from "components/User";
-import { createProfile } from "utils/profile";
 
 export default function UserList() {
   const me = useMe();

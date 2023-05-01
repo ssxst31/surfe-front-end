@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
-import { createUser } from "pages/api/auth";
-import { INTERESTS, MBTIS } from "consts";
 import Image from "next/image";
 
+import { INTERESTS, MBTIS } from "consts";
+import { createUser } from "pages/api/auth";
 import Images from "assets/images";
+
 export default function SignUp() {
   const [inputs, setInputs] = useState({
     email: "",
