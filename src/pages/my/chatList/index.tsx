@@ -5,10 +5,11 @@ import type { NextPage } from "next";
 import * as myApi from "pages/api/my";
 import { createProfile } from "utils/profile";
 import useMe from "hooks/useMe";
+import { Chat } from "type";
 
 const ChatListPage: NextPage = () => {
   const me = useMe();
-  const [chatList, setChatList] = useState();
+  const [chatList, setChatList] = useState<Chat[]>();
 
   const loadChatList = async () => {
     const res = await myApi.fetchChatList();
