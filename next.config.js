@@ -7,6 +7,9 @@ const nextConfig = {
     locales: ["ko"],
     defaultLocale: "ko",
   },
+  experimental: {
+    appDir: true,
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
