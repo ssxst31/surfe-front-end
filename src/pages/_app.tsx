@@ -51,15 +51,11 @@ function MyApp({ Component, pageProps, me }: CustomAppProps) {
       <DefaultSEO />
       <RecoilRoot>
         <MemberContext.Provider value={me}>
-          {/* <LoginWrapper>
-            <UnLoginWrapper> */}
           <DefaultLayout>
             <main className={myFont.className}>
               <Component {...pageProps} />
             </main>
           </DefaultLayout>
-          {/* </UnLoginWrapper>
-          </LoginWrapper> */}
         </MemberContext.Provider>
       </RecoilRoot>
     </>
