@@ -14,7 +14,7 @@ export async function withAuth(req: NextRequest) {
   const isMe = req.cookies.get("token");
 
   if (!isMe) {
-    return NextResponse.redirect(new URL("/login", req.url));
+    return NextResponse.redirect(new URL("/", req.url));
   } else {
     return NextResponse.next();
   }

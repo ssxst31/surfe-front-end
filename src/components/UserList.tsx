@@ -75,11 +75,7 @@ export default function UserList() {
         <div className="flex justify-between -lg:hidden">
           <div className="flex">
             <img
-              src={
-                me.profile
-                  ? `${createProfile()}` + me.profile
-                  : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-              }
+              src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
               className="rounded-[50%] h-12 w-12 shadow-2xl mr-2"
             />
             <div>

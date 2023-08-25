@@ -59,11 +59,7 @@ const UserPage: NextPage = () => {
             />
             <div className="relative cursor-pointer" onClick={onUploadImageButtonClick}>
               <img
-                src={
-                  !me.profile
-                    ? imgFile ?? "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-                    : `${createProfile()}` + me.profile
-                }
+                src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
                 alt="프로필 이미지"
                 className="w-24 h-24 rounded-[50%] mx-auto"
               />

@@ -1,11 +1,12 @@
-import io from "socket.io-client";
+import io, { Socket } from "socket.io-client";
 
 const ENDPOINT = process.env.NEXT_PUBLIC_APP_HOST_NAME ?? "";
 
 const isServer = typeof window === "undefined";
 
 class WebSocket {
-  io: any;
+  io: Socket | null = null;
+
   constructor() {
     if (isServer) return;
 
@@ -17,12 +18,12 @@ class WebSocket {
     });
   }
 
-  emit(event: any, data: any) {
-    this.io.emit(event, data);
+  emit(event: string, data: any) {
+    this.io?.emit(event, data);
   }
 
-  on(event: any, data: any) {
-    this.io.on(event, data);
+  on(event: string, callback: any) {
+    this.io?.on(event, callback);
   }
 }
 

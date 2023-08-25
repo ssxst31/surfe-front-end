@@ -30,11 +30,7 @@ const UserPage: NextPage = () => {
     <div>
       <div className="flex -lg:flex-col ">
         <img
-          src={
-            profile.profile
-              ? `${createProfile()}` + profile.profile
-              : "https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-          }
+          src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
           className="mr-2 shadow-2xl w-96 h-96 -lg:w-full"
           alt="profile"
         />
