@@ -10,7 +10,7 @@ interface ChatProps {
   roomName: string;
 }
 
-export default function Chat({ roomName }: ChatProps) {
+export default function Chat2({ roomName }: ChatProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const me = useMe();
