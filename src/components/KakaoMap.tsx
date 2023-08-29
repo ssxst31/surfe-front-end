@@ -32,29 +32,24 @@ const KakaoMap = ({ userListCount, myLat, myLng }: KakaoMapProps) => {
         return `<div style="padding:0 5px;background:#fff;">${`내 주위로 ${filteredDistance}키로내 ${userListCount}명 있습니다.`}</div>`;
       };
 
-      var marker = new kakao.maps.Marker({
-        position: new kakao.maps.LatLng(myLat, myLng),
-        map: map,
-      });
-
-      var customOverlay = new kakao.maps.CustomOverlay({
+      new kakao.maps.CustomOverlay({
         map: map,
         content: createContent(),
         position: new kakao.maps.LatLng(myLat, myLng),
-        xAnchor: 0.5, // 컨텐츠의 x 위치
-        yAnchor: 2.8, // 컨텐츠의 y 위치
+        xAnchor: 0.5,
+        yAnchor: 0.5,
       });
 
-      var circle = new kakao.maps.Circle({
-        map: map, // 원을 표시할 지도 객체
+      new kakao.maps.Circle({
+        map: map,
         center: new kakao.maps.LatLng(myLat, myLng),
         radius: filteredDistance * 1000,
-        fillColor: "#CFE7FF", // 채움 색
-        fillOpacity: 0.5, // 채움 불투명도
-        strokeWeight: 3, // 선의 두께
-        strokeColor: "#75B8FA", // 선 색
-        strokeOpacity: 0.9, // 선 투명도
-        strokeStyle: "solid", // 선 스타일
+        fillColor: "#CFE7FF",
+        fillOpacity: 0.5,
+        strokeWeight: 3,
+        strokeColor: "#75B8FA",
+        strokeOpacity: 0.9,
+        strokeStyle: "solid",
       });
     }
   };
@@ -63,7 +58,7 @@ const KakaoMap = ({ userListCount, myLat, myLng }: KakaoMapProps) => {
     if (window?.kakao) {
       initMap();
     }
-  }, [initMap, myLat, myLng]);
+  }, [initMap, myLat, myLng, userListCount]);
 
   return (
     <React.Fragment>
