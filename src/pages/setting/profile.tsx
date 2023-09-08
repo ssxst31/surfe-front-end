@@ -2,10 +2,8 @@ import React, { useState, useRef } from "react";
 
 import useMe from "hooks/useMe";
 import { postThumbnail } from "pages/api/my";
-import { createProfile } from "utils/profile";
+import PencilIcon from "assets/icons/pencil.svg";
 import type { NextPage } from "next";
-import Image from "next/image";
-import Images from "assets/images";
 
 const UserPage: NextPage = () => {
   const me = useMe();
@@ -64,23 +62,23 @@ const UserPage: NextPage = () => {
                 className="w-24 h-24 rounded-[50%] mx-auto"
               />
               <div className="absolute bottom-2 w-6 h-6 right-[40%]">
-                <Image src={Images.Edit} fill alt="편집" />
+                <PencilIcon color="black" />
               </div>
             </div>
           </div>
           <div className="-sm:w-full">
             <h2 className="text-left">
-              <label htmlFor="email" className="font-bold">
-                이메일
+              <label htmlFor="id" className="font-bold">
+                아이디
               </label>
             </h2>
             <input
-              placeholder="이메일"
+              placeholder="아이디"
               className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
-              name="email"
-              type="email"
-              id="email"
-              value={me.email}
+              name="id"
+              type="id"
+              id="id"
+              value={me.loginId}
             />
           </div>
           <div className="w-96 -sm:w-full">
@@ -100,31 +98,31 @@ const UserPage: NextPage = () => {
           </div>
           <div className="w-96 -sm:w-full">
             <h2 className="text-left">
-              <label htmlFor="introduce" className="font-bold">
+              <label htmlFor="statusMessage" className="font-bold">
                 한줄소개
               </label>
             </h2>
             <input
               placeholder="5글자이상 입력해주세요"
               className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
-              name="introduce"
+              name="statusMessage"
               type="text"
-              id="introduce"
-              value={me.introduce}
+              id="statusMessage"
+              value={me.statusMessage}
             />
           </div>
           <div className="w-96 -sm:w-full">
             <h2 className="text-left">
-              <label htmlFor="introduce" className="font-bold">
+              <label htmlFor="mbti" className="font-bold">
                 MBTI
               </label>
             </h2>
             <input
               placeholder="5글자이상 입력해주세요"
               className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
-              name="introduce"
+              name="mbti"
               type="text"
-              id="introduce"
+              id="mbti"
               value={me.mbti}
             />
           </div>

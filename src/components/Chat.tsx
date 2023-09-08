@@ -5,6 +5,8 @@ import SendIcon from "assets/icons/send.svg";
 import useMe from "hooks/useMe";
 import ws from "datasources/ws";
 import { Chat } from "type";
+import { fetchChat } from "pages/api/my";
+import useVisible from "hooks/useVisible";
 
 interface ChatProps {
   roomName: string;
@@ -12,10 +14,15 @@ interface ChatProps {
 
 export default function Chat2({ roomName }: ChatProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-
+  const fetchPointRef = useRef(null);
+  const detailRef = useRef<any>(null);
+  const isVisible = useVisible(fetchPointRef);
   const me = useMe();
+
   const [inputValue, setInputValue] = useState<string>("");
   const [chatList, setChatList] = useState<Chat[]>();
+  const [limit, setLimit] = useState<number>(0);
+  const [beforeChat, setBeforeChat] = useState<any>([]);
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -32,6 +39,17 @@ export default function Chat2({ roomName }: ChatProps) {
     });
   }, []);
 
+  useEffect(() => {
+    if (isVisible) {
+      if (limit <= beforeChat.length) {
+        detailRef.current.scroll({ top: 500 });
+        load();
+      }
+    } else {
+      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [isVisible]);
+
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
   };
@@ -44,7 +62,7 @@ export default function Chat2({ roomName }: ChatProps) {
     if (inputValue) {
       ws.emit("SEND_MESSAGE", {
         content: inputValue,
-        memberId: me.user_id,
+        memberId: me.id,
         createAt: new Date(),
         roomName,
       });
@@ -52,6 +70,7 @@ export default function Chat2({ roomName }: ChatProps) {
       setInputValue("");
     }
   };
+
   let lastDate = "";
 
   const createLastDate = (date: string) => {
@@ -65,20 +84,25 @@ export default function Chat2({ roomName }: ChatProps) {
     return <></>;
   }
 
+  const load = async () => {
+    const res = await fetchChat(limit + 30, roomName);
+    setLimit(limit + 30);
+    setBeforeChat(res);
+  };
+
   return (
     <div className="flex flex-col items-center w-full h-[calc(100vh-80px)]">
-      <div className="w-full h-full px-5 overflow-scroll">
-        {chatList.map((chat, index) => {
-          const createdAt = new Date(chat.createAt);
+      <div className="w-full h-full px-5 overflow-scroll" ref={detailRef}>
+        <div ref={fetchPointRef} />
+        {beforeChat.concat(chatList).map((chat: any, index: any) => {
+          const createdAt = new Date(chat.createdAt);
           const month = createdAt.getMonth() + 1;
           const day = createdAt.getDate();
           const year = createdAt.getFullYear();
           const hours = String(createdAt.getHours()).padStart(2, "0");
           const minutes = String(createdAt.getMinutes()).padStart(2, "0");
-
           const date = `${year}년 ${month}월 ${day}일`;
-
-          if (chat.nickname === me.nickname) {
+          if (chat.senderId === me.id) {
             return (
               <div key={index}>
                 <div className="mx-auto text-sm text-center">{createLastDate(date)}</div>
@@ -88,7 +112,7 @@ export default function Chat2({ roomName }: ChatProps) {
                   </div>
                   <div className="flex flex-col">
                     <div className="max-w-lg p-2 whitespace-pre-wrap break-all bg-indigo-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm after:content-[''] relative after:absolute after:border-transparent after:border-[16px] after:border-solid after:w-0 after:h-0 after:border-t-0 after:border-r-0 after:border-l-indigo-100 after:right-[-8px] after:top-3">
-                      {chat.content}
+                      {chat.message}
                     </div>
                   </div>
                 </div>
@@ -111,7 +135,7 @@ export default function Chat2({ roomName }: ChatProps) {
                 <div>
                   <div className="text-sm">{chat.nickname}</div>
                   <div className="max-w-lg whitespace-pre-wrap p-2 break-all bg-gray-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm before:content-[''] relative before:absolute before:border-transparent before:border-[16px] before:border-solid before:w-0 before:h-0 before:border-t-0 before:border-l-0 before:border-r-gray-100 before:left-[-8px]">
-                    {chat.content}
+                    {chat.message}
                   </div>
                 </div>
                 <div className="flex flex-col-reverse text-xs">
@@ -123,7 +147,7 @@ export default function Chat2({ roomName }: ChatProps) {
         })}
         <div ref={scrollRef} />
       </div>
-      <form className="relative flex w-full -lg:px-5" onSubmit={postMessage}>
+      <form className="relative flex w-full -lg:px-5">
         <div className="flex w-full py-3 pr-5 border border-gray-300 rounded-md focus:border-indigo-500 focus:ring-indigo-500 ">
           <textarea
             placeholder="메시지를 입력해주세요."
@@ -131,7 +155,7 @@ export default function Chat2({ roomName }: ChatProps) {
             onChange={onChange}
             value={inputValue}
             onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
+              if (e.keyCode === 13 && !e.shiftKey) {
                 postMessage(e);
               }
             }}

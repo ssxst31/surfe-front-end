@@ -10,16 +10,16 @@ import SettingIcon from "assets/icons/setting.svg";
 export default function MobileBottomNav() {
   const router = useRouter();
   const currentPage = router.pathname;
-  const notPublicPages = ["/", "privateChat", "everyChat", "signup", "completed"];
+  const notPublicPages = ["/", "private-chat", "every-chat", "signup", "completed"];
   const pageRootName = currentPage !== "/" ? currentPage.slice(1).split("/")[0] : "/";
 
   const activeNavPage = !notPublicPages.includes(pageRootName);
 
   const navList = [
     {
-      pathname: "/userList",
+      pathname: "/explore",
       title: "홈",
-      icon: <HomeIcon color={currentPage === "/userList" ? "#2563EB" : "black"} />,
+      icon: <HomeIcon color={currentPage === "/explore" ? "#2563EB" : "black"} />,
     },
     {
       pathname: "/my/friendList",

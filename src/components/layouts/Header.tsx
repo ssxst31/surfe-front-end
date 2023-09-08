@@ -2,8 +2,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { logOut } from "pages/api/auth";
+import HamburgerIcon from "assets/icons/hamburger.svg";
 import { Me } from "type";
+import { logOut } from "pages/api/auth";
+import Logo from "components/Logo";
 import Images from "assets/images";
 
 interface HeaderProps {
@@ -22,7 +24,7 @@ export default function Header({ setIsSidebar, me }: HeaderProps) {
     <div className="fixed w-full bg-blue-400 z-[2] -lg:px-3 shadow-xl text-center py-3">
       <div className="flex items-center justify-between w-full max-w-4xl mx-auto">
         <Link href="/">
-          <Image src={Images.WhiteTitle} alt="logo" width={70} />
+          <Logo className="text-white text-3xl" />
         </Link>
         <div className="flex">
           {me ? (
@@ -34,12 +36,11 @@ export default function Header({ setIsSidebar, me }: HeaderProps) {
               <button className="block p-1 text-white w-14 -lg:hidden">로그인</button>
             </Link>
           )}
-          <Image
-            src={Images.HamburgerMenu}
-            alt="logo"
+          <HamburgerIcon
             onClick={() => {
               setIsSidebar((prev: boolean) => !prev);
             }}
+            color="white"
             className="hidden -lg:block"
           />
         </div>

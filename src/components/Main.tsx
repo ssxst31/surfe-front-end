@@ -1,13 +1,12 @@
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { login } from "pages/api/auth";
-import Images from "assets/images";
+import Logo from "components/Logo";
 
 export default function Main() {
   const [inputs, setInputs] = useState({
-    email: "",
+    id: "",
     password: "",
   });
 
@@ -19,15 +18,15 @@ export default function Main() {
     });
   };
 
-  const { email, password } = inputs;
+  const { id, password } = inputs;
 
   const submit = async () => {
-    const res = await login({ email, password }).catch((err) => {
+    const res = await login({ id, password }).catch((err) => {
       alert(err.response.data.message);
     });
 
     if (res) {
-      window.location.href = "/userList";
+      window.location.href = "/explore";
     }
   };
 
@@ -37,18 +36,20 @@ export default function Main() {
 
   return (
     <div className="flex flex-col items-center mx-3 text-center mt-14">
-      <div className="relative h-20 w-52">
-        <Image src={Images.BlueTitle} fill alt="d2" />
-      </div>
-      <div className="mb-5 text-sm">주위의 다양한 사람들과 채팅해보세요</div>
+      <h1>
+        <div className="relative h-20 w-52">
+          <Logo className="text-black text-[50px]" />
+        </div>
+        <div className="mb-5 text-sm text-center">주위의 다양한 사람들과 채팅해보세요</div>
+      </h1>
       <form className="flex flex-col -lg:w-full" onSubmit={onSubmit}>
         <input
-          placeholder="이메일"
+          placeholder="아이디"
           className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -lg:w-full"
-          value={email}
-          name="email"
+          value={id}
+          name="id"
           onChange={onChange}
-          type="email"
+          type="id"
         />
         <div className="w-full h-4" />
         <input

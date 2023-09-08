@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import * as apiMy from "pages/api/my";
-import { createProfile } from "utils/profile";
 import { Friend } from "type/index";
 
 const FriendReceiveList = () => {
@@ -48,7 +47,7 @@ const FriendReceiveList = () => {
                     <span>{friend.nickname}</span>
                     <span className="text-gray-400"> {`(${friend.mbti})`}</span>
                   </div>
-                  <div>{friend.introduce}</div>
+                  <div>{friend.statusMessage}</div>
                 </div>
               </div>
               <button

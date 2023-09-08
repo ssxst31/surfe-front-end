@@ -4,11 +4,11 @@ import { withAuth, withoutAuth } from "middlewares/auth";
 
 export async function middleware(request: NextRequest) {
   if (
-    request.nextUrl.pathname.startsWith("/everyChat") ||
+    request.nextUrl.pathname.startsWith("/every-chat") ||
     request.nextUrl.pathname.startsWith("/setting") ||
-    request.nextUrl.pathname.startsWith("/privateChat") ||
+    request.nextUrl.pathname.startsWith("/private-chat") ||
     request.nextUrl.pathname.startsWith("/my") ||
-    request.nextUrl.pathname.startsWith("/userList")
+    request.nextUrl.pathname.startsWith("/explore")
   ) {
     return await withAuth(request);
   }

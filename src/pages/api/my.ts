@@ -24,13 +24,13 @@ export async function postThumbnail(formData: FormData) {
   return await customAxios.post<null, any>("/my/upload", formData);
 }
 
-export async function addFriend(friendId: number) {
+export async function addFriend(friendId: number): Promise<void> {
   return await customAxios.post<null, any>("/my/friends", {
     friendId,
   });
 }
 
-export async function deleteFriend(friendId: number) {
+export async function deleteFriend(friendId: number): Promise<void> {
   return await customAxios.post<null, any>("/my/friends/cancel", {
     friendId,
   });
@@ -50,4 +50,8 @@ export async function fetchFriendReceiveList() {
 
 export async function fetchChatList() {
   return await customAxios.get<null, any>("/my/chats");
+}
+
+export async function fetchChat(limit: number, roomName: string) {
+  return await customAxios.get<null, any>(`/my/chat?limit=${limit}&roomName=${roomName}`);
 }

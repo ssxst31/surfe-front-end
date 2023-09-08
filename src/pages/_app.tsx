@@ -1,18 +1,16 @@
 import React from "react";
 import { RecoilRoot } from "recoil";
-import localFont from "next/font/local";
+import { IBM_Plex_Sans_KR } from "next/font/google";
 
 import MemberContext from "contexts/member";
 import { fetchProfileSSR } from "pages/api/my";
 import DefaultSEO from "pages/DefaultSEO";
 import DefaultLayout from "components/layouts/DefaultLayout";
-import LoginWrapper from "components/LoginWrapper";
-import UnLoginWrapper from "components/UnLoginWrapper";
 import type { AppProps } from "next/app";
 
 import "styles/globals.css";
 
-const myFont = localFont({ src: "../assets/fonts/NanumSquareR.woff2" });
+const iBMPlexSansKR = IBM_Plex_Sans_KR({ weight: "400", preload: false });
 
 MyApp.getInitialProps = async ({ Component, router, ctx }: any) => {
   let pageProps = {};
@@ -52,7 +50,7 @@ function MyApp({ Component, pageProps, me }: CustomAppProps) {
       <RecoilRoot>
         <MemberContext.Provider value={me}>
           <DefaultLayout>
-            <main className={myFont.className}>
+            <main className={iBMPlexSansKR.className}>
               <Component {...pageProps} />
             </main>
           </DefaultLayout>

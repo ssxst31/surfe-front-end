@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { logOut } from "pages/api/auth";
 import Header from "components/layouts/Header";
 import MobileBottomNav from "components/layouts/MobileBottomNav";
-import { createProfile } from "utils/profile";
 import useMe from "hooks/useMe";
-import Images from "assets/images";
 
 interface ResponsiveContainerProps {
   children: JSX.Element | JSX.Element[];
@@ -46,9 +43,6 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
               e.stopPropagation();
             }}
           >
-            <div className="relative w-24 h-11">
-              <Image src={Images.BlueTitle} fill alt="title" />
-            </div>
             {me ? (
               <div className="text-black">
                 <div className="flex items-center my-4">
@@ -59,8 +53,8 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                   />
                   <div>
                     <div className="text-sm">{me.nickname}</div>
-                    <div className="text-xs">{me.email}</div>
-                    <div className="text-xs">{me.introduce}</div>
+                    <div className="text-xs">{me.id}</div>
+                    <div className="text-xs">{me.statusMessage}</div>
                     <div className="text-xs">{me.mbti}</div>
                   </div>
                 </div>

@@ -20,10 +20,18 @@ export interface User {
   id: number;
   nickname: string;
   profile: null | string;
+  loginId: any;
+}
+
+export interface NearUser {
+  friendStatus: string;
+  id: number;
+  loginId: string;
+  nickname: string;
 }
 
 export interface Me {
-  email: string;
+  id: string;
   user_id: number;
   profile: null | string;
   lat: string | null;
@@ -31,11 +39,11 @@ export interface Me {
   nickname: string;
   interestList: string[];
   mbti: string;
-  introduce: string;
+  statusMessage: string;
 }
 
 export interface Profile extends User {
-  introduce: string;
+  statusMessage: string;
   mbti: string;
   interestList: string[];
 }
