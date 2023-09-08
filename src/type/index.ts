@@ -13,6 +13,7 @@ export interface Friend {
   nickname: string;
   profile: null | string;
   userId: number;
+  statusMessage: string;
 }
 
 export interface User {
