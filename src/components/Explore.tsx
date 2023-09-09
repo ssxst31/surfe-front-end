@@ -3,17 +3,18 @@ import Link from "next/link";
 
 import { fetchUserListByMeDistance } from "pages/api/users";
 import { addLocation } from "pages/api/my";
-import KakaoMap from "components/KakaoMap";
+import KakaoMap from "components/common/KakaoMap";
 import UserList from "components/UserList";
 import useGeolocation from "hooks/useGeolocation";
 import useMe from "hooks/useMe";
 import { NearUser } from "type";
 import PencilIcon from "assets/icons/pencil.svg";
+import Avatar from "components/common/Avatar";
 
 export default function Explore() {
   const me = useMe();
 
-  const [userList, setUserList] = useState<NearUser[]>([]);
+  const [userList, setUserList] = useState<NearUser[]>();
   const { location, update } = useGeolocation();
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function Explore() {
     <div className="relative lg:flex w-[620px] mt-10 -lg:mx-auto -lg:w-full">
       <div className="flex flex-col w-full">
         <KakaoMap
-          userListCount={userList.length}
+          userListCount={userList?.length ?? 0}
           myLat={location.coordinates?.lat ?? 0}
           myLng={location.coordinates?.lng ?? 0}
         />
@@ -76,18 +77,9 @@ export default function Explore() {
       <div className="lg:fixed right-[calc(50vw-450px)] -lg:px-3 w-[256px] -lg:w-auto">
         <div className="flex justify-between -lg:hidden">
           <div className="flex">
-            <Link
-              href={{
-                pathname: "/setting/profile",
-              }}
-              className="relative"
-            >
-              <img
-                src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-                className="rounded-[50%] h-12 w-12 shadow-2xl mr-2"
-              />
+            <Avatar pathName="/setting/profile" width="w-12" height="h-12">
               <PencilIcon color="black" className="w-4 h-4 absolute right-2.5 bottom-1.5" />
-            </Link>
+            </Avatar>
             <div>
               <div className="text-sm">{me.nickname}</div>
               <div className="text-sm">{me.statusMessage}</div>
@@ -97,7 +89,7 @@ export default function Explore() {
         <div className="flex justify-between">
           <Link
             href={{
-              pathname: "/my/friendList",
+              pathname: "/my/friends",
             }}
           >
             <button className="px-4 py-2 my-5 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 -lg:hidden">
@@ -106,11 +98,11 @@ export default function Explore() {
           </Link>
           <Link
             href={{
-              pathname: "/my/chatList",
+              pathname: "/my/chat-rooms",
             }}
           >
             <button className="px-4 py-2 my-5 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 -lg:hidden">
-              채팅 목록
+              채팅방 목록
             </button>
           </Link>
         </div>
@@ -127,7 +119,7 @@ export default function Explore() {
           }}
         >
           <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full">
-            단체 채팅
+            단체 채팅 입장
           </button>
         </Link>
         <div className="mt-3">

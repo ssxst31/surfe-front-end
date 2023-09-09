@@ -2,9 +2,9 @@ import React from "react";
 import { Tab } from "@headlessui/react";
 
 import type { NextPage } from "next";
-import FriendList from "components/FriendList";
-import FriendRequestList from "components/FriendRequestList";
-import FriendReceiveList from "components/FriendReceiveList";
+import MyFriendList from "components/page/friends/MyFriendList";
+import FriendRequestList from "components/page/friends/FriendRequestList";
+import FriendReceiveList from "components/page/friends/FriendReceiveList";
 
 const FriendListPage: NextPage = () => {
   const tabList = ["내 친구", "받은 요청", "보낸 요청"];
@@ -19,7 +19,7 @@ const FriendListPage: NextPage = () => {
                 key={tab}
                 className={({ selected }) =>
                   selected
-                    ? " text-black w-1/2 border-blue-400 border-b-2 border-solid py-2"
+                    ? " text-black w-1/2 border-blue-400 border-b-2 border-solid py-2 focus:ring-0"
                     : " text-gray-400 w-1/2 py-2 border-gray-200 border-b-2 border-solid"
                 }
               >
@@ -27,9 +27,9 @@ const FriendListPage: NextPage = () => {
               </Tab>
             ))}
           </Tab.List>
-          <Tab.Panels className="mt-2">
+          <Tab.Panels className="mt-2 px-3">
             <Tab.Panel className="outline-none ring-white ring-opacity-60 ">
-              <FriendList />
+              <MyFriendList />
             </Tab.Panel>
             <Tab.Panel className="outline-none ring-white ring-opacity-60 ">
               <FriendReceiveList />

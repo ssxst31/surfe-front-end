@@ -6,7 +6,7 @@ import * as myApi from "pages/api/my";
 import useMe from "hooks/useMe";
 import { Chat } from "type";
 
-const ChatListPage: NextPage = () => {
+const ChatRoomsPage: NextPage = () => {
   const me = useMe();
   const [chatList, setChatList] = useState<Chat[]>();
 
@@ -75,4 +75,4 @@ const ChatListPage: NextPage = () => {
   );
 };
 
-export default ChatListPage;
+export default ChatRoomsPage;

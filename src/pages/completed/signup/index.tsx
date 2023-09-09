@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import useMe from "hooks/useMe";
-import Particle from "components/Particle";
+import Particle from "components/common/Particle";
 
 export default function CompletedSignUpPage() {
   const me = useMe();

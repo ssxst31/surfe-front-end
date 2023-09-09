@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import * as myApi from "pages/api/my";
 import { NearUser } from "type/index";
+import Avatar from "components/common/Avatar";
 
 interface UserProps {
   user: NearUser;
@@ -30,17 +31,7 @@ export default function User2({ user, loadUserList }: UserProps) {
   return (
     <div className="flex justify-between">
       <div className="flex">
-        <Link
-          href={{
-            pathname: `/user/${user.id}`,
-          }}
-        >
-          <img
-            src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-            className="rounded-[50%] h-12 w-12 shadow-2xl mr-2 cursor-pointer"
-            alt="profile"
-          />
-        </Link>
+        <Avatar pathName={`/user/${user.id}`} width="w-12" height="h-12" />
         <div className="mr-4 text-sm w-[82px] break-all break-words">{user.nickname}</div>
       </div>
       {user.friendStatus === "requesting" && (

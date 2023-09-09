@@ -1,12 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import HamburgerIcon from "assets/icons/hamburger.svg";
 import { Me } from "type";
 import { logOut } from "pages/api/auth";
-import Logo from "components/Logo";
-import Images from "assets/images";
+import Logo from "components/common/Logo";
 
 interface HeaderProps {
   setIsSidebar: React.Dispatch<React.SetStateAction<boolean>>;

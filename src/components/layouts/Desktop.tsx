@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 import { logOut } from "pages/api/auth";
-import Header from "components/layouts/Header";
-import MobileBottomNav from "components/layouts/MobileBottomNav";
+import Header from "components/common/Header";
+import MobileBottomNav from "components/common/MobileBottomNav";
 import useMe from "hooks/useMe";
 
 interface ResponsiveContainerProps {
@@ -75,7 +75,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                   </Link>
                   <Link
                     href={{
-                      pathname: "/my/friendList",
+                      pathname: "/my/friends",
                     }}
                   >
                     <button className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg">친구 관리</button>

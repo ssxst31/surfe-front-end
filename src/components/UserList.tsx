@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+
 import { fetchUserListByMeDistance } from "pages/api/users";
 
 import { NearUser } from "type";
 import User from "components/User";
 
-export default function Explore() {
+export default function UserList() {
   const [userList, setUserList] = useState<NearUser[]>();
 
   useEffect(() => {

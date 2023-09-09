@@ -3,9 +3,10 @@ import React, { useState, useRef } from "react";
 import useMe from "hooks/useMe";
 import { postThumbnail } from "pages/api/my";
 import PencilIcon from "assets/icons/pencil.svg";
+import Avatar from "components/common/Avatar";
 import type { NextPage } from "next";
 
-const UserPage: NextPage = () => {
+const ProfilePage: NextPage = () => {
   const me = useMe();
 
   const [imgFile, setImgFile] = useState<any>();
@@ -55,15 +56,10 @@ const UserPage: NextPage = () => {
               onChange={onUploadImage}
               className="hidden"
             />
-            <div className="relative cursor-pointer" onClick={onUploadImageButtonClick}>
-              <img
-                src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-                alt="프로필 이미지"
-                className="w-24 h-24 rounded-[50%] mx-auto"
-              />
-              <div className="absolute bottom-2 w-6 h-6 right-[40%]">
-                <PencilIcon color="black" />
-              </div>
+            <div className="flex justify-center" onClick={onUploadImageButtonClick}>
+              <Avatar width="w-24" height="h-24">
+                <PencilIcon color="black" className="w-6 h-6 absolute right-4 bottom-3" />
+              </Avatar>
             </div>
           </div>
           <div className="-sm:w-full">
@@ -140,4 +136,4 @@ const UserPage: NextPage = () => {
   );
 };
 
-export default UserPage;
+export default ProfilePage;

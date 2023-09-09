@@ -1,9 +1,9 @@
 import React, { useState, Fragment } from "react";
+import { Listbox, Transition } from "@headlessui/react";
 
 import { INTERESTS, MBTIS } from "consts";
 import { createUser } from "pages/api/auth";
-import Logo from "components/Logo";
-import { Listbox, Transition } from "@headlessui/react";
+import Logo from "components/common/Logo";
 
 export default function SignUp() {
   const [inputs, setInputs] = useState({

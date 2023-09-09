@@ -22,14 +22,14 @@ export default function MobileBottomNav() {
       icon: <HomeIcon color={currentPage === "/explore" ? "#2563EB" : "black"} />,
     },
     {
-      pathname: "/my/friendList",
+      pathname: "/my/friends",
       title: "친구 관리",
-      icon: <UserIcon color={currentPage === "/my/friendList" ? "#2563EB" : "black"} />,
+      icon: <UserIcon color={currentPage === "/my/friends" ? "#2563EB" : "black"} />,
     },
     {
-      pathname: "/my/chatList",
-      title: "채팅 목록",
-      icon: <MessageIcon color={currentPage === "/my/chatList" ? "#2563EB" : "black"} />,
+      pathname: "/my/chat-rooms",
+      title: "채팅방 목록",
+      icon: <MessageIcon color={currentPage === "/my/chat-rooms" ? "#2563EB" : "black"} />,
     },
     {
       pathname: "/setting/profile",

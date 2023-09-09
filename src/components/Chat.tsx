@@ -94,7 +94,7 @@ export default function Chat2({ roomName }: ChatProps) {
     <div className="flex flex-col items-center w-full h-[calc(100vh-80px)]">
       <div className="w-full h-full px-5 overflow-scroll" ref={detailRef}>
         <div ref={fetchPointRef} />
-        {beforeChat.concat(chatList).map((chat: any, index: any) => {
+        {beforeChat.concat(chatList).map((chat: any, index: number) => {
           const createdAt = new Date(chat.createdAt);
           const month = createdAt.getMonth() + 1;
           const day = createdAt.getDate();

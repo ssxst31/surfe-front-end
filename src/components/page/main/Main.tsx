@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { login } from "pages/api/auth";
-import Logo from "components/Logo";
+import Logo from "components/common/Logo";
 
 export default function Main() {
   const [inputs, setInputs] = useState({
