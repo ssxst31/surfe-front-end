@@ -4,7 +4,7 @@ import { useRecoilValueLoadable, RecoilEnv, Loadable } from "recoil";
 import MemberContext from "contexts/member";
 import { myProfileSelector } from "store";
 
-export const IS_LOADING = 0;
+export const IS_LOADING = null;
 
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
