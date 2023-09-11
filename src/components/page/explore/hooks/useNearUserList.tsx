@@ -1,0 +1,18 @@
+import useSWR, { useSWRConfig } from "swr";
+
+import { fetchUserListByMeDistance } from "pages/api/users";
+import { NearUser } from "type";
+
+export default function useNearUserList() {
+  const { mutate } = useSWRConfig();
+
+  const { data } = useSWR("/users/nearby", fetchUserListByMeDistance);
+
+  async function reloadNearUserList() {
+    await mutate("/users/nearby");
+  }
+
+  const nearUserList: NearUser[] | undefined = data;
+
+  return { nearUserList, reloadNearUserList };
+}

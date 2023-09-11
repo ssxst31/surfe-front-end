@@ -1,37 +1,25 @@
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { fetchUserListByMeDistance } from "pages/api/users";
 import { addLocation } from "pages/api/my";
+import PencilIcon from "assets/icons/pencil.svg";
+import useMe from "hooks/useMe";
+import useGeolocation from "hooks/useGeolocation";
 import KakaoMap from "components/common/KakaoMap";
 import UserList from "components/UserList";
-import useGeolocation from "hooks/useGeolocation";
-import useMe from "hooks/useMe";
-import { NearUser } from "type";
-import PencilIcon from "assets/icons/pencil.svg";
 import Avatar from "components/common/Avatar";
+import useNearUserList from "components/page/explore/hooks/useNearUserList";
 
 export default function Explore() {
   const me = useMe();
+  const { nearUserList, reloadNearUserList } = useNearUserList();
 
-  const [userList, setUserList] = useState<NearUser[]>();
   const { location, update } = useGeolocation();
-
-  useEffect(() => {
-    loadUserList();
-  }, []);
-
-  const loadUserList = async () => {
-    const res = await fetchUserListByMeDistance();
-
-    setUserList(res);
-  };
 
   return (
     <div className="relative lg:flex w-[620px] mt-10 -lg:mx-auto -lg:w-full">
       <div className="flex flex-col w-full">
         <KakaoMap
-          userListCount={userList?.length ?? 0}
+          userListCount={nearUserList?.length ?? 0}
           myLat={location.coordinates?.lat ?? 0}
           myLng={location.coordinates?.lng ?? 0}
         />
@@ -44,7 +32,7 @@ export default function Explore() {
               }
               update();
               await addLocation(location.coordinates?.lat, location.coordinates?.lng);
-              await loadUserList();
+              await reloadNearUserList();
             }}
             className={`${
               location.loaded ? "bg-blue-500 hover:bg-blue-600" : "bg-blue-100 cursor-default"
@@ -109,7 +97,7 @@ export default function Explore() {
         <div className="pt-5 font-extrabold border-t border-gray-100 border-solid text-md">
           주변 사람과 채팅해 보세요🙌
         </div>
-        <UserList />
+        <UserList nearUserList={nearUserList} reloadNearUserList={reloadNearUserList} />
         <div className="pt-5 my-2 font-extrabold border-t border-gray-100 border-solid text-md">
           단체 채팅도 한번 둘러보세요✨
         </div>

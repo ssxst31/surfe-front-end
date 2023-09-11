@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Explore from "components/Explore";
+import Explore from "components/page/explore/Explore";
 
 const ExplorePage: NextPage = () => {
   return <Explore />;
