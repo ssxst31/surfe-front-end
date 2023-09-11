@@ -19,7 +19,7 @@ const FriendListPage: NextPage = () => {
                 key={tab}
                 className={({ selected }) =>
                   selected
-                    ? " text-black w-1/2 border-blue-400 border-b-2 border-solid py-2 focus:ring-0"
+                    ? " text-black w-1/2 border-blue-500 border-b-2 border-solid py-2 focus:ring-0"
                     : " text-gray-400 w-1/2 py-2 border-gray-200 border-b-2 border-solid"
                 }
               >

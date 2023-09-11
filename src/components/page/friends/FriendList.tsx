@@ -1,12 +1,20 @@
 import Avatar from "components/common/Avatar";
 import FriendSkeleton from "components/page/friends/FriendSkeleton";
+import { Friend } from "type";
 
-const FriendList = ({ friendList, action, actionTitle, fallbackText }: any) => {
+interface FriendListProps {
+  friendList: Friend[] | undefined;
+  action: (userId: number) => Promise<void>;
+  actionTitle: string;
+  fallbackText: string;
+}
+
+const FriendList = ({ friendList, action, actionTitle, fallbackText }: FriendListProps) => {
   if (!friendList)
     return (
       <div>
-        {[1, 2, 3].map(() => (
-          <FriendSkeleton />
+        {[1, 2, 3].map((item) => (
+          <FriendSkeleton key={item} />
         ))}
       </div>
     );
@@ -18,7 +26,10 @@ const FriendList = ({ friendList, action, actionTitle, fallbackText }: any) => {
   return (
     <ul>
       {friendList.map((friend: any) => (
-        <li key={friend.userId} className="relative flex justify-between py-3 rounded-md hover:bg-gray-100">
+        <li
+          key={friend.userId}
+          className="relative flex justify-between py-3 rounded-md hover:bg-gray-100 items-center"
+        >
           <div className="flex">
             <Avatar pathName={`/user/${friend.userId}`} width="w-14" height="h-14" />
             <div>
@@ -30,7 +41,7 @@ const FriendList = ({ friendList, action, actionTitle, fallbackText }: any) => {
             </div>
           </div>
           <button
-            className="w-20 px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+            className="w-20 px-4 h-8 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600"
             onClick={() => {
               action(friend.userId);
             }}

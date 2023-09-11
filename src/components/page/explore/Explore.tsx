@@ -5,9 +5,10 @@ import PencilIcon from "assets/icons/pencil.svg";
 import useMe from "hooks/useMe";
 import useGeolocation from "hooks/useGeolocation";
 import KakaoMap from "components/common/KakaoMap";
-import UserList from "components/UserList";
+import UserList from "components/page/explore/UserList";
 import Avatar from "components/common/Avatar";
 import useNearUserList from "components/page/explore/hooks/useNearUserList";
+import Divider from "components/common/Divider";
 
 export default function Explore() {
   const me = useMe();
@@ -68,7 +69,7 @@ export default function Explore() {
             <Avatar pathName="/setting/profile" width="w-12" height="h-12">
               <PencilIcon color="black" className="w-4 h-4 absolute right-2.5 bottom-1.5" />
             </Avatar>
-            <div>
+            <div className=" break-all">
               <div className="text-sm">{me.nickname}</div>
               <div className="text-sm">{me.statusMessage}</div>
             </div>
@@ -94,13 +95,12 @@ export default function Explore() {
             </button>
           </Link>
         </div>
-        <div className="pt-5 font-extrabold border-t border-gray-100 border-solid text-md">
-          주변 사람과 채팅해 보세요🙌
-        </div>
+        <Divider color="bg-gray-100" height="h-[1px]" />
+        <div className="pt-5 font-extrabold text-md mb-2">주변 사람과 채팅해 보세요🙌</div>
         <UserList nearUserList={nearUserList} reloadNearUserList={reloadNearUserList} />
-        <div className="pt-5 my-2 font-extrabold border-t border-gray-100 border-solid text-md">
-          단체 채팅도 한번 둘러보세요✨
-        </div>
+        <div className="w-full h-5" />
+        <Divider color="bg-gray-100" height="h-[1px]" />
+        <div className="pt-5 font-extrabold text-md mb-2">단체 채팅도 한번 둘러보세요✨</div>
         <Link
           href={{
             pathname: "/every-chat",

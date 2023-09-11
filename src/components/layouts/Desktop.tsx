@@ -43,7 +43,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
               e.stopPropagation();
             }}
           >
-            {me ? (
+            {me && (
               <div className="text-black">
                 <div className="flex items-center my-4">
                   <img
@@ -65,7 +65,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                     }}
                   >
                     <button
-                      className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg"
+                      className="w-32 py-1 text-base text-white bg-blue-500 rounded-lg"
                       onClick={() => {
                         setIsSidebar(false);
                       }}
@@ -78,35 +78,12 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
                       pathname: "/my/friends",
                     }}
                   >
-                    <button className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg">친구 관리</button>
+                    <button className="w-32 py-1 text-base text-white bg-blue-500 rounded-lg">친구 관리</button>
                   </Link>
-                  <button onClick={signOut} className="w-32 py-1 text-base text-white bg-blue-400 rounded-lg">
+                  <button onClick={signOut} className="w-32 py-1 text-base text-white bg-blue-500 rounded-lg">
                     로그아웃
                   </button>
                 </div>
-              </div>
-            ) : (
-              <div className="flex space-x-3">
-                <Link href="/" className="w-36">
-                  <button
-                    className="w-full py-2 text-white bg-blue-400 rounded-lg"
-                    onClick={() => {
-                      setIsSidebar(false);
-                    }}
-                  >
-                    로그인
-                  </button>
-                </Link>
-                <Link href="/signup" className="w-36">
-                  <button
-                    className="w-full py-2 text-white bg-blue-400 rounded-lg"
-                    onClick={() => {
-                      setIsSidebar(false);
-                    }}
-                  >
-                    회원가입
-                  </button>
-                </Link>
               </div>
             )}
           </div>

@@ -67,11 +67,13 @@ export default function Main() {
           로그인
         </button>
       </form>
-      <Link href="/signup" className="w-96 -lg:w-full">
-        <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full">
-          회원가입
-        </button>
-      </Link>
+
+      <div className="font-medium rounded-lg text-sm px-5 py-2.5 w-full text-black">
+        아직 회원이 아니신가요?
+        <Link href="/signup" className="w-96 -lg:w-full ml-2 text-blue-500">
+          회원가입 하기
+        </Link>
+      </div>
     </div>
   );
 }

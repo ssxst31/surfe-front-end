@@ -19,7 +19,7 @@ export default function Header({ setIsSidebar, me }: HeaderProps) {
   };
 
   return (
-    <div className="fixed w-full bg-blue-400 z-[2] -lg:px-3 shadow-xl text-center py-3">
+    <div className="fixed w-full bg-blue-500 z-[2] -lg:px-3 shadow-xl text-center py-3">
       <div className="flex items-center justify-between w-full max-w-4xl mx-auto">
         <Link href="/">
           <Logo className="text-white text-3xl" />
@@ -31,16 +31,18 @@ export default function Header({ setIsSidebar, me }: HeaderProps) {
             </button>
           ) : (
             <Link href="/">
-              <button className="block p-1 text-white w-14 -lg:hidden">로그인</button>
+              <button className="block p-1 text-white w-14">로그인</button>
             </Link>
           )}
-          <HamburgerIcon
-            onClick={() => {
-              setIsSidebar((prev: boolean) => !prev);
-            }}
-            color="white"
-            className="hidden -lg:block"
-          />
+          {me && (
+            <HamburgerIcon
+              onClick={() => {
+                setIsSidebar((prev: boolean) => !prev);
+              }}
+              color="white"
+              className="hidden -lg:block"
+            />
+          )}
         </div>
       </div>
     </div>
