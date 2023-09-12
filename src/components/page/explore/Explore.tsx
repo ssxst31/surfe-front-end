@@ -70,8 +70,8 @@ export default function Explore() {
               <PencilIcon color="black" className="w-4 h-4 absolute right-2.5 bottom-1.5" />
             </Avatar>
             <div className=" break-all">
-              <div className="text-sm">{me.nickname}</div>
-              <div className="text-sm">{me.statusMessage}</div>
+              <div className="text-sm font-bold">{me.nickname}</div>
+              <div className="text-sm text-gray-400">{me.statusMessage}</div>
             </div>
           </div>
         </div>

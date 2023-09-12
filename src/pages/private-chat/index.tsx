@@ -1,7 +1,7 @@
 import { useSearchParams } from "next/navigation";
 
 import type { NextPage } from "next";
-import Chat from "components/Chat";
+import Chat from "components/common/Chat";
 import useMe from "hooks/useMe";
 
 const PrivateChatPage: NextPage = () => {

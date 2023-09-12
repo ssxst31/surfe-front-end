@@ -1,4 +1,4 @@
-export interface Chat {
+export interface ChatMessage {
   content: string;
   nickname: string;
   createAt: string;

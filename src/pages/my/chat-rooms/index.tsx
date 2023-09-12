@@ -43,9 +43,9 @@ const ChatRoomsPage: NextPage = () => {
   return (
     <div>
       <div className="w-full p-3">
-        <div className="space-y-5">
+        <div className="divide-y">
           {chatList.map((chat: any) => (
-            <div key={chat.roomName}>
+            <div key={chat.roomName} className="py-3">
               <Link
                 href={{
                   pathname: "/private-chat",
