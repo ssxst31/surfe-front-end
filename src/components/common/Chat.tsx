@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import SendIcon from "assets/icons/send.svg";
 import useVisible from "hooks/useVisible";
@@ -7,6 +8,7 @@ import useMe from "hooks/useMe";
 import ws from "datasources/ws";
 import { ChatMessage } from "type";
 import { formatChatDate } from "utils/date";
+import Avatar from "./Avatar";
 
 interface ChatProps {
   chatMessageList: ChatMessage[];
@@ -85,9 +87,7 @@ export default function Chat({
                 </div>
               ) : (
                 <div className="flex w-full mb-2">
-                  <Link href={{ pathname: `/user/${chat.senderId}` }}>
-                    <img src={chat.profileImage} className="rounded-[50%] h-10 w-10 mr-3" alt="profile" />
-                  </Link>
+                  <Avatar image={chat.profileImage} width="w-10" height="h-10" pathName={`/user/${chat.senderId}`} />
                   <div>
                     <div className="text-sm">{chat.nickname}</div>
                     <div className="max-w-lg whitespace-pre-wrap p-2 break-all bg-gray-100 rounded-lg -lg:max-w-[12rem] -lg:text-xs text-sm before:content-[''] relative before:absolute before:border-transparent before:border-[16px] before:border-solid before:w-0 before:h-0 before:border-t-0 before:border-l-0 before:border-r-gray-100 before:left-[-8px]">

@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
-
-import PencilIcon from "assets/icons/pencil.svg";
+import Image from "next/image";
 
 interface AvatarProps {
   width: string;
@@ -19,7 +18,13 @@ export default function Avatar({ width, height, pathName, children, image }: Ava
       }}
       className="relative cursor-pointer"
     >
-      <img src={image} width="100%" className={`rounded-[50%] ${width} ${height} shadow-2xl mr-2`} />
+      <Image
+        src={image}
+        alt="profile_image"
+        width={50}
+        height={50}
+        className={`rounded-[50%] ${width} ${height} shadow-2xl mr-2`}
+      />
       {children}
     </Link>
   );

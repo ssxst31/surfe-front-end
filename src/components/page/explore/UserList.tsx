@@ -11,7 +11,7 @@ export default function UserList({ nearUserList, reloadNearUserList }: UserListP
   if (!nearUserList)
     return (
       <div className="space-y-3 mt-2">
-        {[1, 2, 3].map((item) => (
+        {[1, 2, 3, 4, 5].map((item) => (
           <UserSkeleton key={item} />
         ))}
       </div>

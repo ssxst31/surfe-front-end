@@ -5,6 +5,7 @@ import { logOut } from "pages/api/auth";
 import Header from "components/common/Header";
 import MobileBottomNav from "components/common/MobileBottomNav";
 import useMe from "hooks/useMe";
+import Avatar from "components/common/Avatar";
 
 interface ResponsiveContainerProps {
   children: JSX.Element | JSX.Element[];
@@ -46,7 +47,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
             {me && (
               <div className="text-black">
                 <div className="flex items-center my-4">
-                  <img src={me.profileImage} className="rounded-[50%] h-12 w-12 mr-2" alt="profile" />
+                  <Avatar image={me.profileImage} width="w-12" height="h-12" />
                   <div>
                     <div className="text-sm">{me.nickname}</div>
                     <div className="text-xs">{me.id}</div>

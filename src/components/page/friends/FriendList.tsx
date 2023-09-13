@@ -31,7 +31,7 @@ const FriendList = ({ friendList, action, actionTitle, fallbackText }: FriendLis
           className="relative flex justify-between py-3 rounded-md hover:bg-gray-100 items-center"
         >
           <div className="flex">
-            <Avatar pathName={`/user/${friend.userId}`} width="w-14" height="h-14" />
+            <Avatar pathName={`/user/${friend.userId}`} width="w-14" height="h-14" image={friend.profileImage} />
             <div>
               <div>
                 <span>{friend.nickname}</span>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import type { NextPage } from "next";
 import { Profile } from "type";
@@ -29,7 +30,13 @@ const UserPage: NextPage = () => {
   return (
     <div>
       <div className="flex -lg:flex-col ">
-        <img src={profile.profileImage} className="mr-2 shadow-2xl w-96 h-96 -lg:w-full" alt="profile" />
+        <Image
+          src={profile.profileImage}
+          className="mr-2 shadow-2xl w-96 h-96 -lg:w-full"
+          alt="profile"
+          width={384}
+          height={384}
+        />
         <div className="flex flex-col p-3">
           <div className="text-3xl">{profile.nickname}</div>
           <div className="text-2xl">{profile.mbti}</div>
