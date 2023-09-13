@@ -29,6 +29,7 @@ export interface NearUser {
   id: number;
   loginId: string;
   nickname: string;
+  profileImage: string;
 }
 
 export interface Me {
@@ -47,4 +48,5 @@ export interface Profile extends User {
   statusMessage: string;
   mbti: string;
   interestList: string[];
+  profileImage: string;
 }

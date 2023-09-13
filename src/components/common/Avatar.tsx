@@ -8,9 +8,10 @@ interface AvatarProps {
   height: string;
   pathName?: string;
   children?: ReactNode;
+  image: string;
 }
 
-export default function Avatar({ width, height, pathName, children }: AvatarProps) {
+export default function Avatar({ width, height, pathName, children, image }: AvatarProps) {
   return (
     <Link
       href={{
@@ -18,10 +19,7 @@ export default function Avatar({ width, height, pathName, children }: AvatarProp
       }}
       className="relative cursor-pointer"
     >
-      <img
-        src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-        className={`rounded-[50%] ${width} ${height} shadow-2xl mr-2`}
-      />
+      <img src={image} width="100%" className={`rounded-[50%] ${width} ${height} shadow-2xl mr-2`} />
       {children}
     </Link>
   );

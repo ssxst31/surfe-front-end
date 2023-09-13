@@ -29,11 +29,7 @@ const UserPage: NextPage = () => {
   return (
     <div>
       <div className="flex -lg:flex-col ">
-        <img
-          src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-          className="mr-2 shadow-2xl w-96 h-96 -lg:w-full"
-          alt="profile"
-        />
+        <img src={profile.profileImage} className="mr-2 shadow-2xl w-96 h-96 -lg:w-full" alt="profile" />
         <div className="flex flex-col p-3">
           <div className="text-3xl">{profile.nickname}</div>
           <div className="text-2xl">{profile.mbti}</div>

@@ -46,11 +46,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
             {me && (
               <div className="text-black">
                 <div className="flex items-center my-4">
-                  <img
-                    src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-                    className="rounded-[50%] h-12 w-12 mr-2"
-                    alt="profile"
-                  />
+                  <img src={me.profileImage} className="rounded-[50%] h-12 w-12 mr-2" alt="profile" />
                   <div>
                     <div className="text-sm">{me.nickname}</div>
                     <div className="text-xs">{me.id}</div>

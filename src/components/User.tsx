@@ -31,7 +31,7 @@ export default function User2({ user, reloadNearUserList }: UserProps) {
   return (
     <div className="flex justify-between">
       <div className="flex">
-        <Avatar pathName={`/user/${user.id}`} width="w-12" height="h-12" />
+        <Avatar pathName={`/user/${user.id}`} width="w-12" height="h-12" image={user.profileImage} />
         <div className="mr-4 text-sm w-[82px] break-all break-words">{user.nickname}</div>
       </div>
       {user.friendStatus === "requesting" && (

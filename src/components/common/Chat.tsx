@@ -86,11 +86,7 @@ export default function Chat({
               ) : (
                 <div className="flex w-full mb-2">
                   <Link href={{ pathname: `/user/${chat.senderId}` }}>
-                    <img
-                      src="https://i.pinimg.com/550x/f3/c9/6c/f3c96c43766c04eaa1b773eb38ef531e.jpg"
-                      className="rounded-[50%] h-10 w-10 mr-3"
-                      alt="profile"
-                    />
+                    <img src={chat.profileImage} className="rounded-[50%] h-10 w-10 mr-3" alt="profile" />
                   </Link>
                   <div>
                     <div className="text-sm">{chat.nickname}</div>

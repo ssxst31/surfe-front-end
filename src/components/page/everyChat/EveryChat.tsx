@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Chat from "components/common/Chat";
-import useLoadMessage from "components/page/every-chat/hooks/useLoadMessage";
+import useLoadMessage from "components/page/everyChat/hooks/useLoadMessage";
 
 interface EveryChatProps {
   roomName: string;

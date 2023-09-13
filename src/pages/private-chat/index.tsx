@@ -1,7 +1,7 @@
 import { useSearchParams } from "next/navigation";
 
 import type { NextPage } from "next";
-import Chat from "components/common/Chat";
+import PrivateChat from "components/page/privateChat/PrivateChat";
 import useMe from "hooks/useMe";
 
 const PrivateChatPage: NextPage = () => {
@@ -18,7 +18,7 @@ const PrivateChatPage: NextPage = () => {
     }
   };
 
-  return <Chat roomName={createRoomName()} />;
+  return <PrivateChat roomName={createRoomName()} />;
 };
 
 export default PrivateChatPage;

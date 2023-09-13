@@ -13,7 +13,6 @@ import Divider from "components/common/Divider";
 export default function Explore() {
   const me = useMe();
   const { nearUserList, reloadNearUserList } = useNearUserList();
-
   const { location, update } = useGeolocation();
 
   return (
@@ -66,11 +65,11 @@ export default function Explore() {
       <div className="lg:fixed right-[calc(50vw-450px)] -lg:px-3 w-[256px] -lg:w-auto">
         <div className="flex justify-between -lg:hidden">
           <div className="flex">
-            <Avatar pathName="/setting/profile" width="w-12" height="h-12">
+            <Avatar pathName="/setting/profile" width="w-12" height="h-12" image={me.profileImage}>
               <PencilIcon color="black" className="w-4 h-4 absolute right-2.5 bottom-1.5" />
             </Avatar>
             <div className=" break-all">
-              <div className="text-sm font-bold">{me.nickname}</div>
+              <div className="text-sm font-semibold">{me.nickname}</div>
               <div className="text-sm text-gray-400">{me.statusMessage}</div>
             </div>
           </div>
@@ -96,11 +95,11 @@ export default function Explore() {
           </Link>
         </div>
         <Divider color="bg-gray-100" height="h-[1px]" />
-        <div className="pt-5 font-extrabold text-md mb-2">주변 사람과 채팅해 보세요🙌</div>
+        <div className="pt-5 font-semibold text-md mb-2">주변 사람과 채팅해 보세요🙌</div>
         <UserList nearUserList={nearUserList} reloadNearUserList={reloadNearUserList} />
         <div className="w-full h-5" />
         <Divider color="bg-gray-100" height="h-[1px]" />
-        <div className="pt-5 font-extrabold text-md mb-2">단체 채팅도 한번 둘러보세요✨</div>
+        <div className="pt-5 font-semibold text-md mb-2">단체 채팅도 한번 둘러보세요✨</div>
         <Link
           href={{
             pathname: "/every-chat",

@@ -57,7 +57,7 @@ const ProfilePage: NextPage = () => {
               className="hidden"
             />
             <div className="flex justify-center" onClick={onUploadImageButtonClick}>
-              <Avatar width="w-24" height="h-24">
+              <Avatar width="w-24" height="h-24" image={me.profileImage}>
                 <PencilIcon color="black" className="w-6 h-6 absolute right-4 bottom-3" />
               </Avatar>
             </div>
