@@ -4,11 +4,11 @@ import Link from "next/link";
 import type { NextPage } from "next";
 import * as myApi from "pages/api/my";
 import useMe from "hooks/useMe";
-import { Chat } from "type";
+import { ChatMessage } from "type";
 
 const ChatRoomsPage: NextPage = () => {
   const me = useMe();
-  const [chatList, setChatList] = useState<Chat[]>();
+  const [chatList, setChatList] = useState<ChatMessage[]>();
 
   const loadChatList = async () => {
     const res = await myApi.fetchChatList();
