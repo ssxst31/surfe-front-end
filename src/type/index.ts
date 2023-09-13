@@ -30,6 +30,7 @@ export interface NearUser {
   loginId: string;
   nickname: string;
   profileImage: string;
+  statusMessage: string;
 }
 
 export interface Me {
