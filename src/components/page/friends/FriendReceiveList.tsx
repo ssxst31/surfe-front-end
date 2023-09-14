@@ -1,31 +1,8 @@
-import React, { useState, useEffect } from "react";
-
-import * as apiMy from "pages/api/my";
-import { Friend } from "type/index";
-import Avatar from "components/common/Avatar";
 import FriendList from "components/page/friends/FriendList";
+import useFriendReceiveList from "components/page/friends/hooks/useFriendReceiveList";
 
 const FriendReceiveList = () => {
-  const [friendReceiveList, setFriendReceiveList] = useState<Friend[]>();
-
-  const postFriend = async (userId: number) => {
-    try {
-      await apiMy.addFriend(userId);
-      loadFriendReceiveList();
-    } catch (error: any) {
-      alert(error.response.data.message);
-    }
-  };
-
-  const loadFriendReceiveList = async () => {
-    const res = await apiMy.fetchFriendReceiveList();
-
-    setFriendReceiveList(res);
-  };
-
-  useEffect(() => {
-    loadFriendReceiveList();
-  }, []);
+  const { friendReceiveList, postFriend } = useFriendReceiveList();
 
   return (
     <div>

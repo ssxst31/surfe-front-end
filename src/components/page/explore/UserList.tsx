@@ -4,10 +4,10 @@ import { NearUser } from "type";
 
 interface UserListProps {
   nearUserList: NearUser[] | undefined;
-  reloadNearUserList: () => Promise<void>;
+  loadNearUserList: () => Promise<void>;
 }
 
-export default function UserList({ nearUserList, reloadNearUserList }: UserListProps) {
+export default function UserList({ nearUserList, loadNearUserList }: UserListProps) {
   if (!nearUserList)
     return (
       <div className="space-y-3 mt-2">
@@ -24,7 +24,7 @@ export default function UserList({ nearUserList, reloadNearUserList }: UserListP
   return (
     <div className="max-h-[328px] overflow-y-scroll space-y-3 mt-2">
       {nearUserList.map((user) => (
-        <User key={user.id} user={user} reloadNearUserList={reloadNearUserList} />
+        <User key={user.id} user={user} loadNearUserList={loadNearUserList} />
       ))}
     </div>
   );

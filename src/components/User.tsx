@@ -6,14 +6,14 @@ import Avatar from "components/common/Avatar";
 
 interface UserProps {
   user: NearUser;
-  reloadNearUserList: () => Promise<void>;
+  loadNearUserList: () => Promise<void>;
 }
 
-export default function User2({ user, reloadNearUserList }: UserProps) {
+export default function User2({ user, loadNearUserList }: UserProps) {
   const addFriend = async () => {
     try {
       await myApi.addFriend(user.id);
-      await reloadNearUserList();
+      await loadNearUserList();
     } catch (error: any) {
       alert(error.response.data.message);
     }
@@ -22,7 +22,7 @@ export default function User2({ user, reloadNearUserList }: UserProps) {
   const deleteFriend = async () => {
     try {
       await myApi.deleteFriend(user.id);
-      await reloadNearUserList();
+      await loadNearUserList();
     } catch (error: any) {
       alert(error.response.data.message);
     }

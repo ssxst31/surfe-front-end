@@ -8,11 +8,11 @@ export default function useNearUserList() {
 
   const { data } = useSWR("/users/nearby", fetchUserListByMeDistance);
 
-  async function reloadNearUserList() {
+  async function loadNearUserList() {
     await mutate("/users/nearby");
   }
 
   const nearUserList: NearUser[] | undefined = data;
 
-  return { nearUserList, reloadNearUserList };
+  return { nearUserList, loadNearUserList };
 }

@@ -1,29 +1,8 @@
-import React, { useState, useEffect } from "react";
-
-import * as apiMy from "pages/api/my";
-import { Friend } from "type/index";
-import Avatar from "components/common/Avatar";
 import FriendList from "components/page/friends/FriendList";
+import useFriendRequestList from "components/page/friends/hooks/useFriendRequestList";
 
 const FriendRequestList = () => {
-  const [friendRequestList, setFriendRequestList] = useState<Friend[]>();
-
-  const deleteFriend = async (friendId: number) => {
-    if (confirm("정말 삭제하시겠습니까?")) {
-      await apiMy.deleteFriend(friendId);
-      loadFriendRequestList();
-    }
-  };
-
-  const loadFriendRequestList = async () => {
-    const res = await apiMy.fetchFriendRequestList();
-
-    setFriendRequestList(res);
-  };
-
-  useEffect(() => {
-    loadFriendRequestList();
-  }, []);
+  const { friendRequestList, deleteFriend } = useFriendRequestList();
 
   return (
     <div>

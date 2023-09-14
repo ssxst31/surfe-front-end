@@ -12,7 +12,7 @@ import Divider from "components/common/Divider";
 
 export default function Explore() {
   const me = useMe();
-  const { nearUserList, reloadNearUserList } = useNearUserList();
+  const { nearUserList, loadNearUserList } = useNearUserList();
   const { location, update } = useGeolocation();
 
   return (
@@ -32,7 +32,7 @@ export default function Explore() {
               }
               update();
               await addLocation(location.coordinates?.lat, location.coordinates?.lng);
-              await reloadNearUserList();
+              await loadNearUserList();
             }}
             className={`${
               location.loaded ? "bg-blue-500 hover:bg-blue-600" : "bg-blue-100 cursor-default"
@@ -96,7 +96,7 @@ export default function Explore() {
         </div>
         <Divider color="bg-gray-100" height="h-[1px]" />
         <div className="pt-5 font-semibold text-md mb-2">주변 사람과 채팅해 보세요🙌</div>
-        <UserList nearUserList={nearUserList} reloadNearUserList={reloadNearUserList} />
+        <UserList nearUserList={nearUserList} loadNearUserList={loadNearUserList} />
         <div className="w-full h-5" />
         <Divider color="bg-gray-100" height="h-[1px]" />
         <div className="pt-5 font-semibold text-md mb-2">단체 채팅도 한번 둘러보세요✨</div>
