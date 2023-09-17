@@ -22,7 +22,7 @@ export default function UserList({ nearUserList, loadNearUserList }: UserListPro
   }
 
   return (
-    <div className="max-h-[328px] overflow-y-scroll space-y-3 mt-2">
+    <div className="max-h-[328px] overflow-y-scroll space-y-4 mt-2">
       {nearUserList.map((user) => (
         <User key={user.id} user={user} loadNearUserList={loadNearUserList} />
       ))}
