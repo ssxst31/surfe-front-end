@@ -23,7 +23,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
   };
 
   return (
-    <div>
+    <div className="h-screen">
       {isSidebar && (
         <div
           className={`hidden -lg:block fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50`}
@@ -86,7 +86,7 @@ export default function ResponsiveContainer({ children }: ResponsiveContainerPro
           </div>
         </div>
       )}
-      <Header setIsSidebar={setIsSidebar} me={me} />
+      {me && <Header setIsSidebar={setIsSidebar} me={me} />}
       <div className="w-full h-[60px]" />
       <div className="max-w-4xl mx-auto">{children}</div>
       <MobileBottomNav />

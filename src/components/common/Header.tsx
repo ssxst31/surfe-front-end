@@ -19,7 +19,7 @@ export default function Header({ setIsSidebar, me }: HeaderProps) {
   };
 
   return (
-    <div className="fixed w-full bg-blue-500 z-[2] -lg:px-3 shadow-xl text-center py-3">
+    <div className="fixed w-full bg-gradient-to-l from-blue-500 to-indigo-500 z-[2] -lg:px-3 shadow-xl text-center py-3">
       <div className="flex items-center justify-between w-full max-w-4xl mx-auto">
         <Link href="/">
           <Logo className="text-white text-3xl" />

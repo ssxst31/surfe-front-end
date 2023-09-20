@@ -44,7 +44,7 @@ export default function MobileBottomNav() {
       <div className="fixed w-full bg-white z-[2] -lg:px-3 shadow-xl text-center py-3 bottom-0 lg:hidden  border-t border-solid border-gray-200">
         <ul className="flex justify-between w-full max-w-4xl mx-auto">
           {navList.map((item) => (
-            <li className="text-xs w-14" key={item.title}>
+            <li className="text-xs w-15" key={item.title}>
               <Link
                 href={{
                   pathname: item.pathname,

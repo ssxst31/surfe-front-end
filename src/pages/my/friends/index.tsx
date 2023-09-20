@@ -5,12 +5,13 @@ import type { NextPage } from "next";
 import MyFriendList from "components/page/friends/MyFriendList";
 import FriendRequestList from "components/page/friends/FriendRequestList";
 import FriendReceiveList from "components/page/friends/FriendReceiveList";
+import DefaultLayout from "components/layouts/DefaultLayout";
 
 const FriendListPage: NextPage = () => {
   const tabList = ["내 친구", "받은 요청", "보낸 요청"];
 
   return (
-    <div>
+    <DefaultLayout>
       <div className="w-full">
         <Tab.Group>
           <Tab.List className="flex justify-between w-full">
@@ -40,7 +41,7 @@ const FriendListPage: NextPage = () => {
           </Tab.Panels>
         </Tab.Group>
       </div>
-    </div>
+    </DefaultLayout>
   );
 };
 

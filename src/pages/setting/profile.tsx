@@ -5,6 +5,7 @@ import { postThumbnail } from "pages/api/my";
 import PencilIcon from "assets/icons/pencil.svg";
 import Avatar from "components/common/Avatar";
 import type { NextPage } from "next";
+import DefaultLayout from "components/layouts/DefaultLayout";
 
 const ProfilePage: NextPage = () => {
   const me = useMe();
@@ -39,7 +40,7 @@ const ProfilePage: NextPage = () => {
   };
 
   return (
-    <>
+    <DefaultLayout>
       <div className="flex flex-col items-center mx-3 text-center mt-14">
         <form className="flex flex-col space-y-4 -sm:w-full">
           <div className="-sm:w-full">
@@ -132,7 +133,7 @@ const ProfilePage: NextPage = () => {
           </button>
         </form>
       </div>
-    </>
+    </DefaultLayout>
   );
 };
 

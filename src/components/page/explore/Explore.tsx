@@ -95,7 +95,7 @@ export default function Explore() {
           </Link>
         </div>
         <Divider color="bg-gray-100" height="h-[1px]" />
-        <div className="pt-5 font-semibold text-md mb-2">주변 사람과 채팅해 보세요🙌</div>
+        <div className="pt-5 font-semibold text-md mb-2">발견된 사람과 채팅해 보세요🙌</div>
         <UserList nearUserList={nearUserList} loadNearUserList={loadNearUserList} />
         <div className="w-full h-5" />
         <Divider color="bg-gray-100" height="h-[1px]" />

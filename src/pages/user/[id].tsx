@@ -6,6 +6,7 @@ import type { NextPage } from "next";
 import { Profile } from "type";
 import { fetchUserProfile } from "pages/api/users";
 import StarIcon from "assets/icons/star.svg";
+import DefaultLayout from "components/layouts/DefaultLayout";
 
 const UserPage: NextPage = () => {
   const router = useRouter();
@@ -28,7 +29,7 @@ const UserPage: NextPage = () => {
   }
 
   return (
-    <div>
+    <DefaultLayout>
       <div className="flex -lg:flex-col ">
         <Image
           src={profile.profileImage}
@@ -54,7 +55,7 @@ const UserPage: NextPage = () => {
           <div className="mt-2">{profile.statusMessage}</div>
         </div>
       </div>
-    </div>
+    </DefaultLayout>
   );
 };
 

@@ -29,7 +29,7 @@ const KakaoMap = ({ userListCount, myLat, myLng }: KakaoMapProps) => {
         level: 8,
       });
       const createContent = () => {
-        return `<div style="padding:0 5px;background:#fff;">${`내 주위로 ${filteredDistance}키로내 ${userListCount}명 있습니다.`}</div>`;
+        return `<div style="color:white;text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">${`${filteredDistance}키로내 ${userListCount}명을 발견했어요⚡`}</div>`;
       };
 
       new kakao.maps.CustomOverlay({

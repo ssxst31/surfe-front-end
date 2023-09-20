@@ -49,11 +49,9 @@ function MyApp({ Component, pageProps, me }: CustomAppProps) {
       <DefaultSEO />
       <RecoilRoot>
         <MemberContext.Provider value={me}>
-          <DefaultLayout>
-            <main className={iBMPlexSansKR.className}>
-              <Component {...pageProps} />
-            </main>
-          </DefaultLayout>
+          <main className={iBMPlexSansKR.className}>
+            <Component {...pageProps} />
+          </main>
         </MemberContext.Provider>
       </RecoilRoot>
     </>

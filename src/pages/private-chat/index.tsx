@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import type { NextPage } from "next";
 import PrivateChat from "components/page/privateChat/PrivateChat";
 import useMe from "hooks/useMe";
+import DefaultLayout from "components/layouts/DefaultLayout";
 
 const PrivateChatPage: NextPage = () => {
   const searchParams = useSearchParams();
@@ -18,7 +19,11 @@ const PrivateChatPage: NextPage = () => {
     }
   };
 
-  return <PrivateChat roomName={createRoomName()} />;
+  return (
+    <DefaultLayout>
+      <PrivateChat roomName={createRoomName()} />
+    </DefaultLayout>
+  );
 };
 
 export default PrivateChatPage;

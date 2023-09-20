@@ -12,7 +12,7 @@ export default function CompletedSignUpPage() {
       <Particle />
       <div className="text-center ">
         <span className="font-bold">{me?.nickname}</span>님 서피 회원이 되신 것을 환영합니다 🙌
-        <div>지금 다른 사람들과 채팅해보세요!</div>
+        <div>지금 근처 사람들과 채팅해보세요!</div>
       </div>
       <Link href="/explore">
         <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 mb-4 mt-10 -lg:w-64 -lg:mx-auto">

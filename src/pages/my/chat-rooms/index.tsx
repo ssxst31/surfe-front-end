@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import * as myApi from "pages/api/my";
 import useMe from "hooks/useMe";
 import { ChatMessage } from "type";
+import DefaultLayout from "components/layouts/DefaultLayout";
 
 const ChatRoomsPage: NextPage = () => {
   const me = useMe();
@@ -41,7 +42,7 @@ const ChatRoomsPage: NextPage = () => {
   if (!chatList) return <></>;
 
   return (
-    <div>
+    <DefaultLayout>
       <div className="w-full p-3">
         <div className="divide-y">
           {chatList.map((chat: any) => (
@@ -71,7 +72,7 @@ const ChatRoomsPage: NextPage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </DefaultLayout>
   );
 };
 
