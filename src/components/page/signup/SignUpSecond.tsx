@@ -80,7 +80,7 @@ export default function SignUpSecond({
             </h2>
             <Listbox value={mbti} onChange={setMbti}>
               <div className="relative">
-                <Listbox.Button className="relative w-full px-5 py-3 rounded-md border border-gray-300 bg-transparent text-left text-white">
+                <Listbox.Button className="relative w-full px-5 py-2.5 rounded-md border-b border-0 bg-transparent text-left text-black text-sm">
                   <span className="block truncate">{mbti}</span>
                 </Listbox.Button>
                 <Transition
@@ -116,7 +116,7 @@ export default function SignUpSecond({
               {INTERESTS.map((interest) => (
                 <div
                   key={interest.id}
-                  className={`h-10 px-4 py-2 mt-2 mr-2 rounded-lg cursor-pointer  border border-white ${
+                  className={`px-4 py-1 mt-2 mr-2 text-sm rounded-lg cursor-pointer border ${
                     interestList.includes(interest.content) ? " text-green-400 border-green-400" : " text-black"
                   }`}
                   onClick={() => {
