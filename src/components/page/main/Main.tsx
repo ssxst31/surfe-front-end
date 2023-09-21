@@ -37,9 +37,9 @@ export default function Main() {
   return (
     <div className="h-screen bg-gradient-to-t from-blue-500 to-indigo-500">
       <div className="flex flex-col items-center mx-3 text-center pt-32">
-        <h1>
+        <h1 className="mb-10">
           <div className="relative h-20 w-52">
-            <Logo className="text-white text-[50px]" />
+            <Logo className="text-white text-[70px]" />
           </div>
           <div className="mb-5 text-sm text-center text-white">근처의 다양한 사람들과 채팅해보세요</div>
         </h1>
