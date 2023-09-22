@@ -5,6 +5,11 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        fontFamily: {
+          marhey: ["var(--marhey)"],
+        },
+      },
       screens: {
         "-2xl": { max: "1535px" },
         // => @media (min-width: 640px) { ... }

@@ -1,6 +1,6 @@
 import React from "react";
 import { RecoilRoot } from "recoil";
-import { IBM_Plex_Sans_KR } from "next/font/google";
+import { IBM_Plex_Sans_KR, Marhey } from "next/font/google";
 
 import MemberContext from "contexts/member";
 import { fetchProfileSSR } from "pages/api/my";
@@ -11,6 +11,7 @@ import type { AppProps } from "next/app";
 import "styles/globals.css";
 
 const iBMPlexSansKR = IBM_Plex_Sans_KR({ weight: ["400", "500", "600", "700"], preload: false });
+const marhey = Marhey({ weight: "400", preload: false });
 
 MyApp.getInitialProps = async ({ Component, router, ctx }: any) => {
   let pageProps = {};
@@ -49,7 +50,7 @@ function MyApp({ Component, pageProps, me }: CustomAppProps) {
       <DefaultSEO />
       <RecoilRoot>
         <MemberContext.Provider value={me}>
-          <main className={iBMPlexSansKR.className}>
+          <main className={`${iBMPlexSansKR.className} ${marhey.className}`}>
             <Component {...pageProps} />
           </main>
         </MemberContext.Provider>
