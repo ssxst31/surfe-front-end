@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { login } from "pages/api/auth";
 import Logo from "components/common/Logo";
+import { isIdValid, isPasswordValid } from "components/page/signup/utils/inputValid";
 
 export default function Main() {
   const [inputs, setInputs] = useState({
@@ -21,6 +22,9 @@ export default function Main() {
   const { id, password } = inputs;
 
   const submit = async () => {
+    if (!isIdValid(id)) return alert("아이디 형식을 확인해주세요");
+    if (!isPasswordValid(password)) return alert("비밀번호 형식을 확인해주세요");
+
     const res = await login({ id, password }).catch((err) => {
       alert(err.response.data.message);
     });

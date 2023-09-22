@@ -67,8 +67,8 @@ export default function SignUp() {
   };
 
   const firstAction = () => {
-    if (!isIdValid(id)) return alert("아이디 형식이 잘못되었습니다.");
-    if (!isPasswordValid(password)) return alert("비밀번호 형식이 잘못되었습니다.");
+    if (!isIdValid(id)) return alert("아이디 형식을 확인해주세요");
+    if (!isPasswordValid(password)) return alert("비밀번호 형식을 확인해주세요");
     if (!arePasswordsMatched(password, checkPassword)) return alert("비밀번호가 서로 틀립니다.");
 
     setPageIndex("second");
