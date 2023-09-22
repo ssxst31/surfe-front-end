@@ -6,9 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        fontFamily: {
-          marhey: ["var(--marhey)"],
-        },
+        marhey: ["var(--marhey)"],
       },
       screens: {
         "-2xl": { max: "1535px" },
