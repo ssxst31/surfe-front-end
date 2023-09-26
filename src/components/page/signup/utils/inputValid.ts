@@ -23,7 +23,7 @@ export const arePasswordsMatched = (value: string, confirmValue: string): boolea
 export const isNicknameValid = (value: string): boolean => {
   const minLength = 2;
   const maxLength = 12;
-  const regex = /^[a-zA-Z0-9]*$/;
+  const regex = /^[a-zA-Z0-9가-힣]*$/;
 
   if (value.length >= minLength && value.length <= maxLength && regex.test(value)) {
     return true;
