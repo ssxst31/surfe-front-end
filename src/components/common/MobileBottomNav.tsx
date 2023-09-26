@@ -10,7 +10,7 @@ import SettingIcon from "assets/icons/setting.svg";
 export default function MobileBottomNav() {
   const router = useRouter();
   const currentPage = router.pathname;
-  const notPublicPages = ["/", "private-chat", "every-chat", "signup", "completed"];
+  const notPublicPages = ["/", "chats", "signup", "completed"];
   const pageRootName = currentPage !== "/" ? currentPage.slice(1).split("/")[0] : "/";
 
   const activeNavPage = !notPublicPages.includes(pageRootName);

@@ -49,8 +49,7 @@ const ChatRoomsPage: NextPage = () => {
             <div key={chat.roomName} className="py-3">
               <Link
                 href={{
-                  pathname: "/private-chat",
-                  query: { room: chat.roomName.split("_").filter((item: any) => item !== String(me.id))[0] },
+                  pathname: `/chats/${chat.roomName.split("_").filter((item: any) => item !== String(me.id))[0]}`,
                 }}
               >
                 <div className="flex justify-between">

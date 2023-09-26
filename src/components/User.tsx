@@ -56,8 +56,7 @@ export default function User2({ user, loadNearUserList }: UserProps) {
       {user.friendStatus === "friend" && (
         <Link
           href={{
-            pathname: "/private-chat",
-            query: { room: user.id },
+            pathname: `/chats/${user.id}`,
           }}
         >
           <button className="px-4 py-2 text-xs font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600">

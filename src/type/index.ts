@@ -1,10 +1,10 @@
 export interface ChatMessage {
-  content: string;
   nickname: string;
-  createAt: string;
-  profile: null | string;
-  userId: number;
+  createdAt: string;
   id: number;
+  senderId: number;
+  message: string;
+  profileImage: string;
 }
 
 export interface Friend {

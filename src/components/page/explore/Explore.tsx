@@ -102,7 +102,7 @@ export default function Explore() {
         <div className="pt-5 font-semibold text-md mb-2">단체 채팅도 한번 둘러보세요✨</div>
         <Link
           href={{
-            pathname: "/every-chat",
+            pathname: "/chats/every",
           }}
         >
           <button className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full">
