@@ -13,7 +13,7 @@ interface useChatMessageProps {
 export default function useChatMessage({ roomName, limit }: useChatMessageProps) {
   const me = useMe();
 
-  const [chatMessageList, setChatMessageList] = useState<ChatMessage[]>();
+  const [chatMessageList, setChatMessageList] = useState<ChatMessage[]>([]);
   const [historyChatMessageList, setHistoryChatMessageList] = useState<ChatMessage[]>([]);
 
   useEffect(() => {

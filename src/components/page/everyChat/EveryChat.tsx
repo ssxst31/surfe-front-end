@@ -11,7 +11,7 @@ const EveryChat = ({ roomName }: EveryChatProps) => {
   const [limit, setLimit] = useState<number>(0);
   const { chatMessageList, loadHistoryChatMessage, historyChatMessageList } = useLoadMessage({ roomName, limit });
 
-  if (!chatMessageList) {
+  if (!historyChatMessageList) {
     return <></>;
   }
 

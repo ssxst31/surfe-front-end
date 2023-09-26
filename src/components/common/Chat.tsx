@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import Image from "next/image";
 
 import SendIcon from "assets/icons/send.svg";
 import useVisible from "hooks/useVisible";
@@ -27,19 +25,24 @@ export default function Chat({
 }: ChatProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const fetchPointRef = useRef(null);
-  const detailRef = useRef<HTMLDivElement>(null);
+  const messageListRef = useRef<any>(null);
   const isVisible = useVisible(fetchPointRef);
   const me = useMe();
   const [inputValue, setInputValue] = useState<string>("");
 
+  if (!historyChatMessageList) {
+    return <></>;
+  }
+
   useEffect(() => {
-    if (isVisible && limit <= historyChatMessageList.length && chatMessageList.length >= 30) {
-      detailRef.current?.scroll({ top: 500 });
+    messageListRef.current?.scroll({ top: messageListRef.current.scrollHeight });
+  }, [historyChatMessageList]);
+
+  useEffect(() => {
+    if (isVisible && limit <= historyChatMessageList.length) {
       loadHistoryChatMessage();
-    } else {
-      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [isVisible, chatMessageList]);
+  }, [isVisible]);
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
@@ -64,7 +67,7 @@ export default function Chat({
 
   return (
     <div className="flex flex-col items-center w-full h-[calc(100vh-80px)]">
-      <div className="w-full h-full px-5 overflow-scroll" ref={detailRef}>
+      <div className="w-full h-full px-5 overflow-scroll" ref={messageListRef}>
         <div ref={fetchPointRef} />
         {historyChatMessageList.concat(chatMessageList).map((chat: any, index: number) => {
           const createdAt = new Date(chat.createdAt);
