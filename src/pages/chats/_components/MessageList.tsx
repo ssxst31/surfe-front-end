@@ -11,9 +11,19 @@ interface MessageListProps {
 export default function MessageList({ chatMessageList, historyChatMessageList }: MessageListProps) {
   const me = useMe();
 
+  const uniqueChatMessages = [...historyChatMessageList, ...chatMessageList].reduce(
+    (uniqueMessages: ChatMessage[], chat) => {
+      if (!uniqueMessages.some((msg: ChatMessage) => msg.id === chat.id)) {
+        uniqueMessages.push(chat);
+      }
+      return uniqueMessages;
+    },
+    [],
+  );
+
   return (
     <>
-      {historyChatMessageList.concat(chatMessageList).map((chat) => {
+      {uniqueChatMessages.map((chat) => {
         const createdAt = new Date(chat.createdAt);
         const formattedDate = formatChatDate(createdAt.getTime());
         const hour = String(new Date(createdAt).getHours()).padStart(2, "0");
