@@ -31,7 +31,16 @@ export default function ChatContainer({ roomName }: MessageListProps) {
   }
 
   useEffect(() => {
-    messageListRef.current?.scroll({ top: messageListRef.current.scrollHeight });
+    messageListRef.current?.scroll({ top: 500 });
+
+    if (!scrollRef.current) return;
+
+    const isAtBottom =
+      messageListRef.current.scrollHeight - messageListRef.current.clientHeight <= messageListRef.current.scrollTop + 1;
+
+    if (isAtBottom) {
+      scrollRef.current.scrollIntoView({ behavior: "auto" });
+    }
   }, [historyChatMessageList]);
 
   useEffect(() => {
