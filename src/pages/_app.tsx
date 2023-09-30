@@ -1,6 +1,7 @@
 import React from "react";
 import { RecoilRoot } from "recoil";
 import { IBM_Plex_Sans_KR, Marhey } from "next/font/google";
+import Head from "next/head";
 
 import MemberContext from "contexts/member";
 import { fetchProfileSSR } from "pages/api/my";
@@ -47,6 +48,9 @@ interface CustomAppProps extends AppProps {
 function MyApp({ Component, pageProps, me }: CustomAppProps) {
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      </Head>
       <DefaultSEO />
       <RecoilRoot>
         <MemberContext.Provider value={me}>

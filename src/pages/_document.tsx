@@ -14,7 +14,6 @@ export default class MyDocument extends Document {
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="author" content="서피" />
           <meta name="keywords" content="채팅, 친구" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         </Head>
         <body>
           <Main />
