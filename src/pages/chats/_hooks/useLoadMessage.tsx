@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import useSWR, { useSWRConfig } from "swr";
 
 import { ChatMessage } from "type";
 import { fetchChat } from "pages/api/my";
@@ -12,15 +13,14 @@ interface useChatMessageProps {
 
 export default function useChatMessage({ roomName, limit }: useChatMessageProps) {
   const me = useMe();
+  const { mutate } = useSWRConfig();
 
   const [chatMessageList, setChatMessageList] = useState<ChatMessage[]>([]);
-  const [historyChatMessageList, setHistoryChatMessageList] = useState<ChatMessage[]>([]);
+  const { data } = useSWR(`/my/chat?limit=${limit}&roomName=${roomName}`, () => fetchChat(limit + 30, roomName));
 
-  useEffect(() => {
-    ws.on("RECEIVE_MESSAGE", (data: { chatList: ChatMessage[] }) => {
-      setChatMessageList(data.chatList);
-    });
-  }, [ws, chatMessageList]);
+  ws.on("RECEIVE_MESSAGE", (data: { chatList: ChatMessage[] }) => {
+    setChatMessageList(data.chatList);
+  });
 
   useEffect(() => {
     ws.emit("JOIN_ROOM", {
@@ -29,10 +29,11 @@ export default function useChatMessage({ roomName, limit }: useChatMessageProps)
     });
   }, []);
 
-  const loadHistoryChatMessage = async () => {
-    const res = await fetchChat(limit + 30, roomName);
-    setHistoryChatMessageList(res);
-  };
+  async function loadHistoryChatMessage() {
+    await mutate(`/my/chat?limit=${limit}&roomName=${roomName}`);
+  }
+
+  const historyChatMessageList: ChatMessage[] | undefined = data;
 
   return { chatMessageList, loadHistoryChatMessage, historyChatMessageList };
 }

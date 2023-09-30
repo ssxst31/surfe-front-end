@@ -1,12 +1,39 @@
-import SendIcon from "assets/icons/send.svg";
+import { useState } from "react";
 
-interface ChatFormProps {
-  onChange: any;
-  postMessage: any;
-  inputValue: any;
+import SendIcon from "assets/icons/send.svg";
+import ws from "datasources/ws";
+import useMe from "hooks/useMe";
+
+interface ChatFromProps {
+  roomName: string;
 }
 
-export default function ChatFrom({ onChange, postMessage, inputValue }: ChatFormProps) {
+export default function ChatFrom({ roomName }: ChatFromProps) {
+  const me = useMe();
+
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const postMessage = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent) => {
+    e.preventDefault();
+
+    if (!inputValue) {
+      return alert("메시지를 입력해주세요");
+    }
+
+    ws.emit("SEND_MESSAGE", {
+      content: inputValue,
+      memberId: me.id,
+      createAt: new Date(),
+      roomName,
+    });
+
+    setInputValue("");
+  };
+
   return (
     <form className="relative flex w-full -lg:px-5">
       <div className="flex w-full py-3 pr-5 border border-gray-300 rounded-md focus:border-indigo-500 focus:ring-indigo-500">
