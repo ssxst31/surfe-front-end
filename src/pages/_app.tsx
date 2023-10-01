@@ -6,7 +6,6 @@ import Head from "next/head";
 import MemberContext from "contexts/member";
 import { fetchProfileSSR } from "pages/api/my";
 import DefaultSEO from "pages/DefaultSEO";
-import DefaultLayout from "components/layouts/DefaultLayout";
 import type { AppProps } from "next/app";
 
 import "styles/globals.css";
