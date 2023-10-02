@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { MBTIS } from "consts";
+import { MBTIS } from "components/page/signup/consts";
 import { createUser } from "pages/api/auth";
 
 import SignUpFirst from "components/page/signup/SignUpFirst";

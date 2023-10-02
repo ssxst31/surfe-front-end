@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 
-import { INTERESTS, MBTIS } from "consts";
+import { INTERESTS, MBTIS } from "components/page/signup/consts";
 
 import Logo from "components/common/Logo";
 
