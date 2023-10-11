@@ -37,11 +37,12 @@ export default function Main() {
   };
 
   const handleSignWithKaKao = () => {
-    const kakao = kakaoInit();
+    alert("준비중 입니다.");
+    // const kakao = kakaoInit();
 
-    kakao.Auth.authorize({
-      redirectUri: "http://localhost:3000/callback/kakao/authorize",
-    });
+    // kakao.Auth.authorize({
+    //   redirectUri: "http://localhost:3000/callback/kakao/authorize",
+    // });
   };
 
   return (
