@@ -6,6 +6,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
+          <script src="https://developers.kakao.com/sdk/js/kakao.js" />
           <link rel="surfe icon" href="/favicon.ico" />
           <meta name="NaverBot" content="All" />
           <meta name="NaverBot" content="index,follow" />
