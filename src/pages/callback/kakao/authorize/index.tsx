@@ -68,7 +68,7 @@ const Authorize = ({ userInfo }: AuthorizeProps) => {
   const signInOrSignUpKakao = async () => {
     const res = await authApi.kakaoLogin(userInfo.id);
 
-    if (res.message === "성공적으로 로그인 했습니다") {
+    if (res.message === "OK") {
       if (process.env.NEXT_PUBLIC_ENV === "development") {
         window.location.assign(`http://localhost:3000/explore`);
       } else {
