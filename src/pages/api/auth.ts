@@ -29,3 +29,9 @@ export async function signInWithKaKao({ accessToken }: { accessToken: string }) 
 export async function logOut() {
   return await customAxios.get<null, any>("/auth/logout");
 }
+
+export async function kakaoLogin(kakaoId: number) {
+  return await customAxios.post<null, any>("/auth/kakaoLogin", {
+    kakaoId,
+  });
+}

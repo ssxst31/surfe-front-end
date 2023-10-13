@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 import type { GetServerSideProps } from "next";
 import * as authApi from "pages/api/auth";
@@ -16,7 +17,7 @@ async function fetchAccessToken(code: string): Promise<string> {
   const data = new URLSearchParams();
   data.append("grant_type", "authorization_code");
   data.append("client_id", KAKAO_APP_KEY);
-  data.append("redirect_uri", "http://localhost:3000/callback/kakao/authorize");
+  data.append("redirect_uri", "https://surfe.store/callback/kakao/authorize");
   data.append("code", code);
 
   try {
@@ -28,27 +29,51 @@ async function fetchAccessToken(code: string): Promise<string> {
   }
 }
 
+async function fetchUserFromKakao(accessToken: string): Promise<any> {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${accessToken} `,
+    },
+  };
+
+  try {
+    const response = await axios.get("https://kapi.kakao.com/v2/user/me", config);
+    return response;
+  } catch (error) {
+    console.error("Failed to fetch access token:", error);
+    return "";
+  }
+}
+
 interface AuthorizeProps {
-  accessToken: string;
+  userInfo: any;
 }
 
 export const getServerSideProps: GetServerSideProps<AuthorizeProps> = async (context) => {
   const code = Array.isArray(context.query.code) ? context.query.code[0] : context.query.code || "";
   const accessToken = await fetchAccessToken(code);
 
-  return { props: { accessToken } };
+  const res = await fetchUserFromKakao(accessToken);
+
+  return { props: { userInfo: res.data } };
 };
 
-const Authorize = ({ accessToken }: AuthorizeProps) => {
+const Authorize = ({ userInfo }: AuthorizeProps) => {
+  const router = useRouter();
+
   useEffect(() => {
     signInOrSignUpKakao();
   }, []);
 
   const signInOrSignUpKakao = async () => {
-    try {
-      await authApi.signInWithKaKao({ accessToken });
-    } catch (error) {
-      console.error("Failed to sign in with Kakao:", error);
+    const res = await authApi.kakaoLogin(userInfo.id);
+
+    if (res.message === "성공적으로 로그인 했습니다") {
+      if (process.env.NEXT_PUBLIC_ENV === "development") {
+        window.location.assign(`http://localhost:3000/explore`);
+      } else {
+        window.location.assign(`https://www.surfe.store/explore`);
+      }
     }
   };
 

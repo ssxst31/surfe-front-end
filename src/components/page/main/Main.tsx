@@ -37,12 +37,11 @@ export default function Main() {
   };
 
   const handleSignWithKaKao = () => {
-    alert("준비중 입니다.");
-    // const kakao = kakaoInit();
+    const kakao = kakaoInit();
 
-    // kakao.Auth.authorize({
-    //   redirectUri: "http://localhost:3000/callback/kakao/authorize",
-    // });
+    kakao.Auth.authorize({
+      redirectUri: "https://surfe.store/callback/kakao/authorize",
+    });
   };
 
   return (
