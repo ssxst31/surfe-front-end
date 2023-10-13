@@ -17,7 +17,7 @@ async function fetchAccessToken(code: string): Promise<string> {
   const data = new URLSearchParams();
   data.append("grant_type", "authorization_code");
   data.append("client_id", KAKAO_APP_KEY);
-  data.append("redirect_uri", "https://surfe.store/callback/kakao/authorize");
+  data.append("redirect_uri", `${process.env.NEXT_PUBLIC_APP_HOST_NAME}/callback/kakao/authorize`);
   data.append("code", code);
 
   try {
@@ -69,11 +69,7 @@ const Authorize = ({ userInfo }: AuthorizeProps) => {
     const res = await authApi.kakaoLogin(userInfo.id);
 
     if (res.message === "OK") {
-      if (process.env.NEXT_PUBLIC_ENV === "development") {
-        window.location.assign(`http://localhost:3000/explore`);
-      } else {
-        window.location.assign(`https://www.surfe.store/explore`);
-      }
+      window.location.assign(`${process.env.NEXT_PUBLIC_APP_HOST_NAME}/explore`);
     }
   };
 

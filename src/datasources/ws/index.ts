@@ -1,6 +1,6 @@
 import io, { Socket } from "socket.io-client";
 
-const ENDPOINT = process.env.NEXT_PUBLIC_APP_HOST_NAME ?? "";
+const ENDPOINT = process.env.NEXT_PUBLIC_APP_API_NAME ?? "";
 
 const isServer = typeof window === "undefined";
 
