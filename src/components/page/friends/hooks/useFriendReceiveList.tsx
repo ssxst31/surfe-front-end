@@ -6,7 +6,11 @@ import * as apiMy from "pages/api/my";
 export default function useFriendReceiveList() {
   const { mutate } = useSWRConfig();
 
-  const { data } = useSWR("/my/friend-receives", apiMy.fetchFriendReceiveList);
+  const { data } = useSWR("/my/friend-receives", apiMy.fetchFriendReceiveList, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
 
   async function loadFriendList() {
     await mutate("/my/friend-receives");

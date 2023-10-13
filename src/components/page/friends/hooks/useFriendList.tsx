@@ -6,7 +6,11 @@ import * as apiMy from "pages/api/my";
 export default function useFriendList() {
   const { mutate } = useSWRConfig();
 
-  const { data } = useSWR("/my/friends", apiMy.fetchFriendList);
+  const { data } = useSWR("/my/friends", apiMy.fetchFriendList, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
 
   async function loadFriendList() {
     await mutate("/my/friends");
