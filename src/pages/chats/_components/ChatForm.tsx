@@ -27,7 +27,6 @@ export default function ChatFrom({ roomName }: ChatFromProps) {
     ws.emit("SEND_MESSAGE", {
       content: inputValue,
       memberId: me.id,
-      createAt: new Date(),
       roomName,
     });
 
