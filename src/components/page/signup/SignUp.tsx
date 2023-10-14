@@ -20,6 +20,8 @@ export default function SignUp() {
   const [mbti, setMbti] = useState(MBTIS[0].content);
   const [statusMessage, setStatusMessage] = useState("");
   const [interestList, setInterestList] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [inputs, setInputs] = useState({
     id: "",
     password: "",
@@ -40,13 +42,17 @@ export default function SignUp() {
   const submit = async (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent) => {
     if (!isNicknameValid(nickname)) return alert("닉네임 형식이 잘못되었습니다.");
     if (!isInterestListValid(interestList.length)) return alert("관심사는 3개를 입력해야합니다.");
+    if (isLoading) return;
+
+    setIsLoading(true);
 
     const res = await createUser(inputs, interestList, mbti, statusMessage).catch((err) => {
       alert(err.response.data.message);
+      setIsLoading(false);
     });
 
     if (res) {
-      window.location.assign(`${process.env.NEXT_PUBLIC_APP_HOST_NAME}completed/signup`);
+      window.location.assign(`${process.env.NEXT_PUBLIC_APP_HOST_NAME}/completed/signup`);
     }
   };
 
@@ -83,6 +89,7 @@ export default function SignUp() {
         interestList={interestList}
         setMbti={setMbti}
         setStatusMessage={setStatusMessage}
+        isLoading={isLoading}
       />
     ),
   };

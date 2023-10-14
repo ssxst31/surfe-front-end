@@ -17,6 +17,7 @@ interface SignUpSecondProps {
   interestList: string[];
   setMbti: React.Dispatch<React.SetStateAction<string>>;
   setStatusMessage: React.Dispatch<React.SetStateAction<string>>;
+  isLoading: boolean;
 }
 
 export default function SignUpSecond({
@@ -29,6 +30,7 @@ export default function SignUpSecond({
   interestList,
   setMbti,
   setStatusMessage,
+  isLoading,
 }: SignUpSecondProps) {
   const { nickname } = inputs;
 
@@ -159,7 +161,14 @@ export default function SignUpSecond({
             } text-white border-white border border-solid font-medium rounded-lg text-sm px-5 py-2.5 w-96 -sm:w-full -sm:mx-auto`}
             disabled={!isActiveSignUp}
           >
-            가입하기
+            {isLoading ? (
+              <div
+                className="inline-block h-4 w-4 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                role="status"
+              />
+            ) : (
+              <div>가입하기</div>
+            )}
           </button>
         </form>
       </div>
