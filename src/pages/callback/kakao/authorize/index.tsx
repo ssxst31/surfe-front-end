@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 import type { GetServerSideProps } from "next";
 import * as authApi from "pages/api/auth";
@@ -59,8 +58,6 @@ export const getServerSideProps: GetServerSideProps<AuthorizeProps> = async (con
 };
 
 const Authorize = ({ userInfo }: AuthorizeProps) => {
-  const router = useRouter();
-
   useEffect(() => {
     signInOrSignUpKakao();
   }, []);
