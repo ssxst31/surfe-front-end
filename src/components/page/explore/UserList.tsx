@@ -18,7 +18,7 @@ export default function UserList({ nearUserList, loadNearUserList }: UserListPro
     );
 
   if (nearUserList.length === 0) {
-    return <div className="text-center">없습니다.</div>;
+    return <div className="text-center text-gray-200">발견된 사람이 없습니다.</div>;
   }
 
   return (
