@@ -7,3 +7,7 @@ export async function fetchUserListByMeDistance() {
 export async function fetchUserProfile(userId: any) {
   return await customAxios.get<null, any>(`/users/profile/${userId}`);
 }
+
+export async function fetchUserId(userId: string) {
+  return await customAxios.get<null, any>(`/users/${userId}`);
+}

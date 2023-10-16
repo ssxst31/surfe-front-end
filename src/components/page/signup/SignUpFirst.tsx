@@ -1,4 +1,6 @@
 import Logo from "components/common/Logo";
+import { fetchUserId } from "pages/api/users";
+import { isAxiosError } from "axios";
 
 interface SignUpFirstProps {
   action: () => void;
@@ -96,7 +98,20 @@ export default function SignUpFirst({ action, onChange, inputs }: SignUpFirstPro
             </label>
           </div>
           <button
-            onClick={action}
+            onClick={async () => {
+              try {
+                const res = await fetchUserId(id);
+                if (res === "OK") {
+                  action();
+                }
+              } catch (error) {
+                if (isAxiosError(error)) {
+                  alert(error?.response?.data.message);
+                } else {
+                  console.error(error);
+                }
+              }
+            }}
             type="submit"
             className={`${
               !isActiveNext && "opacity-40"
