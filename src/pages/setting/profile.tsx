@@ -40,7 +40,12 @@ const ProfilePage: NextPage = () => {
   return (
     <DefaultLayout>
       <div className="flex flex-col items-center mx-3 text-center mt-14">
-        <form className="flex flex-col space-y-4 -sm:w-full">
+        <form
+          className="flex flex-col space-y-4 -sm:w-full"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <div className="-sm:w-full">
             <h2 className="text-left">
               <label htmlFor="introduce" className="font-bold">
