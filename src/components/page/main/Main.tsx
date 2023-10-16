@@ -38,7 +38,7 @@ export default function Main() {
 
   const handleSignWithKaKao = () => {
     const kakao = kakaoInit();
-    console.log(process.env.NEXT_PUBLIC_APP_HOST_NAME);
+
     kakao.Auth.authorize({
       redirectUri: `${process.env.NEXT_PUBLIC_APP_HOST_NAME}/callback/kakao/authorize`,
     });

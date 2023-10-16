@@ -1,24 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Fragment } from "react";
+import { Listbox, Transition } from "@headlessui/react";
 
 import useMe from "hooks/useMe";
-import { postThumbnail } from "pages/api/my";
+import { postThumbnail, updateProfile } from "pages/api/my";
 import PencilIcon from "assets/icons/pencil.svg";
 import Avatar from "components/common/Avatar";
 import type { NextPage } from "next";
 import DefaultLayout from "components/layouts/DefaultLayout";
+import { MBTIS } from "components/page/signup/consts";
 
 const ProfilePage: NextPage = () => {
   const me = useMe();
-
+  const [mbti, setMbti] = useState(me.mbti);
+  const [statusMessage, setStatusMessage] = useState(me.statusMessage);
+  const [nickname, setNickname] = useState(me.nickname);
   const [imgFile, setImgFile] = useState<any>();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const onUploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) {
-      return;
-    }
+    if (!e.target.files) return;
     const file = e.target.files[0];
-
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
@@ -27,15 +28,12 @@ const ProfilePage: NextPage = () => {
     const formData = new FormData();
     formData.append("image", file);
 
-    const dsa = await postThumbnail(formData);
-
-    alert(dsa);
+    const response = await postThumbnail(formData);
+    alert(response);
   };
 
   const onUploadImageButtonClick = () => {
-    if (!inputRef.current) {
-      return;
-    }
+    if (!inputRef.current) return;
     inputRef.current.click();
   };
 
@@ -76,6 +74,7 @@ const ProfilePage: NextPage = () => {
               type="id"
               id="id"
               value={me.loginId}
+              readOnly
             />
           </div>
           <div className="w-96 -sm:w-full">
@@ -90,7 +89,8 @@ const ProfilePage: NextPage = () => {
               name="nickname"
               type="text"
               id="nickname"
-              value={me.nickname}
+              value={nickname}
+              onChange={(e) => setNickname(e.target.value)}
             />
           </div>
           <div className="w-96 -sm:w-full">
@@ -100,12 +100,13 @@ const ProfilePage: NextPage = () => {
               </label>
             </h2>
             <input
-              placeholder="5글자이상 입력해주세요"
+              placeholder="5글자 이상 입력해주세요"
               className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
               name="statusMessage"
               type="text"
               id="statusMessage"
-              value={me.statusMessage}
+              value={statusMessage}
+              onChange={(e) => setStatusMessage(e.target.value)}
             />
           </div>
           <div className="w-96 -sm:w-full">
@@ -114,19 +115,43 @@ const ProfilePage: NextPage = () => {
                 MBTI
               </label>
             </h2>
-            <input
-              placeholder="5글자이상 입력해주세요"
-              className="px-5 py-3 border border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 w-96 -sm:w-full"
-              name="mbti"
-              type="text"
-              id="mbti"
-              value={me.mbti}
-            />
+            <Listbox value={mbti} onChange={setMbti}>
+              <div className="relative">
+                <Listbox.Button className="relative w-full px-5 py-2.5 rounded-md border border-gray-300 bg-transparent text-left text-black text-sm">
+                  <span className="block truncate">{mbti}</span>
+                </Listbox.Button>
+                <Transition
+                  as={Fragment}
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Listbox.Options className="absolute mt-1 max-h-60 overflow-auto w-full rounded-md bg-white py-1 text-base shadow-lg z-10">
+                    {MBTIS.map((mbti) => (
+                      <Listbox.Option
+                        key={mbti.id}
+                        value={mbti.content}
+                        className={({ active }) =>
+                          `relative select-none py-2 pl-10 pr-4 cursor-pointer ${
+                            active ? "bg-blue-100" : "text-gray-900"
+                          }`
+                        }
+                      >
+                        {mbti.content}
+                      </Listbox.Option>
+                    ))}
+                  </Listbox.Options>
+                </Transition>
+              </div>
+            </Listbox>
           </div>
           <button
             className="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 w-96 -sm:w-full -sm:mx-auto"
-            onClick={() => {
-              alert("준비중입니다.");
+            onClick={async () => {
+              const response = await updateProfile({ statusMessage, nickname, mbti });
+              if (response === "OK") {
+                alert("수정 되었습니다.");
+              }
             }}
           >
             저장하기

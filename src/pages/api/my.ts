@@ -55,3 +55,7 @@ export async function fetchChatRoomList() {
 export async function fetchChat(limit: number, roomName: string) {
   return await customAxios.get<null, any>(`/my/chat?limit=${limit}&roomName=${roomName}`);
 }
+
+export async function updateProfile({ statusMessage, nickname, mbti }: any) {
+  return await customAxios.put<null, any>("my/profile", { statusMessage, nickname, mbti });
+}
