@@ -35,14 +35,16 @@ export interface NearUser {
 
 export interface Me {
   id: number;
-  user_id: number;
+  userId: number;
   profile: null | string;
+  loginId: string;
   lat: string | null;
   lng: string | null;
   nickname: string;
   interestList: string[];
   mbti: string;
   statusMessage: string;
+  profileImage: string;
 }
 
 export interface Profile extends User {
