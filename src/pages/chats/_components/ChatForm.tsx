@@ -9,7 +9,7 @@ interface ChatFromProps {
 }
 
 export default function ChatFrom({ roomName }: ChatFromProps) {
-  const me = useMe();
+  const { me } = useMe();
 
   const [inputValue, setInputValue] = useState<string>("");
 

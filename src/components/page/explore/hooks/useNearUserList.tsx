@@ -6,7 +6,7 @@ import { NearUser } from "type";
 export default function useNearUserList() {
   const { mutate } = useSWRConfig();
 
-  const { data } = useSWR("/users/nearby", fetchUserListByMeDistance);
+  const { data } = useSWR("/users/nearby", fetchUserListByMeDistance, { fallback: 1 });
 
   async function loadNearUserList() {
     await mutate("/users/nearby");

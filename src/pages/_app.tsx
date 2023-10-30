@@ -2,11 +2,12 @@ import React from "react";
 import { RecoilRoot } from "recoil";
 import { IBM_Plex_Sans_KR, Marhey } from "next/font/google";
 import Head from "next/head";
+import { SWRConfig } from "swr";
 
-import MemberContext from "contexts/member";
 import { fetchProfileSSR } from "pages/api/my";
 import DefaultSEO from "pages/DefaultSEO";
 import type { AppProps } from "next/app";
+import { Me } from "type";
 
 import "styles/globals.css";
 
@@ -28,7 +29,7 @@ MyApp.getInitialProps = async ({ Component, router, ctx }: any) => {
     });
 
     return {
-      me: profile,
+      fallback: { "/my/profile": profile },
       pageProps,
     };
   }
@@ -41,10 +42,12 @@ MyApp.getInitialProps = async ({ Component, router, ctx }: any) => {
 };
 
 interface CustomAppProps extends AppProps {
-  me: null;
+  fallback: {
+    "/my/profile": Me;
+  };
 }
 
-function MyApp({ Component, pageProps, me }: CustomAppProps) {
+function MyApp({ Component, pageProps, fallback }: CustomAppProps) {
   return (
     <>
       <Head>
@@ -52,11 +55,11 @@ function MyApp({ Component, pageProps, me }: CustomAppProps) {
       </Head>
       <DefaultSEO />
       <RecoilRoot>
-        <MemberContext.Provider value={me}>
+        <SWRConfig value={{ fallback }}>
           <main className={`${iBMPlexSansKR.className} ${marhey.variable}`}>
             <Component {...pageProps} />
           </main>
-        </MemberContext.Provider>
+        </SWRConfig>
       </RecoilRoot>
     </>
   );

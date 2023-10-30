@@ -34,7 +34,7 @@ export interface NearUser {
 }
 
 export interface Me {
-  id: string;
+  id: number;
   user_id: number;
   profile: null | string;
   lat: string | null;

@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import useMe from "hooks/useMe";
 
 const ChatRoomsPage: NextPage = ({ chat }: any) => {
-  const me = useMe();
+  const { me } = useMe();
 
   function formatDate(dateString: string): string {
     const date = new Date(dateString);

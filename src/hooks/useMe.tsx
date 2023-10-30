@@ -1,32 +1,16 @@
-import { useContext } from "react";
-import { useRecoilValueLoadable, RecoilEnv, Loadable } from "recoil";
+import useSWR from "swr";
 
-import MemberContext from "contexts/member";
-import { myProfileSelector } from "store";
-
-export const IS_LOADING = null;
-
-RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
-
-function getReturnValue(loadable: Loadable<any>, defaultValue: any) {
-  switch (loadable.state) {
-    case "hasValue":
-      const value = loadable.contents;
-      if (!value) {
-        if (defaultValue) return defaultValue;
-      }
-      return loadable.contents;
-    case "loading":
-      if (defaultValue) return defaultValue;
-      return IS_LOADING;
-    case "hasError":
-      return null;
-  }
-}
+import { fetchProfile } from "pages/api/my";
+import { Me } from "type";
 
 export default function useMe() {
-  const loadable = useRecoilValueLoadable(myProfileSelector);
-  const contextState = useContext(MemberContext);
+  const { data } = useSWR("/my/profile", fetchProfile, {
+    fallback: {},
+  });
 
-  return getReturnValue(loadable, contextState);
+  const me = data as Me;
+
+  return {
+    me,
+  };
 }

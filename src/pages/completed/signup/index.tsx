@@ -5,7 +5,7 @@ import useMe from "hooks/useMe";
 import Particle from "components/common/Particle";
 
 export default function CompletedSignUpPage() {
-  const me = useMe();
+  const { me } = useMe();
 
   return (
     <div className=" h-screen bg-gradient-to-t from-blue-500 to-indigo-500">

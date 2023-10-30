@@ -10,7 +10,7 @@ import DefaultLayout from "components/layouts/DefaultLayout";
 import { MBTIS } from "components/page/signup/consts";
 
 const ProfilePage: NextPage = () => {
-  const me = useMe();
+  const { me } = useMe();
   const [mbti, setMbti] = useState(me.mbti);
   const [statusMessage, setStatusMessage] = useState(me.statusMessage);
   const [nickname, setNickname] = useState(me.nickname);

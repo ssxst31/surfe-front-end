@@ -12,11 +12,13 @@ interface useChatMessageProps {
 }
 
 export default function useChatMessage({ roomName, limit }: useChatMessageProps) {
-  const me = useMe();
+  const { me } = useMe();
   const { mutate } = useSWRConfig();
 
   const [chatMessageList, setChatMessageList] = useState<ChatMessage[]>([]);
-  const { data } = useSWR(`/my/chat?limit=${limit}&roomName=${roomName}`, () => fetchChat(limit + 30, roomName));
+  const { data } = useSWR(`/my/chat?limit=${limit}&roomName=${roomName}`, () => fetchChat(limit + 30, roomName), {
+    fallback: [],
+  });
 
   ws.on("RECEIVE_MESSAGE", (data: { chatList: ChatMessage[] }) => {
     setChatMessageList(data.chatList);

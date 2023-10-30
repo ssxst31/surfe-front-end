@@ -11,7 +11,7 @@ import useNearUserList from "components/page/explore/hooks/useNearUserList";
 import Divider from "components/common/Divider";
 
 export default function Explore() {
-  const me = useMe();
+  const { me } = useMe() as any;
   const { nearUserList, loadNearUserList } = useNearUserList();
   const { location, update } = useGeolocation();
 

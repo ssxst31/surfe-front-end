@@ -9,7 +9,7 @@ interface MessageListProps {
 }
 
 export default function MessageList({ chatMessageList, historyChatMessageList }: MessageListProps) {
-  const me = useMe();
+  const { me } = useMe();
 
   const uniqueChatMessages = [...historyChatMessageList, ...chatMessageList].reduce(
     (uniqueMessages: ChatMessage[], chat) => {

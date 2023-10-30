@@ -12,7 +12,7 @@ interface ResponsiveContainerProps {
 }
 
 export default function ResponsiveContainer({ children }: ResponsiveContainerProps) {
-  const me = useMe();
+  const { me } = useMe();
 
   const [isSidebar, setIsSidebar] = useState<boolean>(false);
 

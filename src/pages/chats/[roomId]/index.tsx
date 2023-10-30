@@ -7,7 +7,7 @@ import DefaultLayout from "components/layouts/DefaultLayout";
 
 const ChatPage: NextPage = () => {
   const router = useRouter();
-  const me = useMe();
+  const { me } = useMe();
   const { roomId } = router.query;
 
   const createRoomName = () => {

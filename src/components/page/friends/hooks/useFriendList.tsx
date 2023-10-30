@@ -10,6 +10,7 @@ export default function useFriendList() {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
+    fallback: [],
   });
 
   async function loadFriendList() {
