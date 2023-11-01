@@ -64,15 +64,7 @@ export default function Explore() {
       </div>
       <div className="lg:fixed right-[calc(50vw-450px)] -lg:px-3 w-[256px] -lg:w-auto">
         <div className="flex justify-between -lg:hidden">
-          <div className="flex">
-            <Avatar pathName="/setting/profile" width="w-12" height="h-12" image={me.profileImage}>
-              <PencilIcon color="black" className="w-4 h-4 absolute right-2.5 bottom-1.5" />
-            </Avatar>
-            <div className=" break-all">
-              <div className="text-sm font-semibold">{me.nickname}</div>
-              <div className="text-sm text-gray-400">{me.statusMessage}</div>
-            </div>
-          </div>
+          <div className="flex"></div>
         </div>
         <div className="flex justify-between">
           <Link

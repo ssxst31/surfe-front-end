@@ -1,9 +1,12 @@
 import Link from "next/link";
 
-import type { NextPage } from "next";
 import useMe from "hooks/useMe";
 
-const ChatRoomsPage: NextPage = ({ chat }: any) => {
+interface ChatRoom {
+  chatRoom: any;
+}
+
+const ChatRoom = ({ chatRoom }: ChatRoom) => {
   const { me } = useMe();
 
   function formatDate(dateString: string): string {
@@ -25,10 +28,10 @@ const ChatRoomsPage: NextPage = ({ chat }: any) => {
   }
 
   return (
-    <div key={chat.roomName} className="py-3">
+    <div className="py-3">
       <Link
         href={{
-          pathname: `/chats/${chat.roomName.split("_").filter((item: any) => item !== String(me.id))[0]}`,
+          pathname: `/chats/${chatRoom.roomName.split("_").filter((item: any) => item !== String(me.id))[0]}`,
         }}
       >
         <div className="flex justify-between">
@@ -39,15 +42,15 @@ const ChatRoomsPage: NextPage = ({ chat }: any) => {
               alt="profile"
             />
             <div>
-              <div>{chat.nickname}</div>
-              <div className="text-gray-400 ">{chat.lastMessage}</div>
+              <div>{chatRoom.nickname}</div>
+              <div className="text-gray-400 ">{chatRoom.lastMessage}</div>
             </div>
           </div>
-          <div className="text-sm text-gray-400">{formatDate(chat.updatedAt)}</div>
+          <div className="text-sm text-gray-400">{formatDate(chatRoom.updatedAt)}</div>
         </div>
       </Link>
     </div>
   );
 };
 
-export default ChatRoomsPage;
+export default ChatRoom;

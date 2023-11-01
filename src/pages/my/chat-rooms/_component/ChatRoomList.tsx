@@ -24,8 +24,8 @@ const ChatRoomsPage: NextPage = () => {
 
   return (
     <>
-      {chatRoomList.map((chat: any) => (
-        <ChatRoom key={chat.roomName} />
+      {chatRoomList.map((chatRoom: any) => (
+        <ChatRoom key={chatRoom.roomName} chatRoom={chatRoom} />
       ))}
     </>
   );

@@ -8,6 +8,7 @@ import Avatar from "components/common/Avatar";
 import type { NextPage } from "next";
 import DefaultLayout from "components/layouts/DefaultLayout";
 import { MBTIS } from "components/page/signup/consts";
+import { logOut } from "pages/api/auth";
 
 const ProfilePage: NextPage = () => {
   const { me } = useMe();
@@ -35,6 +36,12 @@ const ProfilePage: NextPage = () => {
   const onUploadImageButtonClick = () => {
     if (!inputRef.current) return;
     inputRef.current.click();
+  };
+
+  const signOut = async () => {
+    await logOut();
+
+    window.location.href = "/";
   };
 
   return (
@@ -162,6 +169,12 @@ const ProfilePage: NextPage = () => {
             저장하기
           </button>
         </form>
+        <button
+          className=" text-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 w-96 -sm:w-full -sm:mx-auto mt-3"
+          onClick={signOut}
+        >
+          로그아웃
+        </button>
       </div>
     </DefaultLayout>
   );
