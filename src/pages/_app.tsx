@@ -8,7 +8,7 @@ import { fetchProfileSSR } from "pages/api/my";
 import DefaultSEO from "pages/DefaultSEO";
 import type { AppProps } from "next/app";
 import { Me } from "type";
-import AppLayout from "./AppLayout";
+import AppLayout from "../components/layouts/AppLayout";
 
 import "styles/globals.css";
 
