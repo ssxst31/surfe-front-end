@@ -8,6 +8,7 @@ import { fetchProfileSSR } from "pages/api/my";
 import DefaultSEO from "pages/DefaultSEO";
 import type { AppProps } from "next/app";
 import { Me } from "type";
+import AppLayout from "./AppLayout";
 
 import "styles/globals.css";
 
@@ -56,9 +57,11 @@ function MyApp({ Component, pageProps, fallback }: CustomAppProps) {
       <DefaultSEO />
       <RecoilRoot>
         <SWRConfig value={{ fallback }}>
-          <main className={`${iBMPlexSansKR.className} ${marhey.variable}`}>
-            <Component {...pageProps} />
-          </main>
+          <AppLayout>
+            <main className={`${iBMPlexSansKR.className} ${marhey.variable}`}>
+              <Component {...pageProps} />
+            </main>
+          </AppLayout>
         </SWRConfig>
       </RecoilRoot>
     </>
